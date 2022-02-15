@@ -1,7 +1,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 from sklearn.preprocessing import MinMaxScaler
 from pprint import pprint
+
+sns.set_theme()
 
 data = {'EVT_COMMON_UE_ACK_INDICATION': [1602.0, 1602.0, 1602.0],
         'EVT_CTF_CONFIG_REQUEST': [461810.0,
@@ -72,10 +75,25 @@ def scale_data(scaler):
         data_np_arr_list += [item[0] for item in data[key].tolist()]
     pprint(sorted(data_np_arr_list, reverse=True))
 
+    colors = [(0.12156862745098039, 0.4666666666666667, 0.7058823529411765),
+              (1.0, 0.4980392156862745, 0.054901960784313725),
+              (0.17254901960784313, 0.6274509803921569, 0.17254901960784313),
+              (0.8392156862745098, 0.15294117647058825, 0.1568627450980392),
+              (0.5803921568627451, 0.403921568627451, 0.7411764705882353),
+              (0.5490196078431373, 0.33725490196078434, 0.29411764705882354),
+              (0.8901960784313725, 0.4666666666666667, 0.7607843137254902),
+              (0.4980392156862745, 0.4980392156862745, 0.4980392156862745),
+              (0.7372549019607844, 0.7411764705882353, 0.13333333333333333),
+              (0.09019607843137255, 0.7450980392156863, 0.8117647058823529),
+              (0, 0, 0)]
 
+    print(f'len(data) = {len(data)}')
+    i = 0
     for key, value in data.items():
-        plt.ylim((0, 0.001))
-        plt.plot(value)
+        plt.ylim((0, 0.02))
+        print(colors[i])
+        plt.plot(value, color=colors[i])
+        i += 1
     plt.show()
 
 
