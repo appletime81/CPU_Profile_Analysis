@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
+from pprint import pprint
 
 data = {'EVT_COMMON_UE_ACK_INDICATION': [1602.0, 1602.0, 1602.0],
         'EVT_CTF_CONFIG_REQUEST': [461810.0,
@@ -63,5 +64,21 @@ def generate_scaler():
     return scaler
 
 
+def scale_data(scaler):
+    data_np_arr_list = list()
+    pprint(data)
+    for key, value in data.items():
+        data[key] = scaler.transform(np.array(value).reshape(-1, 1))
+        data_np_arr_list += [item[0] for item in data[key].tolist()]
+    pprint(sorted(data_np_arr_list, reverse=True))
+
+
+    for key, value in data.items():
+        plt.ylim((0, 0.001))
+        plt.plot(value)
+    plt.show()
+
+
 if __name__ == '__main__':
     scaler = generate_scaler()
+    scale_data(scaler)
