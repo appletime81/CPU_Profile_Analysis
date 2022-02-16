@@ -79,6 +79,8 @@ if __name__ == '__main__':
     lines = readProfileFile('2 core/MobaXterm_10.255.174.35_20220216_163442.txt')
     record_list, event_names = analysisTextContent(lines)
     ss_rt_task = statisticsEveryEventTime(record_list, event_names)
+    plot_hist(ss_rt_task)
+
+    # print info
     print('-------------------------------------------------')
     pprint(ss_rt_task)
-    plot_hist(ss_rt_task)

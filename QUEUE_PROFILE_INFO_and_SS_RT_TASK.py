@@ -77,4 +77,7 @@ if __name__ == '__main__':
     record_list, event_names = analysisTextContent(lines)
     ss_rt_task = statisticsEveryEventTime(record_list, event_names)
     plot_hist(ss_rt_task)
-    # pprint(ss_rt_task)
+
+    # print info
+    print('-------------------------------------------------')
+    pprint(ss_rt_task)
