@@ -40,21 +40,16 @@ def analysisTextContent(lines: List):
                 temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-5])] + temp_line_list[-5:]
                 record_list.append(temp_line_list)
                 event_list.append(temp_line_list[1])
-    return record_list
+
+    event_list = list(set(event_list))
+    print('----------------------- EVENT LIST -----------------------')
+    for i, event in enumerate(event_list):
+        print(f'{i+1}. {event}')
+    return record_list, event_list
 
 
-def statisticsEveryEventTime(events: List):
-    ss_rt_events = ['EVT_RGR_LVL2_CONFIG_REQUEST',
-                    'EVT_TFU_RA_REQUEST_INDICATION',
-                    'EVT_L1_MSG_INDICATION',
-                    'EVT_KW_AMUL_STA_PROH_TIMER',
-                    'EVT_COMMON_UE_ACK_INDICATION',
-                    'EVT_TFU_CRC_INDICATION',
-                    'EVT_UDX_STA_PHBT_START_TIMER',
-                    'EVT_CTF_CONFIG_REQUEST',
-                    'EVT_RGR_LVL1_SI_CONFIG_REQUEST',
-                    'EVT_RGR_LVL1_CCCH_DATA_REQUEST',
-                    'EVT_RGR_LVL1_CONFIG_REQUEST']
+def statisticsEveryEventTime(events: List, event_names: List):
+    ss_rt_events = event_names
     ss_rt_task = dict([(element, list()) for element in ss_rt_events])
 
     for event in events:
@@ -81,7 +76,9 @@ def plot_hist(data: Dict):
 
 
 if __name__ == '__main__':
-    lines = readProfileFile('no_traffic.txt')
-    record_list = analysisTextContent(lines)
-    ss_rt_task = statisticsEveryEventTime(record_list)
+    lines = readProfileFile('2 core/MobaXterm_10.255.174.35_20220216_163442.txt')
+    record_list, event_names = analysisTextContent(lines)
+    ss_rt_task = statisticsEveryEventTime(record_list, event_names)
+    print('-------------------------------------------------')
+    pprint(ss_rt_task)
     plot_hist(ss_rt_task)
