@@ -41,7 +41,9 @@ def analysisTextContent(lines: List):
                 record_list.append(temp_line_list)
                 event_list.append(temp_line_list[1])
     event_list = list(set(event_list))
-    pprint(event_list)
+    print('----------------------- EVENT LIST -----------------------')
+    for i, event in enumerate(event_list):
+        print(f'{i+1}. {event}')
     return record_list, event_list
 
 
