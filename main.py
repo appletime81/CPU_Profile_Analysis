@@ -76,7 +76,7 @@ def plot_hist(data: Dict):
         data_list.append(temp_list)
 
     df = pd.DataFrame(data_list, columns=column_names)
-    px.bar(df, x='Period', y=column_names, barmode='group', color_discrete_sequence=px.colors.qualitative.Vivid,
+    px.bar(df, x='Period', y=column_names, barmode='group', color_discrete_sequence=px.colors.qualitative.Light24,
            title='Time Statistics').show()
 
 
