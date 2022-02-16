@@ -1,15 +1,14 @@
-from tokenize import String
-from typing import List
-
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.express as px
+
 from pprint import pprint
+from tokenize import String
+from typing import List, Dict
 
 
 def readProfileFile(fileName: String):
     with open(fileName, 'r', encoding='utf-8') as fp:
         lines = fp.readlines()
-    # pprint(lines)
     return lines
 
 
@@ -41,11 +40,6 @@ def analysisTextContent(lines: List):
                 temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-5])] + temp_line_list[-5:]
                 record_list.append(temp_line_list)
                 event_list.append(temp_line_list[1])
-
-    # event_list = list(set(event_list))
-    # print('------------------- EVT LIST -------------------')
-    # pprint(event_list)
-
     return record_list
 
 
@@ -69,11 +63,25 @@ def statisticsEveryEventTime(events: List):
     return ss_rt_task
 
 
+def plot_hist(data: Dict):
+    data_list = list()
+    column_names = ['Period'] + [key for key, _ in data.items()]
+    for key, value in data.items():
+        if len(value) < 8:
+            data[key] = value + [0] * (8 - len(value))
+
+    for i in range(8):
+        temp_list = [f'Period {i + 1}']
+        temp_list += [value[i] for key, value in data.items()]
+        data_list.append(temp_list)
+
+    df = pd.DataFrame(data_list, columns=column_names)
+    px.bar(df, x='Period', y=column_names, barmode='group', color_discrete_sequence=px.colors.qualitative.Vivid,
+           title='Time Statistics').show()
+
+
 if __name__ == '__main__':
     lines = readProfileFile('no_traffic.txt')
     record_list = analysisTextContent(lines)
     ss_rt_task = statisticsEveryEventTime(record_list)
-    pprint(ss_rt_task)
-
-    for key, value in ss_rt_task.items():
-        print(len(value))
+    plot_hist(ss_rt_task)
