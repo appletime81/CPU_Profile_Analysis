@@ -34,7 +34,9 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict):
 
 def plot_bar(data: Dict):
     data_list = list()
+    print(data)
     column_names = ['Period'] + [key for key, _ in data.items()]
+    print(column_names)
     n = len(data.get(column_names[1]))
 
     for i in range(n):
