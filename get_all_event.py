@@ -1,29 +1,68 @@
 from tokenize import String
+from typing import List
 
 
-def get_all_events(txtFileName: String):
+def condition_option(opt_name: String):
+    if opt_name == 'task_profile_info_ss_rt_task':
+        task_profile_info_ss_rt_task = ['TASK PROFILE INFO', 'SS_RT_TASK', 'SS_NRT_TASK']
+        return task_profile_info_ss_rt_task
+    if opt_name == 'task_profile_info_ss_nrt_task':
+        task_profile_info_ss_nrt_task = ['TASK PROFILE INFO', 'SS_NRT_TASK', 'QUEUE PROFILE INFO']
+        return task_profile_info_ss_nrt_task
+
+
+def get_all_events(txtFileName: String, condtion_list: List):
     # -------------------------declare vars-------------------------
     with open(txtFileName, 'r') as f:
         lines = f.readlines()
     event_list = list()
-    ss_rt_flag = False
+    ss_rt_or_nrt_flag = False
     start_record_flag = False
     record_list = list()
     n = len(lines)  # lines' length
     # --------------------------------------------------------------
-
+    """
+    1. get ss rt task from task profile info part
+        - Condition 1:
+            * String: 'TASK PROFILE INFO'
+            * Bool Value: start_flag_record: True
+        - Condition 2:
+            * String: 'SS_RT_TASK'
+            * Bool Value: ss_rt_or_nrt_flag: True
+        - Condition 3:
+            * String: 'SS_NRT_TASK'
+            * Bool Value:  start_record_flag: False
+                           ss_rt_or_nrt_flag: False
+    2. get ss nrt task from task profile info part
+        - Condition 1:
+            * String: 'TASK PROFILE INFO'
+            * Bool Value: start_flag_record: True
+        - Condition 2:
+            * String: 'SS_NRT_TASK'
+            * Bool Value: ss_rt_or_nrt_flag: True
+        - Condition 3:
+            * String: 'QUEUE PROFILE INFO'
+            * Bool Value:  start_record_flag: False
+                           ss_rt_or_nrt_flag: False
+    """
     for i in range(n):
-        if 'TASK PROFILE INFO' in lines[i]:
+        if condtion_list[0] in lines[i]:  # Condition1
             start_record_flag = True
 
-        if 'SS_RT_TASK' in lines[i]:
-            ss_rt_flag = True
+        if condtion_list[1] in lines[i]:  # Condition2
+            ss_rt_or_nrt_flag = True
 
-        if 'SS_NRT_TASK' in lines[i]:
+        if condtion_list[2] in lines[i]:  # Condition3
+            if ss_rt_or_nrt_flag and start_record_flag:
+                record_list.append('##########')
+            # print('start_record_flag:', start_record_flag)
+            # print('ss_rt_or_nrt_flag:', ss_rt_or_nrt_flag)
+            # print('----------------------------------------------')
             start_record_flag = False
-            ss_rt_flag = False
+            ss_rt_or_nrt_flag = False
 
-        if ss_rt_flag and start_record_flag:
+
+        if ss_rt_or_nrt_flag and start_record_flag:
             if 'EVT_' in lines[i]:
                 temp_line = lines[i].replace(' ', '_')
                 temp_line_list = temp_line.split('_')
@@ -34,7 +73,3 @@ def get_all_events(txtFileName: String):
 
     event_list = list(set(event_list))
     return record_list, event_list
-
-
-if __name__ == '__main__':
-    pass
