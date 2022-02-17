@@ -55,12 +55,8 @@ def get_all_events(txtFileName: String, condtion_list: List):
         if condtion_list[2] in lines[i]:  # Condition3
             if ss_rt_or_nrt_flag and start_record_flag:
                 record_list.append('##########')
-            # print('start_record_flag:', start_record_flag)
-            # print('ss_rt_or_nrt_flag:', ss_rt_or_nrt_flag)
-            # print('----------------------------------------------')
             start_record_flag = False
             ss_rt_or_nrt_flag = False
-
 
         if ss_rt_or_nrt_flag and start_record_flag:
             if 'EVT_' in lines[i]:

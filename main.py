@@ -1,5 +1,3 @@
-import re
-
 import pandas as pd
 import plotly.express as px
 
@@ -21,7 +19,7 @@ def genTaskDict(event_names: List):
 
 def statsEvent(event_list: List, record_list: List, event_dict: Dict):
     temp_event_list = list()
-    pprint(record_list)
+    # pprint(record_list)
     for event in record_list:
         if event == '##########':
             for element in event_list:
@@ -38,7 +36,7 @@ def plot_hist(data: Dict):
     data_list = list()
     column_names = ['Period'] + [key for key, _ in data.items()]
     n = len(data.get(column_names[1]))
-    print(n)
+
     for i in range(n):
         temp_list = [f'Period {i + 1}']
         temp_list += [value[i] for key, value in data.items()]
@@ -51,9 +49,9 @@ def plot_hist(data: Dict):
 
 if __name__ == '__main__':
     file_name = '2 core/MobaXterm_10.255.174.35_20220216_163442.txt'
-    condition_list = condition_option('task_profile_info_ss_nrt_task')
+    condition_list = condition_option('task_profile_info_ss_rt_task')
     record_list, event_list = get_all_events(file_name, condition_list)
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict)
-    # pprint(event_dict)
+    pprint(event_dict)
     plot_hist(event_dict)
