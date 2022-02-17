@@ -32,7 +32,7 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict):
     return event_dict
 
 
-def plot_hist(data: Dict):
+def plot_bar(data: Dict):
     data_list = list()
     column_names = ['Period'] + [key for key, _ in data.items()]
     n = len(data.get(column_names[1]))
@@ -43,15 +43,16 @@ def plot_hist(data: Dict):
         data_list.append(temp_list)
 
     df = pd.DataFrame(data_list, columns=column_names)
-    px.bar(df, x='Period', y=column_names, barmode='group', color_discrete_sequence=px.colors.qualitative.Light24,
-           title='Time Statistics').show()
+    fig = px.bar(df, x='Period', y=column_names, barmode='group', color_discrete_sequence=px.colors.qualitative.Light24,
+                 title='Time Statistics')
+    fig.show()
 
 
 if __name__ == '__main__':
-    file_name = '2 core/MobaXterm_10.255.174.35_20220216_163442.txt'
+    file_name = '6 core/MobaXterm_10.255.174.35_20220216_162511.txt'
     condition_list = condition_option('task_profile_info_ss_rt_task')
     record_list, event_list = get_all_events(file_name, condition_list)
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict)
-    pprint(event_dict)
-    plot_hist(event_dict)
+    plot_bar(event_dict)
+    # pprint(event_dict)
