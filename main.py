@@ -55,7 +55,7 @@ def plot_bar(data: Dict):
 
 if __name__ == '__main__':
     file_name = 'MobaXterm_10.255.174.40_20220217_181140.txt'
-    condition_list = condition_option('task_profile_info_ss_nrt_task')
+    condition_list = condition_option('queue_profile_info_ss_rt_task')
     record_list, event_list = get_all_events(file_name, condition_list)
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict)
