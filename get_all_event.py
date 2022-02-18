@@ -67,7 +67,8 @@ def get_all_events(fileName: String, condtion_list: List):
         - Condition 3:
             * text1 = 'gnb_du_1           | 311'
             * text2 = 'gnb_cu_1           | [17/02/2022 10:09:16.573696][SCTP][ERR][ngp_inet.cpp:208]SCTP Socket Bind Failed'
-            * re.match method: re.findall(r'\| \d+', text1) or re.findall(r'\| \[\d+', text2)
+            * re.match method: re.findall(r'gnb_du_1           \| \d+', text1) or 
+                               'gnb_cu_1' in text2
             * Bool Value:  start_record_flag: False
                            ss_rt_or_nrt_flag: False
     """

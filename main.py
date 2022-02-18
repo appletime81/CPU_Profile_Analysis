@@ -34,9 +34,7 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict):
 
 def plot_bar(data: Dict):
     data_list = list()
-    print(data)
     column_names = ['Period'] + [key for key, _ in data.items()]
-    print(column_names)
     n = len(data.get(column_names[1]))
 
     for i in range(n):
@@ -47,9 +45,7 @@ def plot_bar(data: Dict):
     df = pd.DataFrame(data_list, columns=column_names)
     fig = px.bar(df, x='Period', y=column_names, barmode='group', color_discrete_sequence=px.colors.qualitative.Light24,
                  title='Time Statistics')
-
     # fig.write_html('temp.html')
-
     fig.show()
 
 
@@ -62,4 +58,4 @@ if __name__ == '__main__':
     plot_bar(event_dict)
 
     # print result
-    pprint(event_dict)
+    # pprint(event_dict)
