@@ -33,13 +33,16 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict):
 
 
 def plot_bar(data: Dict):
+    sorted_data_key = sorted([key for key, _ in data.items()])
+    new_data = dict([(key, data.get(key)) for key in sorted_data_key])
+
     data_list = list()
-    column_names = ['Period'] + [key for key, _ in data.items()]
+    column_names = ['Period'] + [key for key, _ in new_data.items()]
     n = len(data.get(column_names[1]))
 
     for i in range(n):
         temp_list = [f'Period {i + 1}']
-        temp_list += [value[i] for key, value in data.items()]
+        temp_list += [value[i] for key, value in new_data.items()]
         data_list.append(temp_list)
 
     df = pd.DataFrame(data_list, columns=column_names)
@@ -51,7 +54,7 @@ def plot_bar(data: Dict):
 
 if __name__ == '__main__':
     file_name = 'MobaXterm_10.255.174.40_20220217_181140.txt'
-    condition_list = condition_option('queue_profile_info_ss_rt_task')
+    condition_list = condition_option('task_profile_info_ss_rt_task')
     record_list, event_list = get_all_events(file_name, condition_list)
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict)
