@@ -1,6 +1,7 @@
 import pandas as pd
 import plotly.express as px
 
+from argparse import ArgumentParser
 from pprint import pprint
 from tokenize import String
 from typing import List, Dict
@@ -53,8 +54,14 @@ def plot_bar(data: Dict):
 
 
 if __name__ == '__main__':
-    file_name = 'MobaXterm_10.255.174.40_20220217_181140.txt'
-    condition_list = condition_option('task_profile_info_ss_rt_task')
+    parser = ArgumentParser()
+    parser.add_argument('--option', default='task_profile_info_ss_rt_task',
+                        help='Search Task Profile Info Content or Queue Profile Info')
+    parser.add_argument('--f', default='MobaXterm_10.255.174.40_20220217_181140.txt', help='file name')
+    args = parser.parse_args()
+
+    file_name = args.f
+    condition_list = condition_option(args.option)
     record_list, event_list = get_all_events(file_name, condition_list)
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict)
