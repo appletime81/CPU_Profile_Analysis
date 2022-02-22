@@ -1,6 +1,6 @@
 import pandas as pd
 import plotly.express as px
-
+import collections
 from argparse import ArgumentParser
 from pprint import pprint
 from tokenize import String
@@ -29,7 +29,7 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict):
             temp_event_list = list()
         else:
             temp_event_list.append(event[1])
-            event_dict[event[1]].append(float(event[5]))
+            event_dict[event[1]].append(float(event[6]))
     return event_dict
 
 
@@ -69,3 +69,6 @@ if __name__ == '__main__':
 
     # print result
     # pprint(event_dict)
+
+    od = dict(collections.OrderedDict(sorted(event_dict.items(), key=lambda x: x[1][-1], reverse=True)))
+    print(od)

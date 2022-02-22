@@ -110,5 +110,5 @@ def get_all_events(fileName: String, condtion_list: List):
                 record_list.append(temp_line_list)
                 event_list.append(temp_line_list[1])
 
-    event_list = list(set(event_list))
+    event_list = sorted(list(set(event_list)), reverse=True)
     return record_list, event_list
