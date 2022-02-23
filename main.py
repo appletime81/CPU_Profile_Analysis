@@ -5,7 +5,8 @@ from argparse import ArgumentParser
 from pprint import pprint
 from tokenize import String
 from typing import List, Dict
-from get_all_event import condition_option, get_all_events
+from utils.get_all_event import condition_option, get_all_events
+from utils.create_excel_stats_form import createExcelReport
 
 
 def readProfileFile(fileName: String):
@@ -54,21 +55,33 @@ def plot_bar(data: Dict):
 
 
 if __name__ == '__main__':
+    # UE_NUMS, POOL_NUMS, UR_PER_TTI
     parser = ArgumentParser()
     parser.add_argument('--option', default='task_profile_info_ss_rt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
-    parser.add_argument('--f', default='MobaXterm_10.255.174.40_20220217_181140.txt', help='file name')
-    args = parser.parse_args()
+    parser.add_argument('--f', default='log_files/MobaXterm_10.255.174.40_20220217_181140.txt', help='file name')
+    parser.add_argument('--ue', default='32', help='UE Numbers')
+    parser.add_argument('--pool', default='1', help='Pool Numbers')
+    parser.add_argument('--uetti', default='1', help='UE Per TTI')
 
+    args = parser.parse_args()
     file_name = args.f
-    condition_list = condition_option(args.option)
+    ue_nums = args.ue
+    pool_nums = args.pool
+    ue_per_tti = args.uetti
+    option = args.option
+
+    condition_list = condition_option(option)
     record_list, event_list = get_all_events(file_name, condition_list)
-    event_dict = genTaskDict(event_list)
-    event_dict = statsEvent(event_list, record_list, event_dict)
-    plot_bar(event_dict)
+    createExcelReport(record_list, event_list, option, ue_nums, pool_nums, ue_per_tti)
+
+    # ----------------------------------------------------------------------
+    # event_dict = genTaskDict(event_list)
+    # event_dict = statsEvent(event_list, record_list, event_dict)
+    # plot_bar(event_dict)
 
     # print result
     # pprint(event_dict)
 
-    od = dict(collections.OrderedDict(sorted(event_dict.items(), key=lambda x: x[1][-1], reverse=True)))
-    print(od)
+    # od = dict(collections.OrderedDict(sorted(event_dict.items(), key=lambda x: x[1][-1], reverse=True)))
+    # print(od)
