@@ -7,6 +7,9 @@ from tokenize import String
 from typing import List, Dict
 from utils.get_all_event import condition_option, get_all_events
 from utils.create_excel_stats_form import createExcelReport
+from utils.convert_cycles_to_seconds import cpu_processing_time
+
+FREQ = 1.3 * 1000
 
 
 def readProfileFile(fileName: String):
@@ -30,7 +33,7 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict):
             temp_event_list = list()
         else:
             temp_event_list.append(event[1])
-            event_dict[event[1]].append(float(event[6]))
+            event_dict[event[1]].append(cpu_processing_time(float(event[3]), FREQ))
     return event_dict
 
 
@@ -73,12 +76,12 @@ if __name__ == '__main__':
 
     condition_list = condition_option(option)
     record_list, event_list = get_all_events(file_name, condition_list)
-    createExcelReport(record_list, event_list, option, ue_nums, pool_nums, ue_per_tti)
+    # createExcelReport(record_list, event_list, option, ue_nums, pool_nums, ue_per_tti)
 
     # ----------------------------------------------------------------------
-    # event_dict = genTaskDict(event_list)
-    # event_dict = statsEvent(event_list, record_list, event_dict)
-    # plot_bar(event_dict)
+    event_dict = genTaskDict(event_list)
+    event_dict = statsEvent(event_list, record_list, event_dict)
+    plot_bar(event_dict)
 
     # print result
     # pprint(event_dict)
