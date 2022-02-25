@@ -33,7 +33,7 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict):
             temp_event_list = list()
         else:
             temp_event_list.append(event[1])
-            event_dict[event[1]].append(cpu_processing_time(float(event[3]), FREQ))
+            event_dict[event[1]].append(cpu_processing_time(float(event[4]), FREQ))
     return event_dict
 
 
@@ -60,9 +60,9 @@ def plot_bar(data: Dict):
 if __name__ == '__main__':
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
     parser = ArgumentParser()
-    parser.add_argument('--option', default='task_profile_info_ss_rt_task',
+    parser.add_argument('--option', default='queue_profile_info_ss_rt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
-    parser.add_argument('--f', default='log_files/MobaXterm_10.255.174.40_20220217_181140.txt', help='file name')
+    parser.add_argument('--f', default='0225/frank/2-4-32.txt', help='file name')
     parser.add_argument('--ue', default='32', help='UE Numbers')
     parser.add_argument('--pool', default='1', help='Pool Numbers')
     parser.add_argument('--uetti', default='1', help='UE Per TTI')
