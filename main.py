@@ -1,5 +1,7 @@
 import pandas as pd
 import plotly.express as px
+import matplotlib.pyplot as plt
+import seaborn as sns
 import collections
 from argparse import ArgumentParser
 from pprint import pprint
@@ -57,6 +59,45 @@ def plot_bar(data: Dict):
     fig.show()
 
 
+def plot_bar_with_sns(data: Dict):
+    data_list = list()
+    new_data_list = list()
+    for k, v in data.items():
+        data_list.append([[k, item] for item in v])
+    # for i in data_list:
+    #     print(i)
+    # print(len(data_list))
+    # for i in range(len(data_list)):4
+
+    for i in range(len(data_list[0])):
+        for j in range(len(data_list)):
+            new_data_list.append(data_list[j][i])
+
+    # for i in new_data_list:
+    #     print(i)
+
+    period_list = [[i + 1] * 12 for i in range(21)]
+    new_period_list = list()
+
+    for sub_list in period_list:
+        for num in sub_list:
+            new_period_list.append(num)
+    pprint(new_period_list)
+    print(len(new_period_list))
+
+    data_dict = {
+        'Period': new_period_list,
+        'Event': [item[0] for item in new_data_list],
+        'Time': [item[1] for item in new_data_list],
+
+    }
+    df = pd.DataFrame(data_dict)
+    print(df)
+    #
+    sns.barplot(x='Period', y='Time', hue='Event', data=df)
+    plt.show()
+
+
 if __name__ == '__main__':
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
     parser = ArgumentParser()
@@ -81,7 +122,8 @@ if __name__ == '__main__':
     # ----------------------------------------------------------------------
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict)
-    plot_bar(event_dict)
+    plot_bar_with_sns(event_dict)
+    # plot_bar(event_dict)
 
     # print result
     # pprint(event_dict)
