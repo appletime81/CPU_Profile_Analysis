@@ -73,49 +73,62 @@ def get_all_events(fileName: String, condtion_list: List):
                            ss_rt_or_nrt_flag: False
     """
 
-    start_record_flag_index = 0
-    ss_rt_or_nrt_flag_index = 0
+    start_record_flag_index = None
+    ss_rt_or_nrt_flag_index = None
 
     for i in range(n):
         if condtion_list[0] in lines[i]:  # Condition1
+            print('Condition1', i+1)
             start_record_flag = True
             start_record_flag_index = i
         if condtion_list[1] in lines[i]:  # Condition2
+            print('Condition2', i+1)
             ss_rt_or_nrt_flag = True
             ss_rt_or_nrt_flag_index = i
+        try:
+            index_condition = start_record_flag_index < ss_rt_or_nrt_flag_index
+        except:
+            pass
 
         if len(condtion_list) == 3:
             if condtion_list[2] in lines[i]:  # Condition3
                 if ss_rt_or_nrt_flag and start_record_flag:
                     record_list.append('##########')
-                start_record_flag = False
-                ss_rt_or_nrt_flag = False
+                    start_record_flag = False
+                    ss_rt_or_nrt_flag = False
         elif len(condtion_list) == 2:
             try:
                 if re.findall(r'gnb_du_1           \| \d+', lines[i + 1]) and len(
                         lines[i + 1].split(" ")) == 13:  # Condition3
-                    print(lines[i + 1])
-                    if ss_rt_or_nrt_flag and start_record_flag:
+                    if ss_rt_or_nrt_flag and start_record_flag and index_condition:
                         record_list.append('##########')
-                    start_record_flag = False
-                    ss_rt_or_nrt_flag = False
+                        start_record_flag = False
+                        ss_rt_or_nrt_flag = False
                 elif 'gnb_cu_1' in lines[i + 1]:
-                    if ss_rt_or_nrt_flag and start_record_flag:
+                    if ss_rt_or_nrt_flag and start_record_flag and index_condition:
                         record_list.append('##########')
-                    start_record_flag = False
-                    ss_rt_or_nrt_flag = False
+                        start_record_flag = False
+                        ss_rt_or_nrt_flag = False
             except IndexError:
                 pass
-        index_condition = start_record_flag_index > ss_rt_or_nrt_flag_index
+
         if ss_rt_or_nrt_flag and start_record_flag and index_condition:
-            print('line number:', i + 1)
             if 'EVT_' in lines[i]:
                 temp_line = lines[i].replace(' ', '_')
+                print(temp_line)
                 temp_line_list = temp_line.split('_')
+                print(temp_line_list)
                 temp_line_list = [element for element in temp_line_list if element != '']
-                temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-5])] + temp_line_list[-5:]
+                print(temp_line_list)
+                if condtion_list[0] == 'QUEUE PROFILE INFO':
+                    temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-5])] + temp_line_list[-4:]
+                    print(temp_line_list)
+                else:
+                    temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-5])] + temp_line_list[-5:]
+                    print(temp_line_list)
                 record_list.append(temp_line_list)
                 event_list.append(temp_line_list[1])
+                print('*******************')
 
     event_list = sorted(list(set(event_list)), reverse=True)
     return record_list, event_list

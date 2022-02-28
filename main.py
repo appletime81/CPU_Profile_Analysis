@@ -11,6 +11,7 @@ from typing import List, Dict
 from utils.get_all_event import condition_option, get_all_events
 from utils.create_excel_stats_form import createExcelReport
 from utils.convert_cycles_to_seconds import cpu_processing_time
+
 app = Dash(__name__)
 
 FREQ = 1.3 * 1000
@@ -28,7 +29,6 @@ def genTaskDict(event_names: List):
 
 def statsEvent(event_list: List, record_list: List, event_dict: Dict):
     temp_event_list = list()
-    # pprint(record_list)
     for event in record_list:
         if event == '##########':
             for element in event_list:
@@ -50,9 +50,7 @@ def plot_bar(data: Dict):
     n = len(data.get(column_names[1]))
 
     for k, v in new_data.items():
-        print(f'key: {k}, value: {len(v)}')
-
-
+        print(len(v))
     for i in range(n):
         temp_list = [f'Period {i + 1}']
         temp_list += [value[i] for key, value in new_data.items()]
@@ -72,17 +70,10 @@ def plot_bar_with_sns(data: Dict):
     new_data_list = list()
     for k, v in data.items():
         data_list.append([[k, item] for item in v])
-    # for i in data_list:
-    #     print(i)
-    # print(len(data_list))
-    # for i in range(len(data_list)):4
 
     for i in range(len(data_list[0])):
         for j in range(len(data_list)):
             new_data_list.append(data_list[j][i])
-
-    # for i in new_data_list:
-    #     print(i)
 
     period_list = [[i + 1] * 12 for i in range(21)]
     new_period_list = list()
@@ -90,8 +81,6 @@ def plot_bar_with_sns(data: Dict):
     for sub_list in period_list:
         for num in sub_list:
             new_period_list.append(num)
-    pprint(new_period_list)
-    print(len(new_period_list))
 
     data_dict = {
         'Period': new_period_list,
@@ -100,20 +89,17 @@ def plot_bar_with_sns(data: Dict):
 
     }
     df = pd.DataFrame(data_dict)
-    print(df)
-    #
+
     sns.barplot(x='Period', y='Time', hue='Event', data=df)
     plt.show()
-
-
 
 
 if __name__ == '__main__':
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
     parser = ArgumentParser()
-    parser.add_argument('--option', default='queue_profile_info_ss_nrt_task',
+    parser.add_argument('--option', default='queue_profile_info_ss_rt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
-    parser.add_argument('--f', default='0225/frank/2-1-16.txt', help='file name')
+    parser.add_argument('--f', default='0225/frank/2-1-1.txt', help='file name')
     parser.add_argument('--ue', default='32', help='UE Numbers')
     parser.add_argument('--pool', default='1', help='Pool Numbers')
     parser.add_argument('--uetti', default='1', help='UE Per TTI')
@@ -128,7 +114,7 @@ if __name__ == '__main__':
     condition_list = condition_option(option)
     record_list, event_list = get_all_events(file_name, condition_list)
     print('----------event list----------')
-    for evt in record_list:
+    for evt in event_list:
         print(evt)
     # createExcelReport(record_list, event_list, option, ue_nums, pool_nums, ue_per_tti)
 
