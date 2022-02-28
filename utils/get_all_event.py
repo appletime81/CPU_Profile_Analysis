@@ -72,12 +72,17 @@ def get_all_events(fileName: String, condtion_list: List):
             * Bool Value:  start_record_flag: False
                            ss_rt_or_nrt_flag: False
     """
+
+    start_record_flag_index = 0
+    ss_rt_or_nrt_flag_index = 0
+
     for i in range(n):
         if condtion_list[0] in lines[i]:  # Condition1
             start_record_flag = True
-
+            start_record_flag_index = i
         if condtion_list[1] in lines[i]:  # Condition2
             ss_rt_or_nrt_flag = True
+            ss_rt_or_nrt_flag_index = i
 
         if len(condtion_list) == 3:
             if condtion_list[2] in lines[i]:  # Condition3
@@ -89,6 +94,7 @@ def get_all_events(fileName: String, condtion_list: List):
             try:
                 if re.findall(r'gnb_du_1           \| \d+', lines[i + 1]) and len(
                         lines[i + 1].split(" ")) == 13:  # Condition3
+                    print(lines[i + 1])
                     if ss_rt_or_nrt_flag and start_record_flag:
                         record_list.append('##########')
                     start_record_flag = False
@@ -100,8 +106,9 @@ def get_all_events(fileName: String, condtion_list: List):
                     ss_rt_or_nrt_flag = False
             except IndexError:
                 pass
-
-        if ss_rt_or_nrt_flag and start_record_flag:
+        index_condition = start_record_flag_index > ss_rt_or_nrt_flag_index
+        if ss_rt_or_nrt_flag and start_record_flag and index_condition:
+            print('line number:', i + 1)
             if 'EVT_' in lines[i]:
                 temp_line = lines[i].replace(' ', '_')
                 temp_line_list = temp_line.split('_')
