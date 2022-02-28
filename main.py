@@ -3,6 +3,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import collections
+from dash import Dash, html, dcc
 from argparse import ArgumentParser
 from pprint import pprint
 from tokenize import String
@@ -10,6 +11,7 @@ from typing import List, Dict
 from utils.get_all_event import condition_option, get_all_events
 from utils.create_excel_stats_form import createExcelReport
 from utils.convert_cycles_to_seconds import cpu_processing_time
+app = Dash(__name__)
 
 FREQ = 1.3 * 1000
 
@@ -55,8 +57,10 @@ def plot_bar(data: Dict):
     df = pd.DataFrame(data_list, columns=column_names)
     fig = px.bar(df, x='Period', y=column_names, barmode='group', color_discrete_sequence=px.colors.qualitative.Light24,
                  title='Time Statistics')
+
     # fig.write_html('temp.html')
-    fig.show()
+
+    return fig
 
 
 def plot_bar_with_sns(data: Dict):
@@ -98,10 +102,12 @@ def plot_bar_with_sns(data: Dict):
     plt.show()
 
 
+
+
 if __name__ == '__main__':
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
     parser = ArgumentParser()
-    parser.add_argument('--option', default='queue_profile_info_ss_rt_task',
+    parser.add_argument('--option', default='task_profile_info_ss_rt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
     parser.add_argument('--f', default='0225/frank/2-4-32.txt', help='file name')
     parser.add_argument('--ue', default='32', help='UE Numbers')
@@ -117,14 +123,31 @@ if __name__ == '__main__':
 
     condition_list = condition_option(option)
     record_list, event_list = get_all_events(file_name, condition_list)
+    print('----------event list----------')
+    for evt in event_list:
+        print(evt)
     # createExcelReport(record_list, event_list, option, ue_nums, pool_nums, ue_per_tti)
 
     # ----------------------------------------------------------------------
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict)
     # plot_bar_with_sns(event_dict)
-    plot_bar(event_dict)
+    fig = plot_bar(event_dict)
+    app.layout = html.Div(children=[
+        html.Title(children='21212'),
+        html.H1(children='Hello Dash'),
 
+        html.Div(children='''
+            Dash: A web application framework for your data.
+        '''),
+
+        dcc.Graph(
+            id='example-graph',
+            figure=fig
+        )
+    ])
+    app.title = f'{file_name.split("/")[-1].replace(".txt", "")}_{option}'
+    app.run_server(debug=True)
     # print result
     # pprint(event_dict)
 
