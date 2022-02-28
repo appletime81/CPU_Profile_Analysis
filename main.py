@@ -122,8 +122,8 @@ if __name__ == '__main__':
     # ----------------------------------------------------------------------
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict)
-    plot_bar_with_sns(event_dict)
-    # plot_bar(event_dict)
+    # plot_bar_with_sns(event_dict)
+    plot_bar(event_dict)
 
     # print result
     # pprint(event_dict)
