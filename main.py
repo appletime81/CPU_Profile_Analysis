@@ -1,5 +1,6 @@
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import seaborn as sns
 import collections
@@ -11,6 +12,7 @@ from typing import List, Dict
 from utils.get_all_event import condition_option, get_all_events
 from utils.create_excel_stats_form import createExcelReport
 from utils.convert_cycles_to_seconds import cpu_processing_time
+from utils.color_dict import gen_color_dict
 
 app = Dash(__name__)
 
@@ -41,7 +43,19 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict):
     return event_dict
 
 
-def plot_bar(data: Dict):
+def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String):
+    def gen_chart_title(file_name: String, option: String):
+        file_name_list = file_name.split('/')
+        file_name = file_name_list[-1]
+        cup_core, ue_per_tti, ue_nums = file_name.replace('.txt', '').split('-')[0:3]
+
+        if 'queue' in option:
+            return f'In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}'
+        else:
+            return f'Not In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}'
+
+    title = gen_chart_title(file_name=fileName, option=option)
+
     sorted_data_key = sorted([key for key, _ in data.items()])
     new_data = dict([(key, data.get(key)) for key in sorted_data_key])
 
@@ -55,11 +69,45 @@ def plot_bar(data: Dict):
         data_list.append(temp_list)
 
     df = pd.DataFrame(data_list, columns=column_names)
-    fig = px.bar(df, x='Period', y=column_names, barmode='group', color_discrete_sequence=px.colors.qualitative.Light24,
-                 title='Time Statistics')
 
+    # ------------ plot chart ------------
+
+    # fig = px.bar(df, x='Period', y=column_names, barmode='group', color_discrete_sequence=px.colors.qualitative.Light24,
+    #              title='Time Statistics')
     # fig.write_html('temp.html')
-
+    fig = go.Figure()
+    for column_name in column_names:
+        if column_name != 'Period':
+            fig.add_trace(
+                go.Bar(
+                    x=df['Period'].to_list(),
+                    y=df[column_name].to_list(),
+                    name=column_name,
+                    marker_color=color_dict.get(column_name)
+                )
+            )
+    fig.update_layout(
+        title=title,
+        xaxis_tickfont_size=14,
+        yaxis=dict(
+            title='秒數',
+            titlefont_size=16,
+            tickfont_size=14,
+        ),
+        legend=dict(
+            x=1.0,
+            y=1.0,
+            bgcolor='rgba(255, 255, 255, 0)',
+            bordercolor='rgba(255, 255, 255, 0)'
+        ),
+        barmode='group',
+        bargap=0.15,  # gap between bars of adjacent location coordinates.
+        bargroupgap=0.1,  # gap between bars of the same location coordinate.
+        hoverlabel_namelength=50
+    )
+    fig.update_yaxes(
+        range=[0, 1]
+    )
     return fig
 
 
@@ -95,9 +143,9 @@ def plot_bar_with_sns(data: Dict):
 if __name__ == '__main__':
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
     parser = ArgumentParser()
-    parser.add_argument('--option', default='queue_profile_info_ss_nrt_task',
+    parser.add_argument('--option', default='task_profile_info_ss_rt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
-    parser.add_argument('--f', default='0225/frank/2-4-32.txt', help='file name')
+    parser.add_argument('--f', default='0225/frank/2-1-1.txt', help='file name')
     parser.add_argument('--ue', default='32', help='UE Numbers')
     parser.add_argument('--pool', default='1', help='Pool Numbers')
     parser.add_argument('--uetti', default='1', help='UE Per TTI')
@@ -116,9 +164,13 @@ if __name__ == '__main__':
     # ----------------------------------------------------------------------
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict)
-    # print(event_dict)
-    # plot_bar_with_sns(event_dict)
-    fig = plot_bar(event_dict)
+    color_dict = gen_color_dict()
+    pprint(color_dict)
+    fig = plot_bar(event_dict, color_dict, file_name, option)
+    fig.show()
+    fig.write_html(f'analysis_result/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
+
+    # -------------- dash server --------------
     # app.layout = html.Div(children=[
     #     html.Title(children='21212'),
     #     html.H1(children='Hello Dash'),
@@ -134,8 +186,3 @@ if __name__ == '__main__':
     # ])
     # app.title = f'{file_name.split("/")[-1].replace(".txt", "")}_{option}'
     # app.run_server(debug=True)
-    # print result
-    # pprint(event_dict)
-
-    # od = dict(collections.OrderedDict(sorted(event_dict.items(), key=lambda x: x[1][-1], reverse=True)))
-    # print(od)
