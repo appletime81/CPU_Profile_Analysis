@@ -50,9 +50,15 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String):
         cup_core, ue_per_tti, ue_nums = file_name.replace('.txt', '').split('-')[0:3]
 
         if 'queue' in option:
-            return f'In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}'
+            if 'nrt' in option:
+                return f'Non Real Time Task   |   In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}'
+            else:
+                return f'Real Time Task   |   In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}'
         else:
-            return f'Not In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}'
+            if 'nrt' in option:
+                return f'Non Real Time Task   |   Not In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}'
+            else:
+                return f'Real Time Task   |   Not In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}'
 
     title = gen_chart_title(file_name=fileName, option=option)
 
