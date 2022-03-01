@@ -49,8 +49,6 @@ def plot_bar(data: Dict):
     column_names = ['Period'] + [key for key, _ in new_data.items()]
     n = len(data.get(column_names[1]))
 
-    for k, v in new_data.items():
-        print(len(v))
     for i in range(n):
         temp_list = [f'Period {i + 1}']
         temp_list += [value[i] for key, value in new_data.items()]
@@ -97,9 +95,9 @@ def plot_bar_with_sns(data: Dict):
 if __name__ == '__main__':
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
     parser = ArgumentParser()
-    parser.add_argument('--option', default='queue_profile_info_ss_rt_task',
+    parser.add_argument('--option', default='queue_profile_info_ss_nrt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
-    parser.add_argument('--f', default='0225/frank/2-1-1.txt', help='file name')
+    parser.add_argument('--f', default='0225/frank/2-4-32.txt', help='file name')
     parser.add_argument('--ue', default='32', help='UE Numbers')
     parser.add_argument('--pool', default='1', help='Pool Numbers')
     parser.add_argument('--uetti', default='1', help='UE Per TTI')
@@ -113,9 +111,6 @@ if __name__ == '__main__':
 
     condition_list = condition_option(option)
     record_list, event_list = get_all_events(file_name, condition_list)
-    print('----------event list----------')
-    for evt in event_list:
-        print(evt)
     # createExcelReport(record_list, event_list, option, ue_nums, pool_nums, ue_per_tti)
 
     # ----------------------------------------------------------------------

@@ -78,11 +78,9 @@ def get_all_events(fileName: String, condtion_list: List):
 
     for i in range(n):
         if condtion_list[0] in lines[i]:  # Condition1
-            print('Condition1', i+1)
             start_record_flag = True
             start_record_flag_index = i
         if condtion_list[1] in lines[i]:  # Condition2
-            print('Condition2', i+1)
             ss_rt_or_nrt_flag = True
             ss_rt_or_nrt_flag_index = i
         try:
@@ -115,20 +113,14 @@ def get_all_events(fileName: String, condtion_list: List):
         if ss_rt_or_nrt_flag and start_record_flag and index_condition:
             if 'EVT_' in lines[i]:
                 temp_line = lines[i].replace(' ', '_')
-                print(temp_line)
                 temp_line_list = temp_line.split('_')
-                print(temp_line_list)
                 temp_line_list = [element for element in temp_line_list if element != '']
-                print(temp_line_list)
                 if condtion_list[0] == 'QUEUE PROFILE INFO':
-                    temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-5])] + temp_line_list[-4:]
-                    print(temp_line_list)
+                    temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-4])] + temp_line_list[-4:]
                 else:
                     temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-5])] + temp_line_list[-5:]
-                    print(temp_line_list)
                 record_list.append(temp_line_list)
                 event_list.append(temp_line_list[1])
-                print('*******************')
 
     event_list = sorted(list(set(event_list)), reverse=True)
     return record_list, event_list
