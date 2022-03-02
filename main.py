@@ -109,7 +109,9 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String):
         barmode='group',
         bargap=0.15,  # gap between bars of adjacent location coordinates.
         bargroupgap=0.1,  # gap between bars of the same location coordinate.
-        hoverlabel_namelength=50
+        hoverlabel_namelength=50,
+        width=1691,
+        height=940
     )
     fig.update_yaxes(
         range=[0, 1]
@@ -149,7 +151,7 @@ def plot_bar_with_sns(data: Dict):
 if __name__ == '__main__':
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
     parser = ArgumentParser()
-    parser.add_argument('--option', default='task_profile_info_ss_rt_task',
+    parser.add_argument('--option', default='queue_profile_info_ss_nrt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
     parser.add_argument('--f', default='0225/frank/2-1-1.txt', help='file name')
     parser.add_argument('--ue', default='32', help='UE Numbers')
