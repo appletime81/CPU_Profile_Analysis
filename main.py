@@ -17,7 +17,12 @@ from utils.color_dict import gen_color_dict
 app = Dash(__name__)
 
 FREQ = 1.3 * 1000
-
+COLUMN_DICT = {
+    'MIN_CYCLES': 2,
+    'MAX_CYCLES': 3,
+    'AVG_CYCLES': 4,
+    'NUM_TIMES': 6
+}
 
 def readProfileFile(fileName: String):
     with open(fileName, 'r', encoding='utf-8') as fp:
@@ -29,7 +34,8 @@ def genTaskDict(event_names: List):
     return dict([(event_name, list()) for event_name in event_names])
 
 
-def statsEvent(event_list: List, record_list: List, event_dict: Dict):
+def statsEvent(event_list: List, record_list: List, event_dict: Dict, column_name: String):
+    index = COLUMN_DICT.get(column_name)
     temp_event_list = list()
     for event in record_list:
         if event == '##########':
@@ -38,12 +44,20 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict):
                     event_dict[element].append(0)
             temp_event_list = list()
         else:
+            # index 對應項目
+            # index = 2 -> MIN_CYCLES
+            # index = 3 -> MAX_CYCLES
+            # index = 4 -> AVG_CYCLES
+            # index = 6 -> NUM TIMES
             temp_event_list.append(event[1])
-            event_dict[event[1]].append(cpu_processing_time(float(event[4]), FREQ))
+            if index != 6:
+                event_dict[event[1]].append(cpu_processing_time(float(event[index]), FREQ))
+            else:
+                event_dict[event[1]].append(int(event[index]))
     return event_dict
 
 
-def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String):
+def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, column_name_option: String):
     def gen_chart_title(file_name: String, option: String):
         file_name_list = file_name.split('/')
         file_name = file_name_list[-1]
@@ -96,7 +110,7 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String):
         title=title,
         xaxis_tickfont_size=14,
         yaxis=dict(
-            title='秒數',
+            title='秒數(毫秒)',
             titlefont_size=16,
             tickfont_size=14,
         ),
@@ -113,9 +127,15 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String):
         width=1691,
         height=940
     )
-    fig.update_yaxes(
-        range=[0, 1]
-    )
+    if column_name_option != 'NUM_TIMES':
+        fig.update_yaxes(
+            range=[0, 1]
+        )
+    else:
+        fig.update_yaxes(
+            range=[0, 300000]
+        )
+
     return fig
 
 
@@ -151,12 +171,13 @@ def plot_bar_with_sns(data: Dict):
 if __name__ == '__main__':
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
     parser = ArgumentParser()
-    parser.add_argument('--option', default='queue_profile_info_ss_nrt_task',
+    parser.add_argument('--option', default='task_profile_info_ss_nrt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
     parser.add_argument('--f', default='0225/frank/2-1-1.txt', help='file name')
     parser.add_argument('--ue', default='32', help='UE Numbers')
     parser.add_argument('--pool', default='1', help='Pool Numbers')
     parser.add_argument('--uetti', default='1', help='UE Per TTI')
+    parser.add_argument('--column_name', default='AVG_CYCLES', help='MIN_CYCLES, MAX_CYCLES, AVG_CYCLES, NUM_TIMES')
 
     args = parser.parse_args()
     file_name = args.f
@@ -164,6 +185,7 @@ if __name__ == '__main__':
     pool_nums = args.pool
     ue_per_tti = args.uetti
     option = args.option
+    column_name = args.column_name
 
     condition_list = condition_option(option)
     record_list, event_list = get_all_events(file_name, condition_list)
@@ -171,12 +193,12 @@ if __name__ == '__main__':
 
     # ----------------------------------------------------------------------
     event_dict = genTaskDict(event_list)
-    event_dict = statsEvent(event_list, record_list, event_dict)
+    event_dict = statsEvent(event_list, record_list, event_dict, column_name)
     color_dict = gen_color_dict()
-    pprint(color_dict)
-    fig = plot_bar(event_dict, color_dict, file_name, option)
+
+    fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
     fig.show()
-    fig.write_html(f'analysis_result/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
+    fig.write_html(f'analysis_result_for_execution_times/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
 
     # -------------- dash server --------------
     # app.layout = html.Div(children=[
