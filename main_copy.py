@@ -170,19 +170,28 @@ def plot_bar_with_sns(data: Dict):
 
 if __name__ == '__main__':
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
-    # --------------------------------------- 參數設置 ---------------------------------------
     parser = ArgumentParser()
-    parser.add_argument('--option', default='task_profile_info_ss_nrt_task', help='Search Task Profile Info Content or Queue Profile Info')
+    parser.add_argument('--option', default='task_profile_info_ss_nrt_task',
+                        help='Search Task Profile Info Content or Queue Profile Info')
     parser.add_argument('--f', default='0225/frank/2-1-1.txt', help='file name')
+    parser.add_argument('--ue', default='32', help='UE Numbers')
+    parser.add_argument('--pool', default='1', help='Pool Numbers')
+    parser.add_argument('--uetti', default='1', help='UE Per TTI')
     parser.add_argument('--column_name', default='AVG_CYCLES', help='MIN_CYCLES, MAX_CYCLES, AVG_CYCLES, NUM_TIMES')
+
     args = parser.parse_args()
     file_name = args.f
+    ue_nums = args.ue
+    pool_nums = args.pool
+    ue_per_tti = args.uetti
     option = args.option
     column_name = args.column_name
 
     condition_list = condition_option(option)
     record_list, event_list = get_all_events(file_name, condition_list)
+    # createExcelReport(record_list, event_list, option, ue_nums, pool_nums, ue_per_tti)
 
+    # ----------------------------------------------------------------------
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict, column_name)
     color_dict = gen_color_dict()
@@ -190,3 +199,20 @@ if __name__ == '__main__':
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
     fig.show()
     fig.write_html(f'analysis_result_for_execution_times/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
+
+    # -------------- dash server --------------
+    # app.layout = html.Div(children=[
+    #     html.Title(children='21212'),
+    #     html.H1(children='Hello Dash'),
+    #
+    #     html.Div(children='''
+    #         Dash: A web application framework for your data.
+    #     '''),
+    #
+    #     dcc.Graph(
+    #         id='example-graph',
+    #         figure=fig
+    #     )
+    # ])
+    # app.title = f'{file_name.split("/")[-1].replace(".txt", "")}_{option}'
+    # app.run_server(debug=True)
