@@ -24,6 +24,7 @@ COLUMN_DICT = {
     'NUM_TIMES': 6
 }
 
+
 def readProfileFile(fileName: String):
     with open(fileName, 'r', encoding='utf-8') as fp:
         lines = fp.readlines()
@@ -172,7 +173,8 @@ if __name__ == '__main__':
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
     # --------------------------------------- 參數設置 ---------------------------------------
     parser = ArgumentParser()
-    parser.add_argument('--option', default='task_profile_info_ss_nrt_task', help='Search Task Profile Info Content or Queue Profile Info')
+    parser.add_argument('--option', default='task_profile_info_ss_nrt_task',
+                        help='Search Task Profile Info Content or Queue Profile Info')
     parser.add_argument('--f', default='0225/frank/2-1-1.txt', help='file name')
     parser.add_argument('--column_name', default='AVG_CYCLES', help='MIN_CYCLES, MAX_CYCLES, AVG_CYCLES, NUM_TIMES')
     args = parser.parse_args()

@@ -1,18 +1,18 @@
 import os
 
-COLUMN_NAME = 'NUM_TIMES'
+COLUMN_NAME = 'AVG_CYCLES'
 
 
 def gen_htmls():
     log_files = list()
-    for root, dirs, files in os.walk('0225'):
+    for root, dirs, files in os.walk('3-1-1'):
         for file in files:
             log_files.append(os.path.join(root, file))
 
     event_types = ['task_profile_info_ss_rt_task',
-                   'task_profile_info_ss_nrt_task', ]
-                    # 'queue_profile_info_ss_rt_task',
-                    # 'queue_profile_info_ss_nrt_task']
+                   'task_profile_info_ss_nrt_task',
+                    'queue_profile_info_ss_rt_task',
+                    'queue_profile_info_ss_nrt_task']
 
     for log_file in log_files:
         for event_type in event_types:
