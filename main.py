@@ -1,20 +1,21 @@
+import os
 import pandas as pd
-import plotly.express as px
+# import plotly.express as px
 import plotly.graph_objects as go
-import matplotlib.pyplot as plt
-import seaborn as sns
-import collections
-from dash import Dash, html, dcc
+# import matplotlib.pyplot as plt
+# import seaborn as sns
+# import collections
+# from dash import Dash, html, dcc
 from argparse import ArgumentParser
 from pprint import pprint
 from tokenize import String
 from typing import List, Dict
 from utils.get_all_event import condition_option, get_all_events
-from utils.create_excel_stats_form import createExcelReport
+# from utils.create_excel_stats_form import createExcelReport
 from utils.convert_cycles_to_seconds import cpu_processing_time
 from utils.color_dict import gen_color_dict
 
-app = Dash(__name__)
+# app = Dash(__name__)
 
 FREQ = 1.3 * 1000
 COLUMN_DICT = {
@@ -56,6 +57,18 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict, column_nam
             else:
                 event_dict[event[1]].append(int(event[index]))
     return event_dict
+
+
+def save_path(column_name: String):
+    save_root_dir = 'analysis_result_'
+    if column_name == 'NUM_TIMES':
+        save_root_dir += 'for_execution_times'
+    else:
+        save_root_dir = f'{column_name.lower()}'
+
+    if not os.path.isdir(save_root_dir):
+        os.mkdir(save_root_dir)
+    return save_root_dir
 
 
 def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, column_name_option: String):
@@ -140,33 +153,33 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
     return fig
 
 
-def plot_bar_with_sns(data: Dict):
-    data_list = list()
-    new_data_list = list()
-    for k, v in data.items():
-        data_list.append([[k, item] for item in v])
-
-    for i in range(len(data_list[0])):
-        for j in range(len(data_list)):
-            new_data_list.append(data_list[j][i])
-
-    period_list = [[i + 1] * 12 for i in range(21)]
-    new_period_list = list()
-
-    for sub_list in period_list:
-        for num in sub_list:
-            new_period_list.append(num)
-
-    data_dict = {
-        'Period': new_period_list,
-        'Event': [item[0] for item in new_data_list],
-        'Time': [item[1] for item in new_data_list],
-
-    }
-    df = pd.DataFrame(data_dict)
-
-    sns.barplot(x='Period', y='Time', hue='Event', data=df)
-    plt.show()
+# def plot_bar_with_sns(data: Dict):
+#     data_list = list()
+#     new_data_list = list()
+#     for k, v in data.items():
+#         data_list.append([[k, item] for item in v])
+#
+#     for i in range(len(data_list[0])):
+#         for j in range(len(data_list)):
+#             new_data_list.append(data_list[j][i])
+#
+#     period_list = [[i + 1] * 12 for i in range(21)]
+#     new_period_list = list()
+#
+#     for sub_list in period_list:
+#         for num in sub_list:
+#             new_period_list.append(num)
+#
+#     data_dict = {
+#         'Period': new_period_list,
+#         'Event': [item[0] for item in new_data_list],
+#         'Time': [item[1] for item in new_data_list],
+#
+#     }
+#     df = pd.DataFrame(data_dict)
+#
+#     sns.barplot(x='Period', y='Time', hue='Event', data=df)
+#     plt.show()
 
 
 if __name__ == '__main__':
@@ -191,11 +204,8 @@ if __name__ == '__main__':
     # --------------------------------------- 畫圖表 ---------------------------------------
     color_dict = gen_color_dict()
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
-    fig.show()
+    # fig.show()
 
     # --------------------------------------- 儲存圖表 ---------------------------------------
-    if column_name == 'NUM_TIMES':
-        save_root_dir = 'analysis_result_for_execution_times'
-    else:
-        save_root_dir = 'analysis_result'
+    save_root_dir = save_path(column_name)
     fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')

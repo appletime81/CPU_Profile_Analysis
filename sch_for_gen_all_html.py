@@ -1,18 +1,23 @@
 import os
-
-COLUMN_NAME = 'AVG_CYCLES'
+import time
+start_time = time.time()
+COLUMN_NAME = 'NUM_TIMES'
 
 
 def gen_htmls():
     log_files = list()
-    for root, dirs, files in os.walk('3-1-1'):
+    for root, dirs, files in os.walk('cpu_profile'):
         for file in files:
             log_files.append(os.path.join(root, file))
 
-    event_types = ['task_profile_info_ss_rt_task',
-                   'task_profile_info_ss_nrt_task',
-                    'queue_profile_info_ss_rt_task',
-                    'queue_profile_info_ss_nrt_task']
+    if COLUMN_NAME != 'NUM_TIMES':
+        event_types = ['task_profile_info_ss_rt_task',
+                       'task_profile_info_ss_nrt_task',
+                       'queue_profile_info_ss_rt_task',
+                       'queue_profile_info_ss_nrt_task']
+    else:
+        event_types = ['task_profile_info_ss_rt_task',
+                       'task_profile_info_ss_nrt_task']
 
     for log_file in log_files:
         for event_type in event_types:
@@ -21,3 +26,4 @@ def gen_htmls():
 
 if __name__ == '__main__':
     gen_htmls()
+    print((time.time() - start_time) / 60)
