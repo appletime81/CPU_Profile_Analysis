@@ -180,13 +180,20 @@ if __name__ == '__main__':
     option = args.option
     column_name = args.column_name
 
+    # --------------------------------------- 分析log ---------------------------------------
     condition_list = condition_option(option)
     record_list, event_list = get_all_events(file_name, condition_list)
-
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict, column_name)
-    color_dict = gen_color_dict()
 
+    # --------------------------------------- 畫圖表 ---------------------------------------
+    color_dict = gen_color_dict()
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
     fig.show()
-    fig.write_html(f'analysis_result_for_execution_times/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
+
+    # --------------------------------------- 儲存圖表 ---------------------------------------
+    if column_name == 'NUM_TIMES':
+        save_root_dir = 'analysis_result_for_execution_times'
+    else:
+        save_root_dir = 'analysis_result'
+    fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
