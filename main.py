@@ -37,6 +37,7 @@ def genTaskDict(event_names: List):
 
 
 def statsEvent(event_list: List, record_list: List, event_dict: Dict, column_name: String):
+    execution_times_dict = dict([(k, 0) for k, v in event_dict.items()])
     index = COLUMN_DICT.get(column_name)
     temp_event_list = list()
     for event in record_list:
@@ -55,7 +56,8 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict, column_nam
             if index != 6:
                 event_dict[event[1]].append(cpu_processing_time(float(event[index]), FREQ))
             else:
-                event_dict[event[1]].append(int(event[index]))
+                event_dict[event[1]].append(int(event[index]) - execution_times_dict[event[1]])
+                execution_times_dict[event[1]] = int(event[index])
     return event_dict
 
 
@@ -117,7 +119,8 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
                     x=df['Period'].to_list(),
                     y=df[column_name].to_list(),
                     name=column_name,
-                    marker_color=color_dict.get(column_name)
+                    marker_color=color_dict.get(column_name),
+                    # width=1
                 )
             )
     fig.update_layout(
@@ -151,10 +154,6 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
         )
 
     return fig
-
-
-def plot_bar_with_pygal(data: Dict, fileName: String, option: String, column_name_option: String):
-    pass
 
 
 # def plot_bar_with_sns(data: Dict):
@@ -192,8 +191,8 @@ if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('--option', default='task_profile_info_ss_nrt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
-    parser.add_argument('--f', default='0225/frank/2-1-1.txt', help='file name')
-    parser.add_argument('--column_name', default='AVG_CYCLES', help='MIN_CYCLES, MAX_CYCLES, AVG_CYCLES, NUM_TIMES')
+    parser.add_argument('--f', default='cpu_profile/3-1-1.txt', help='file name')
+    parser.add_argument('--column_name', default='NUM_TIMES', help='MIN_CYCLES, MAX_CYCLES, AVG_CYCLES, NUM_TIMES')
     args = parser.parse_args()
     file_name = args.f
     option = args.option
@@ -208,12 +207,12 @@ if __name__ == '__main__':
     # --------------------------------------- 畫圖表 ---------------------------------------
     color_dict = gen_color_dict()
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
-    # fig.show()
+    fig.show()
 
     # --------------------------------------- 儲存圖表 ---------------------------------------
     save_root_dir = save_path(column_name)
     fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
 
     # --------------------------------------- 儲存csv ---------------------------------------
-    df = pd.DataFrame(event_dict)
-    df.to_csv(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv', index=False)
+    # df = pd.DataFrame(event_dict)
+    # df.to_csv(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv', index=False)
