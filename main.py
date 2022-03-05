@@ -153,6 +153,10 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
     return fig
 
 
+def plot_bar_with_pygal(data: Dict, fileName: String, option: String, column_name_option: String):
+    pass
+
+
 # def plot_bar_with_sns(data: Dict):
 #     data_list = list()
 #     new_data_list = list()
@@ -209,3 +213,7 @@ if __name__ == '__main__':
     # --------------------------------------- 儲存圖表 ---------------------------------------
     save_root_dir = save_path(column_name)
     fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
+
+    # --------------------------------------- 儲存csv ---------------------------------------
+    df = pd.DataFrame(event_dict)
+    df.to_csv(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv', index=False)
