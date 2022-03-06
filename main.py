@@ -1,9 +1,9 @@
 import os
 import pandas as pd
-# import plotly.express as px
+import plotly.express as px
 import plotly.graph_objects as go
-# import matplotlib.pyplot as plt
-# import seaborn as sns
+import matplotlib.pyplot as plt
+import seaborn as sns
 # import collections
 # from dash import Dash, html, dcc
 from argparse import ArgumentParser
@@ -105,6 +105,7 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
         data_list.append(temp_list)
 
     df = pd.DataFrame(data_list, columns=column_names)
+    df.to_csv('test.csv', index=False)
 
     # ------------ plot chart ------------
 
@@ -121,6 +122,7 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
                     name=column_name,
                     marker_color=color_dict.get(column_name),
                     # width=1
+                    # offsetgroup=0
                 )
             )
     fig.update_layout(
@@ -134,15 +136,17 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
         legend=dict(
             x=1.0,
             y=1.0,
-            bgcolor='rgba(255, 255, 255, 0)',
-            bordercolor='rgba(255, 255, 255, 0)'
+            bgcolor='rgba(0, 0, 0, 0)',
+            bordercolor='rgba(0, 0, 0, 100)'
         ),
-        barmode='group',
+        # barmode='group',
         bargap=0.15,  # gap between bars of adjacent location coordinates.
         bargroupgap=0.1,  # gap between bars of the same location coordinate.
         hoverlabel_namelength=50,
         width=1691,
-        height=940
+        height=940,
+        # paper_bgcolor='rgba(0,0,0,0)',
+        # plot_bgcolor='rgba(0,0,0,100)'
     )
     if column_name_option != 'NUM_TIMES':
         fig.update_yaxes(
@@ -150,39 +154,96 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
         )
     else:
         fig.update_yaxes(
-            range=[0, 300000]
+            range=[0, 900000]
         )
 
     return fig
 
 
-# def plot_bar_with_sns(data: Dict):
-#     data_list = list()
-#     new_data_list = list()
-#     for k, v in data.items():
-#         data_list.append([[k, item] for item in v])
-#
-#     for i in range(len(data_list[0])):
-#         for j in range(len(data_list)):
-#             new_data_list.append(data_list[j][i])
-#
-#     period_list = [[i + 1] * 12 for i in range(21)]
-#     new_period_list = list()
-#
-#     for sub_list in period_list:
-#         for num in sub_list:
-#             new_period_list.append(num)
-#
-#     data_dict = {
-#         'Period': new_period_list,
-#         'Event': [item[0] for item in new_data_list],
-#         'Time': [item[1] for item in new_data_list],
-#
-#     }
-#     df = pd.DataFrame(data_dict)
-#
-#     sns.barplot(x='Period', y='Time', hue='Event', data=df)
-#     plt.show()
+def plot_bar_with_stack_bar(data: Dict, color_dict: Dict):
+    data_list = list()
+    new_data_list = list()
+    for k, v in data.items():
+        data_list.append([[k, item] for item in v])
+
+    for i in range(len(data_list[0])):
+        for j in range(len(data_list)):
+            new_data_list.append(data_list[j][i])
+
+    for k, v in data.items():
+        n = len(v)
+        break
+    N = len([k for k in data.keys()])
+    period_list = [[i + 1] * N for i in range(n)]
+    new_period_list = list()
+
+    for sub_list in period_list:
+        for num in sub_list:
+            new_period_list.append(num)
+
+    # fig = go.Figure(data=[
+    #     go.Bar(name='SF Zoo', x=animals, y=[20, 14, 23]),
+    #     go.Bar(name='LA Zoo', x=animals, y=[12, 18, 29])
+    # ])
+
+    data_dict = {
+        'Period': new_period_list,
+        'Event': [item[0] for item in new_data_list],
+        'Time': [item[1] for item in new_data_list],
+    }
+
+    df = pd.DataFrame(data_dict)
+
+    data_list = list()
+    col_names = df.columns
+    events = df['Event'].unique().tolist()
+    for event in events:
+        y = df[df['Event'] == event]['Time'].to_list()
+        y = [int(item) for item in y]
+        print(event, y)
+        data_list.append(
+            go.Bar(name=event, x=df['Period'].unique().tolist(), y=y, marker_color=color_dict.get(event))
+        )
+
+    fig = go.Figure(data=data_list)
+    fig.update_layout(barmode='stack')
+    fig.show()
+
+
+def plot_bar_with_sns(data: Dict):
+    data_list = list()
+    new_data_list = list()
+    for k, v in data.items():
+        data_list.append([[k, item] for item in v])
+
+    for i in range(len(data_list[0])):
+        for j in range(len(data_list)):
+            new_data_list.append(data_list[j][i])
+
+    for k, v in data.items():
+        n = len(v)
+        break
+    N = len([k for k in data.keys()])
+    period_list = [[i + 1] * N for i in range(n)]
+    new_period_list = list()
+
+    for sub_list in period_list:
+        for num in sub_list:
+            new_period_list.append(num)
+
+    data_dict = {
+        'Period': new_period_list,
+        'Event': [item[0] for item in new_data_list],
+        'Time': [item[1] for item in new_data_list],
+
+    }
+    df = pd.DataFrame(data_dict)
+    df.to_csv('test.csv', index=False)
+    plt.figure(figsize=(20, 8))
+    g = sns.barplot(x='Period', y='Time', hue='Event', data=df, dodge=False)
+    # g.legend(loc='right')
+    sns.move_legend(g, "upper left", bbox_to_anchor=(1, 1))
+    # plt.show()
 
 
 if __name__ == '__main__':
@@ -191,7 +252,7 @@ if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('--option', default='task_profile_info_ss_nrt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
-    parser.add_argument('--f', default='cpu_profile/3-1-1.txt', help='file name')
+    parser.add_argument('--f', default='cpu_profile/3-1-16.txt', help='file name')
     parser.add_argument('--column_name', default='NUM_TIMES', help='MIN_CYCLES, MAX_CYCLES, AVG_CYCLES, NUM_TIMES')
     args = parser.parse_args()
     file_name = args.f
@@ -207,12 +268,17 @@ if __name__ == '__main__':
     # --------------------------------------- 畫圖表 ---------------------------------------
     color_dict = gen_color_dict()
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
+    # pprint(event_dict)
+    # plot_bar_with_sns(event_dict)
+    # plot_bar_with_stack_bar(event_dict, color_dict)
     fig.show()
 
     # --------------------------------------- 儲存圖表 ---------------------------------------
     save_root_dir = save_path(column_name)
-    fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
+    # fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
 
     # --------------------------------------- 儲存csv ---------------------------------------
     # df = pd.DataFrame(event_dict)
     # df.to_csv(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv', index=False)
+    # df.to_csv(f'{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv',
+    #           index=False)

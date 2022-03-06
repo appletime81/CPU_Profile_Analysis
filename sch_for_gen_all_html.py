@@ -26,4 +26,4 @@ def gen_htmls():
 
 if __name__ == '__main__':
     gen_htmls()
-    print((time.time() - start_time) / 60)
+    print((time.time() - start_time))
