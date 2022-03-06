@@ -125,11 +125,15 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
                     # offsetgroup=0
                 )
             )
+    if column_name_option == 'NUM_TIMES':
+        yaxis_title = '次數'
+    else:
+        yaxis_title = '秒數(毫秒)'
     fig.update_layout(
         title=title,
         xaxis_tickfont_size=14,
         yaxis=dict(
-            title='秒數(毫秒)',
+            title=yaxis_title,
             titlefont_size=16,
             tickfont_size=14,
         ),
@@ -146,16 +150,21 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
         width=1691,
         height=940,
         # paper_bgcolor='rgba(0,0,0,0)',
-        # plot_bgcolor='rgba(0,0,0,100)'
+        plot_bgcolor='rgba(0,0,0,100)'
     )
     if column_name_option != 'NUM_TIMES':
         fig.update_yaxes(
             range=[0, 1]
         )
     else:
-        fig.update_yaxes(
-            range=[0, 900000]
-        )
+        if 'nrt' in option:
+            fig.update_yaxes(
+                range=[0, 900000]
+            )
+        else:
+            fig.update_yaxes(
+                range=[0, 50000]
+            )
 
     return fig
 
@@ -271,11 +280,11 @@ if __name__ == '__main__':
     # pprint(event_dict)
     # plot_bar_with_sns(event_dict)
     # plot_bar_with_stack_bar(event_dict, color_dict)
-    fig.show()
+    # fig.show()
 
     # --------------------------------------- 儲存圖表 ---------------------------------------
     save_root_dir = save_path(column_name)
-    # fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
+    fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
 
     # --------------------------------------- 儲存csv ---------------------------------------
     # df = pd.DataFrame(event_dict)
