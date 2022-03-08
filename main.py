@@ -55,14 +55,13 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict, column_nam
             # index = 6 -> NUM TIMES
             temp_event_list.append(event[1])
             if index != 6:
-                # event_dict[event[1]].append(cpu_processing_time(float(event[index]), FREQ))
-                event_dict[event[1]].append(int(float(event[index])))
+                event_dict[event[1]].append(cpu_processing_time(float(event[index]), FREQ))
+                # event_dict[event[1]].append(int(float(event[index])))
             else:
                 event_dict[event[1]].append(int(event[index]) - execution_times_dict[event[1]])
                 execution_times_dict[event[1]] = int(event[index])
     return event_dict
-14572669800
-43129118500
+
 
 def calTotalCycleWithAllEvent(event_dict: Dict, option: String, file_name: String):
     list_ = list()
@@ -293,16 +292,16 @@ if __name__ == '__main__':
     event_dict = statsEvent(event_list, record_list, event_dict, column_name)
     calTotalCycleWithAllEvent(event_dict, option, file_name)
     # --------------------------------------- 畫圖表 ---------------------------------------
-    # color_dict = gen_color_dict()
-    # fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
+    color_dict = gen_color_dict()
+    fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
     # pprint(event_dict)
     # plot_bar_with_sns(event_dict)
     # plot_bar_with_stack_bar(event_dict, color_dict)
     # fig.show()
 
     # --------------------------------------- 儲存圖表 ---------------------------------------
-    # save_root_dir = save_path(column_name)
-    # fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
+    save_root_dir = save_path(column_name)
+    fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}_2plus1.html')
 
     # --------------------------------------- 儲存csv ---------------------------------------
     # df = pd.DataFrame(event_dict)

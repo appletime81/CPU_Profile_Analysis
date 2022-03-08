@@ -6,7 +6,7 @@ COLUMN_NAME = 'AVG_CYCLES'
 
 def gen_htmls():
     log_files = list()
-    for root, dirs, files in os.walk('cpu_profile'):
+    for root, dirs, files in os.walk('cpu_profile/2plus1_cores'):
         for file in files:
             log_files.append(os.path.join(root, file))
 
