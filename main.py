@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
-import seaborn as sns
+# import seaborn as sns
 # import collections
 # from dash import Dash, html, dcc
 from argparse import ArgumentParser
@@ -237,40 +237,40 @@ def plot_bar_with_stack_bar(data: Dict, color_dict: Dict):
     fig.show()
 
 
-def plot_bar_with_sns(data: Dict):
-    data_list = list()
-    new_data_list = list()
-    for k, v in data.items():
-        data_list.append([[k, item] for item in v])
-
-    for i in range(len(data_list[0])):
-        for j in range(len(data_list)):
-            new_data_list.append(data_list[j][i])
-
-    for k, v in data.items():
-        n = len(v)
-        break
-    N = len([k for k in data.keys()])
-    period_list = [[i + 1] * N for i in range(n)]
-    new_period_list = list()
-
-    for sub_list in period_list:
-        for num in sub_list:
-            new_period_list.append(num)
-
-    data_dict = {
-        'Period': new_period_list,
-        'Event': [item[0] for item in new_data_list],
-        'Time': [item[1] for item in new_data_list],
-
-    }
-    df = pd.DataFrame(data_dict)
-    df.to_csv('test.csv', index=False)
-    plt.figure(figsize=(20, 8))
-    g = sns.barplot(x='Period', y='Time', hue='Event', data=df, dodge=False)
-    # g.legend(loc='right')
-    sns.move_legend(g, "upper left", bbox_to_anchor=(1, 1))
-    # plt.show()
+# def plot_bar_with_sns(data: Dict):
+#     data_list = list()
+#     new_data_list = list()
+#     for k, v in data.items():
+#         data_list.append([[k, item] for item in v])
+#
+#     for i in range(len(data_list[0])):
+#         for j in range(len(data_list)):
+#             new_data_list.append(data_list[j][i])
+#
+#     for k, v in data.items():
+#         n = len(v)
+#         break
+#     N = len([k for k in data.keys()])
+#     period_list = [[i + 1] * N for i in range(n)]
+#     new_period_list = list()
+#
+#     for sub_list in period_list:
+#         for num in sub_list:
+#             new_period_list.append(num)
+#
+#     data_dict = {
+#         'Period': new_period_list,
+#         'Event': [item[0] for item in new_data_list],
+#         'Time': [item[1] for item in new_data_list],
+#
+#     }
+#     df = pd.DataFrame(data_dict)
+#     df.to_csv('test.csv', index=False)
+#     plt.figure(figsize=(20, 8))
+#     g = sns.barplot(x='Period', y='Time', hue='Event', data=df, dodge=False)
+#     # g.legend(loc='right')
+#     sns.move_legend(g, "upper left", bbox_to_anchor=(1, 1))
+#     # plt.show()
 
 
 if __name__ == '__main__':
