@@ -58,6 +58,7 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict, column_nam
                 event_dict[event[1]].append(cpu_processing_time(float(event[index]), FREQ))
                 # event_dict[event[1]].append(int(float(event[index])))
             else:
+                print(f'times: {event[index]}')
                 event_dict[event[1]].append(int(event[index]) - execution_times_dict[event[1]])
                 execution_times_dict[event[1]] = int(event[index])
     return event_dict
@@ -71,12 +72,12 @@ def calTotalCycleWithAllEvent(event_dict: Dict, option: String, file_name: Strin
     array = np.array(list_)
     array_sum = np.sum(array, axis=1)
     array_sum_max = np.max(array_sum)
-    array_sum_max = array_sum_max * 1.3 * 1000
+    array_sum_max = array_sum_max
     print(file_name, end=' --> ')
     print(option, end=': ')
     print(array_sum_max)
     # return array_sum_max
-1196432
+
 
 def save_path(column_name: String):
     save_root_dir = 'analysis_result_'
@@ -125,10 +126,6 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
     df.to_csv('test.csv', index=False)
 
     # ------------ plot chart ------------
-
-    # fig = px.bar(df, x='Period', y=column_names, barmode='group', color_discrete_sequence=px.colors.qualitative.Light24,
-    #              title='Time Statistics')
-    # fig.write_html('temp.html')
     fig = go.Figure()
     for column_name in column_names:
         if column_name != 'Period':
@@ -160,7 +157,6 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
             bgcolor='rgba(0, 0, 0, 0)',
             bordercolor='rgba(0, 0, 0, 100)'
         ),
-        # barmode='group',
         bargap=0.15,  # gap between bars of adjacent location coordinates.
         bargroupgap=0.1,  # gap between bars of the same location coordinate.
         hoverlabel_namelength=50,
@@ -184,56 +180,6 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
             )
 
     return fig
-
-
-def plot_bar_with_stack_bar(data: Dict, color_dict: Dict):
-    data_list = list()
-    new_data_list = list()
-    for k, v in data.items():
-        data_list.append([[k, item] for item in v])
-
-    for i in range(len(data_list[0])):
-        for j in range(len(data_list)):
-            new_data_list.append(data_list[j][i])
-
-    for k, v in data.items():
-        n = len(v)
-        break
-    N = len([k for k in data.keys()])
-    period_list = [[i + 1] * N for i in range(n)]
-    new_period_list = list()
-
-    for sub_list in period_list:
-        for num in sub_list:
-            new_period_list.append(num)
-
-    # fig = go.Figure(data=[
-    #     go.Bar(name='SF Zoo', x=animals, y=[20, 14, 23]),
-    #     go.Bar(name='LA Zoo', x=animals, y=[12, 18, 29])
-    # ])
-
-    data_dict = {
-        'Period': new_period_list,
-        'Event': [item[0] for item in new_data_list],
-        'Time': [item[1] for item in new_data_list],
-    }
-
-    df = pd.DataFrame(data_dict)
-
-    data_list = list()
-    col_names = df.columns
-    events = df['Event'].unique().tolist()
-    for event in events:
-        y = df[df['Event'] == event]['Time'].to_list()
-        y = [int(item) for item in y]
-        print(event, y)
-        data_list.append(
-            go.Bar(name=event, x=df['Period'].unique().tolist(), y=y, marker_color=color_dict.get(event))
-        )
-
-    fig = go.Figure(data=data_list)
-    fig.update_layout(barmode='stack')
-    fig.show()
 
 
 # def plot_bar_with_sns(data: Dict):
@@ -296,12 +242,11 @@ if __name__ == '__main__':
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
     # pprint(event_dict)
     # plot_bar_with_sns(event_dict)
-    # plot_bar_with_stack_bar(event_dict, color_dict)
-    # fig.show()
+    fig.show()
 
     # --------------------------------------- 儲存圖表 ---------------------------------------
-    save_root_dir = save_path(column_name)
-    fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}_2plus1.html')
+    # save_root_dir = save_path(column_name)
+    # fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}_2plus1.html')
 
     # --------------------------------------- 儲存csv ---------------------------------------
     # df = pd.DataFrame(event_dict)
