@@ -1,7 +1,7 @@
 import re
 from tokenize import String
 from typing import List
-
+from pprint import pprint
 
 def condition_option(opt_name: String):
     condition_dict = {
@@ -115,12 +115,21 @@ def get_all_events(fileName: String, condtion_list: List):
                 temp_line = lines[i].replace(' ', '_')
                 temp_line_list = temp_line.split('_')
                 temp_line_list = [element for element in temp_line_list if element != '']
+                # print(temp_line_list)
                 if condtion_list[0] == 'QUEUE PROFILE INFO':
                     temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-4])] + temp_line_list[-4:]
                 else:
+                    if re.search('\d+', temp_line_list[-5]):
+                        find_index = -5
+                    else:
+                        find_index = -4
+                    if find_index == -4:
+                        temp_line_list += [0]
                     temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-5])] + temp_line_list[-5:]
                 record_list.append(temp_line_list)
                 event_list.append(temp_line_list[1])
-
+    # pprint(record_list)
     event_list = sorted(list(set(event_list)), reverse=True)
+    # print(len(set(event_list)))
+    # pprint(event_list)
     return record_list, event_list

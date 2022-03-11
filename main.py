@@ -58,7 +58,7 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict, column_nam
                 event_dict[event[1]].append(cpu_processing_time(float(event[index]), FREQ))
                 # event_dict[event[1]].append(int(float(event[index])))
             else:
-                print(f'times: {event[index]}')
+                print(f'times: {event[index].strip()}')
                 event_dict[event[1]].append(int(event[index]) - execution_times_dict[event[1]])
                 execution_times_dict[event[1]] = int(event[index])
     return event_dict
@@ -66,16 +66,20 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict, column_nam
 
 def calTotalCycleWithAllEvent(event_dict: Dict, option: String, file_name: String):
     list_ = list()
+    # pprint(event_dict)
+    print('--------------------------------------------')
     for k, v in event_dict.items():
+        print(len(v))
         list_.append(v)
 
     array = np.array(list_)
+    print(array.shape)
     array_sum = np.sum(array, axis=1)
     array_sum_max = np.max(array_sum)
     array_sum_max = array_sum_max
-    print(file_name, end=' --> ')
-    print(option, end=': ')
-    print(array_sum_max)
+    # print(file_name, end=' --> ')
+    # print(option, end=': ')
+    # print(array_sum_max)
     # return array_sum_max
 
 
@@ -92,6 +96,7 @@ def save_path(column_name: String):
 
 
 def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, column_name_option: String):
+    # print(fileName)
     def gen_chart_title(file_name: String, option: String):
         file_name_list = file_name.split('/')
         file_name = file_name_list[-1]
@@ -123,7 +128,7 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
         data_list.append(temp_list)
 
     df = pd.DataFrame(data_list, columns=column_names)
-    df.to_csv('test.csv', index=False)
+    # df.to_csv('test.csv', index=False)
 
     # ------------ plot chart ------------
     fig = go.Figure()
@@ -224,8 +229,8 @@ if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('--option', default='task_profile_info_ss_nrt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
-    parser.add_argument('--f', default='cpu_profile/3-1-16.txt', help='file name')
-    parser.add_argument('--column_name', default='NUM_TIMES', help='MIN_CYCLES, MAX_CYCLES, AVG_CYCLES, NUM_TIMES')
+    parser.add_argument('--f', default='cpu_profile/3-1-1.txt', help='file name')
+    parser.add_argument('--column_name', default='AVG_CYCLES', help='MIN_CYCLES, MAX_CYCLES, AVG_CYCLES, NUM_TIMES')
     args = parser.parse_args()
     file_name = args.f
     option = args.option
@@ -236,18 +241,21 @@ if __name__ == '__main__':
     record_list, event_list = get_all_events(file_name, condition_list)
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict, column_name)
-    calTotalCycleWithAllEvent(event_dict, option, file_name)
+    # pprint(event_dict)
+    # for k, v in event_dict.items():
+    #     print(len(v))
+    # calTotalCycleWithAllEvent(event_dict, option, file_name)
     # --------------------------------------- 畫圖表 ---------------------------------------
     color_dict = gen_color_dict()
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
     # pprint(event_dict)
     # plot_bar_with_sns(event_dict)
-    fig.show()
+    # fig.show()
 
     # --------------------------------------- 儲存圖表 ---------------------------------------
-    # save_root_dir = save_path(column_name)
-    # fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}_2plus1.html')
-
+    save_root_dir = save_path(column_name)
+    fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
+    print('Done')
     # --------------------------------------- 儲存csv ---------------------------------------
     # df = pd.DataFrame(event_dict)
     # df.to_csv(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv', index=False)
