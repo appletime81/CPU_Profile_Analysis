@@ -259,5 +259,5 @@ if __name__ == '__main__':
     # --------------------------------------- 儲存csv ---------------------------------------
     # df = pd.DataFrame(event_dict)
     # df.to_csv(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv', index=False)
-    # df.to_csv(f'{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv',
-    #           index=False)
+    df.to_csv(f'{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv',
+              index=False)
