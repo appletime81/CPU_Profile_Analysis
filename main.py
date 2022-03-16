@@ -227,11 +227,12 @@ if __name__ == '__main__':
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
     # --------------------------------------- 參數設置 ---------------------------------------
     parser = ArgumentParser()
-    parser.add_argument('--option', default='task_profile_info_ss_nrt_task',
+    parser.add_argument('--option', default='queue_profile_info_ss_nrt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
-    parser.add_argument('--f', default='cpu_profile/3-1-1.txt', help='file name')
+    parser.add_argument('--f', default='cpu_profile/2-4-16.txt', help='file name')
     parser.add_argument('--column_name', default='AVG_CYCLES', help='MIN_CYCLES, MAX_CYCLES, AVG_CYCLES, NUM_TIMES')
     args = parser.parse_args()
+
     file_name = args.f
     option = args.option
     column_name = args.column_name
@@ -241,16 +242,12 @@ if __name__ == '__main__':
     record_list, event_list = get_all_events(file_name, condition_list)
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict, column_name)
-    # pprint(event_dict)
-    # for k, v in event_dict.items():
-    #     print(len(v))
+
     # calTotalCycleWithAllEvent(event_dict, option, file_name)
     # --------------------------------------- 畫圖表 ---------------------------------------
     color_dict = gen_color_dict()
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
-    # pprint(event_dict)
-    # plot_bar_with_sns(event_dict)
-    # fig.show()
+    fig.show()
 
     # --------------------------------------- 儲存圖表 ---------------------------------------
     save_root_dir = save_path(column_name)
@@ -258,6 +255,5 @@ if __name__ == '__main__':
     print('Done')
     # --------------------------------------- 儲存csv ---------------------------------------
     df = pd.DataFrame(event_dict)
-    # df.to_csv(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv', index=False)
     df.to_csv(f'{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv',
               index=False)
