@@ -125,6 +125,7 @@ def get_all_events(fileName: String, condtion_list: List):
                         find_index = -4
                     if find_index == -4:
                         temp_line_list += [0]
+                    print(temp_line_list)
                     temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-5])] + temp_line_list[-5:]
                 record_list.append(temp_line_list)
                 event_list.append(temp_line_list[1])

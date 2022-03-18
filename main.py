@@ -229,7 +229,7 @@ if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('--option', default='queue_profile_info_ss_nrt_task',
                         help='Search Task Profile Info Content or Queue Profile Info')
-    parser.add_argument('--f', default='cpu_profile/2-4-16.txt', help='file name')
+    parser.add_argument('--f', default='cpu_profile/2plus1-1-32.txt', help='file name')
     parser.add_argument('--column_name', default='AVG_CYCLES', help='MIN_CYCLES, MAX_CYCLES, AVG_CYCLES, NUM_TIMES')
     args = parser.parse_args()
 
@@ -254,6 +254,6 @@ if __name__ == '__main__':
     fig.write_html(f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
     print('Done')
     # --------------------------------------- 儲存csv ---------------------------------------
-    df = pd.DataFrame(event_dict)
-    df.to_csv(f'{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv',
-              index=False)
+    # df = pd.DataFrame(event_dict)
+    # df.to_csv(f'{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv',
+    #           index=False)
