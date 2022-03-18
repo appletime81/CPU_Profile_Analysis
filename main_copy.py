@@ -17,15 +17,11 @@ from utils.color_dict import gen_color_dict
 app = Dash(__name__)
 
 FREQ = 1.3 * 1000
-COLUMN_DICT = {
-    'MIN_CYCLES': 2,
-    'MAX_CYCLES': 3,
-    'AVG_CYCLES': 4,
-    'NUM_TIMES': 6
-}
+COLUMN_DICT = {"MIN_CYCLES": 2, "MAX_CYCLES": 3, "AVG_CYCLES": 4, "NUM_TIMES": 6}
+
 
 def readProfileFile(fileName: String):
-    with open(fileName, 'r', encoding='utf-8') as fp:
+    with open(fileName, "r", encoding="utf-8") as fp:
         lines = fp.readlines()
     return lines
 
@@ -34,11 +30,13 @@ def genTaskDict(event_names: List):
     return dict([(event_name, list()) for event_name in event_names])
 
 
-def statsEvent(event_list: List, record_list: List, event_dict: Dict, column_name: String):
+def statsEvent(
+    event_list: List, record_list: List, event_dict: Dict, column_name: String
+):
     index = COLUMN_DICT.get(column_name)
     temp_event_list = list()
     for event in record_list:
-        if event == '##########':
+        if event == "##########":
             for element in event_list:
                 if element not in temp_event_list:
                     event_dict[element].append(0)
@@ -51,28 +49,36 @@ def statsEvent(event_list: List, record_list: List, event_dict: Dict, column_nam
             # index = 6 -> NUM TIMES
             temp_event_list.append(event[1])
             if index != 6:
-                event_dict[event[1]].append(cpu_processing_time(float(event[index]), FREQ))
+                event_dict[event[1]].append(
+                    cpu_processing_time(float(event[index]), FREQ)
+                )
             else:
                 event_dict[event[1]].append(int(event[index]))
     return event_dict
 
 
-def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, column_name_option: String):
+def plot_bar(
+    data: Dict,
+    color_dict: Dict,
+    fileName: String,
+    option: String,
+    column_name_option: String,
+):
     def gen_chart_title(file_name: String, option: String):
-        file_name_list = file_name.split('/')
+        file_name_list = file_name.split("/")
         file_name = file_name_list[-1]
-        cup_core, ue_per_tti, ue_nums = file_name.replace('.txt', '').split('-')[0:3]
+        cup_core, ue_per_tti, ue_nums = file_name.replace(".txt", "").split("-")[0:3]
 
-        if 'queue' in option:
-            if 'nrt' in option:
-                return f'Non Real Time Task   |   In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}'
+        if "queue" in option:
+            if "nrt" in option:
+                return f"Non Real Time Task   |   In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}"
             else:
-                return f'Real Time Task   |   In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}'
+                return f"Real Time Task   |   In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}"
         else:
-            if 'nrt' in option:
-                return f'Non Real Time Task   |   Not In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}'
+            if "nrt" in option:
+                return f"Non Real Time Task   |   Not In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}"
             else:
-                return f'Real Time Task   |   Not In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}'
+                return f"Real Time Task   |   Not In Queue   |   CPU核心數: {cup_core}   |   UE/TTI: {ue_per_tti}   |   UE個數: {ue_nums}"
 
     title = gen_chart_title(file_name=fileName, option=option)
 
@@ -80,11 +86,11 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
     new_data = dict([(key, data.get(key)) for key in sorted_data_key])
 
     data_list = list()
-    column_names = ['Period'] + [key for key, _ in new_data.items()]
+    column_names = ["Period"] + [key for key, _ in new_data.items()]
     n = len(data.get(column_names[1]))
 
     for i in range(n):
-        temp_list = [f'Period {i + 1}']
+        temp_list = [f"Period {i + 1}"]
         temp_list += [value[i] for key, value in new_data.items()]
         data_list.append(temp_list)
 
@@ -97,44 +103,40 @@ def plot_bar(data: Dict, color_dict: Dict, fileName: String, option: String, col
     # fig.write_html('temp.html')
     fig = go.Figure()
     for column_name in column_names:
-        if column_name != 'Period':
+        if column_name != "Period":
             fig.add_trace(
                 go.Bar(
-                    x=df['Period'].to_list(),
+                    x=df["Period"].to_list(),
                     y=df[column_name].to_list(),
                     name=column_name,
-                    marker_color=color_dict.get(column_name)
+                    marker_color=color_dict.get(column_name),
                 )
             )
     fig.update_layout(
         title=title,
         xaxis_tickfont_size=14,
         yaxis=dict(
-            title='秒數(毫秒)',
+            title="秒數(毫秒)",
             titlefont_size=16,
             tickfont_size=14,
         ),
         legend=dict(
             x=1.0,
             y=1.0,
-            bgcolor='rgba(255, 255, 255, 0)',
-            bordercolor='rgba(255, 255, 255, 0)'
+            bgcolor="rgba(255, 255, 255, 0)",
+            bordercolor="rgba(255, 255, 255, 0)",
         ),
-        barmode='group',
+        barmode="group",
         bargap=0.15,  # gap between bars of adjacent location coordinates.
         bargroupgap=0.1,  # gap between bars of the same location coordinate.
         hoverlabel_namelength=50,
         width=1691,
-        height=940
+        height=940,
     )
-    if column_name_option != 'NUM_TIMES':
-        fig.update_yaxes(
-            range=[0, 1]
-        )
+    if column_name_option != "NUM_TIMES":
+        fig.update_yaxes(range=[0, 1])
     else:
-        fig.update_yaxes(
-            range=[0, 300000]
-        )
+        fig.update_yaxes(range=[0, 300000])
 
     return fig
 
@@ -157,27 +159,33 @@ def plot_bar_with_sns(data: Dict):
             new_period_list.append(num)
 
     data_dict = {
-        'Period': new_period_list,
-        'Event': [item[0] for item in new_data_list],
-        'Time': [item[1] for item in new_data_list],
-
+        "Period": new_period_list,
+        "Event": [item[0] for item in new_data_list],
+        "Time": [item[1] for item in new_data_list],
     }
     df = pd.DataFrame(data_dict)
 
-    sns.barplot(x='Period', y='Time', hue='Event', data=df)
+    sns.barplot(x="Period", y="Time", hue="Event", data=df)
     plt.show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
     parser = ArgumentParser()
-    parser.add_argument('--option', default='task_profile_info_ss_nrt_task',
-                        help='Search Task Profile Info Content or Queue Profile Info')
-    parser.add_argument('--f', default='0225/frank/2-1-1.txt', help='file name')
-    parser.add_argument('--ue', default='32', help='UE Numbers')
-    parser.add_argument('--pool', default='1', help='Pool Numbers')
-    parser.add_argument('--uetti', default='1', help='UE Per TTI')
-    parser.add_argument('--column_name', default='AVG_CYCLES', help='MIN_CYCLES, MAX_CYCLES, AVG_CYCLES, NUM_TIMES')
+    parser.add_argument(
+        "--option",
+        default="task_profile_info_ss_nrt_task",
+        help="Search Task Profile Info Content or Queue Profile Info",
+    )
+    parser.add_argument("--f", default="0225/frank/2-1-1.txt", help="file name")
+    parser.add_argument("--ue", default="32", help="UE Numbers")
+    parser.add_argument("--pool", default="1", help="Pool Numbers")
+    parser.add_argument("--uetti", default="1", help="UE Per TTI")
+    parser.add_argument(
+        "--column_name",
+        default="AVG_CYCLES",
+        help="MIN_CYCLES, MAX_CYCLES, AVG_CYCLES, NUM_TIMES",
+    )
 
     args = parser.parse_args()
     file_name = args.f
@@ -198,7 +206,9 @@ if __name__ == '__main__':
 
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
     fig.show()
-    fig.write_html(f'analysis_result_for_execution_times/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html')
+    fig.write_html(
+        f'analysis_result_for_execution_times/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html'
+    )
 
     # -------------- dash server --------------
     # app.layout = html.Div(children=[

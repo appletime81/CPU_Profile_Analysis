@@ -3,19 +3,32 @@ from tokenize import String
 from typing import List
 from pprint import pprint
 
+
 def condition_option(opt_name: String):
     condition_dict = {
-        'task_profile_info_ss_rt_task': ['TASK PROFILE INFO', 'SS_RT_TASK', 'SS_NRT_TASK'],
-        'task_profile_info_ss_nrt_task': ['TASK PROFILE INFO', 'SS_NRT_TASK', 'QUEUE PROFILE INFO'],
-        'queue_profile_info_ss_rt_task': ['QUEUE PROFILE INFO', 'SS_RT_TASK', 'SS_NRT_TASK'],
-        'queue_profile_info_ss_nrt_task': ['QUEUE PROFILE INFO', 'SS_NRT_TASK']
+        "task_profile_info_ss_rt_task": [
+            "TASK PROFILE INFO",
+            "SS_RT_TASK",
+            "SS_NRT_TASK",
+        ],
+        "task_profile_info_ss_nrt_task": [
+            "TASK PROFILE INFO",
+            "SS_NRT_TASK",
+            "QUEUE PROFILE INFO",
+        ],
+        "queue_profile_info_ss_rt_task": [
+            "QUEUE PROFILE INFO",
+            "SS_RT_TASK",
+            "SS_NRT_TASK",
+        ],
+        "queue_profile_info_ss_nrt_task": ["QUEUE PROFILE INFO", "SS_NRT_TASK"],
     }
     return condition_dict.get(opt_name)
 
 
 def get_all_events(fileName: String, condtion_list: List):
     # -------------------------declare vars-------------------------
-    with open(fileName, 'r') as f:
+    with open(fileName, "r") as f:
         lines = f.readlines()
     event_list = list()
     ss_rt_or_nrt_flag = False
@@ -91,42 +104,74 @@ def get_all_events(fileName: String, condtion_list: List):
         if len(condtion_list) == 3:
             if condtion_list[2] in lines[i]:  # Condition3
                 if ss_rt_or_nrt_flag and start_record_flag:
-                    record_list.append('##########')
+                    record_list.append("##########")
                     start_record_flag = False
                     ss_rt_or_nrt_flag = False
         elif len(condtion_list) == 2:
             try:
-                if re.findall(r'gnb_du_1           \| \d+', lines[i + 1]) and len(
-                        lines[i + 1].split(" ")) == 13:  # Condition3
+                if (
+                    re.findall(r"gnb_du_1           \| \d+", lines[i + 1])
+                    and len(lines[i + 1].split(" ")) == 13
+                ):  # Condition3
                     if ss_rt_or_nrt_flag and start_record_flag and index_condition:
-                        record_list.append('##########')
+                        record_list.append("##########")
                         start_record_flag = False
                         ss_rt_or_nrt_flag = False
-                elif 'gnb_cu_1' in lines[i + 1]:
+                elif "gnb_cu_1" in lines[i + 1]:
                     if ss_rt_or_nrt_flag and start_record_flag and index_condition:
-                        record_list.append('##########')
+                        record_list.append("##########")
                         start_record_flag = False
                         ss_rt_or_nrt_flag = False
             except IndexError:
                 pass
 
         if ss_rt_or_nrt_flag and start_record_flag and index_condition:
-            if 'EVT_' in lines[i]:
-                temp_line = lines[i].replace(' ', '_')
-                temp_line_list = temp_line.split('_')
-                temp_line_list = [element for element in temp_line_list if element != '']
+            if "EVT_" in lines[i]:
+                temp_line = lines[i].replace(" ", "_")
+                temp_line_list = temp_line.split("_")
+                temp_line_list = [
+                    element for element in temp_line_list if element != ""
+                ]
                 # print(temp_line_list)
-                if condtion_list[0] == 'QUEUE PROFILE INFO':
-                    temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-4])] + temp_line_list[-4:]
-                else:
-                    if re.search('\d+', temp_line_list[-5]):
-                        find_index = -5
+                if condtion_list[0] == "QUEUE PROFILE INFO":
+                    # print(temp_line_list)
+                    if (
+                        temp_line_list[-4].replace(".", "").isdigit()
+                        and temp_line_list[-5].replace(".", "").isdigit()
+                    ):
+                        temp_line_list = (
+                            ["_".join(temp_line_list[:4])]
+                            + ["_".join(temp_line_list[4:-5])]
+                            + temp_line_list[-4:]
+                        )
+                    elif  temp_line_list[-3].replace(".", "").isdigit() and  not temp_line_list[-4].replace(".", "").isdigit():
+                        temp_line_list = (
+                            ["_".join(temp_line_list[:4])]
+                            + ["_".join(temp_line_list[4:-3])]
+                            + temp_line_list[-3:]
+                        )
                     else:
-                        find_index = -4
-                    if find_index == -4:
-                        temp_line_list += [0]
-                    print(temp_line_list)
-                    temp_line_list = ['_'.join(temp_line_list[:4])] + ['_'.join(temp_line_list[4:-5])] + temp_line_list[-5:]
+                        temp_line_list = (
+                            ["_".join(temp_line_list[:4])]
+                            + ["_".join(temp_line_list[4:-4])]
+                            + temp_line_list[-4:]
+                        )
+                else:
+                    if (
+                        temp_line_list[-5].replace(".", "").isdigit()
+                        and temp_line_list[-6].replace(".", "").isdigit()
+                    ):
+                        temp_line_list = (
+                            ["_".join(temp_line_list[:4])]
+                            + ["_".join(temp_line_list[4:-6])]
+                            + temp_line_list[-6:]
+                        )
+                    else:
+                        temp_line_list = (
+                            ["_".join(temp_line_list[:4])]
+                            + ["_".join(temp_line_list[4:-5])]
+                            + temp_line_list[-5:]
+                        )
                 record_list.append(temp_line_list)
                 event_list.append(temp_line_list[1])
     # pprint(record_list)
