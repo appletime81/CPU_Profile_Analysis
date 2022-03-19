@@ -65,21 +65,21 @@ EVT_UDX_STA_UPD_REQUEST
 
 def gen_color_dict():
     color_dict = dict()
-    temp_string = ''
+    temp_string = ""
     color_list = gen_random_color()
     i = 0
     color_list_idx = 1
     for char in events_text:
         temp_string += char
-        if char == '\n':
+        if char == "\n":
             if temp_string not in color_dict:
                 color_dict[temp_string.strip()] = color_list[color_list_idx]
                 color_list_idx += 1
-            temp_string = ''
+            temp_string = ""
 
     return color_dict
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     color_dict = gen_color_dict()
     pprint(color_dict)

@@ -144,7 +144,10 @@ def get_all_events(fileName: String, condtion_list: List):
                             + ["_".join(temp_line_list[4:-5])]
                             + temp_line_list[-4:]
                         )
-                    elif  temp_line_list[-3].replace(".", "").isdigit() and  not temp_line_list[-4].replace(".", "").isdigit():
+                    elif (
+                        temp_line_list[-3].replace(".", "").isdigit()
+                        and not temp_line_list[-4].replace(".", "").isdigit()
+                    ):
                         temp_line_list = (
                             ["_".join(temp_line_list[:4])]
                             + ["_".join(temp_line_list[4:-3])]
