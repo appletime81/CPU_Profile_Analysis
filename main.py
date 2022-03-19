@@ -59,7 +59,7 @@ def statsEvent(
                 )
                 # event_dict[event[1]].append(int(float(event[index])))
             else:
-                print(f"times: {event[index].strip()}")
+                # print(f"times: {event[index].strip()}")
                 event_dict[event[1]].append(
                     int(event[index]) - execution_times_dict[event[1]]
                 )
@@ -231,7 +231,7 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument(
         "--option",
-        default="queue_profile_info_ss_nrt_task",
+        default="task_profile_info_ss_nrt_task",
         help="Search Task Profile Info Content or Queue Profile Info",
     )
     parser.add_argument("--f", default="cpu_profile/2-1-32.txt", help="file name")
@@ -258,7 +258,7 @@ if __name__ == "__main__":
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
     # import time
     # time.sleep(5)
-    # fig.show()
+    fig.show()
 
     # --------------------------------------- 儲存圖表 ---------------------------------------
     save_root_dir = save_path(column_name)
