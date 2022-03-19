@@ -257,15 +257,20 @@ if __name__ == "__main__":
     color_dict = gen_color_dict()
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
     # import time
-    # time.sleep(5)
-    fig.show()
+    # time.sleep(3)
+    # fig.show()
 
     # --------------------------------------- 儲存圖表 ---------------------------------------
     save_root_dir = save_path(column_name)
-    fig.write_html(
-        f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html'
-    )
-    print("Done")
+    # fig.write_html(
+    #     f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html'
+    # )
+    # fig.write_image(f'avg_cycles_images/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.png')
+    fig.write_image(f'avg_cycles_images/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.png', engine="kaleido")
+    # print("Done")
+    # img_bytes = fig.to_image(format="png")
+    # print(type(img_bytes))
+
     # --------------------------------------- 儲存csv ---------------------------------------
     # df = pd.DataFrame(event_dict)
     # df.to_csv(f'{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv',

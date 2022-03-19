@@ -160,7 +160,7 @@ def get_all_events(fileName: String, condtion_list: List):
                             + temp_line_list[-4:]
                         )
                 else:
-                    print(temp_line_list)
+                    # print(temp_line_list)
                     if (
                         temp_line_list[-5].replace(".", "").isdigit()
                         and temp_line_list[-6].replace(".", "").isdigit()
@@ -170,14 +170,31 @@ def get_all_events(fileName: String, condtion_list: List):
                             + ["_".join(temp_line_list[4:-6])]
                             + temp_line_list[-6:]
                         )
-
+                    elif (
+                        temp_line_list[-3].replace(".", "").isdigit()
+                        and not temp_line_list[-4].replace(".", "").isdigit()
+                    ):
+                        temp_line_list = (
+                            ["_".join(temp_line_list[:4])]
+                            + ["_".join(temp_line_list[4:-3])]
+                            + temp_line_list[-3:]
+                        )
+                    elif (
+                        temp_line_list[-4].replace(".", "").isdigit()
+                        and not temp_line_list[-5].replace(".", "").isdigit()
+                    ):
+                        temp_line_list = (
+                            ["_".join(temp_line_list[:4])]
+                            + ["_".join(temp_line_list[4:-4])]
+                            + temp_line_list[-4:]
+                        )
                     else:
                         temp_line_list = (
                             ["_".join(temp_line_list[:4])]
                             + ["_".join(temp_line_list[4:-5])]
                             + temp_line_list[-5:]
                         )
-                    print(temp_line_list)
+                    # print(temp_line_list)
                 record_list.append(temp_line_list)
                 event_list.append(temp_line_list[1])
     # pprint(record_list)
