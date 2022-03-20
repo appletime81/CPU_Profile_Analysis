@@ -3,6 +3,10 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from plotly.io import write_image
+import plotly.io as pio
+
+pio.kaleido.scope.mathjax = None
 import matplotlib.pyplot as plt
 
 # import seaborn as sns
@@ -178,6 +182,10 @@ def plot_bar(
     )
     if "queue_profile_info_ss_rt_task" == option:
         fig.update_yaxes(range=[0, 0.015])
+    elif (
+        column_name_option != "NUM_TIMES" and option == "task_profile_info_ss_nrt_task"
+    ):
+        fig.update_yaxes(range=[0, 40])
     elif column_name_option != "NUM_TIMES":
         fig.update_yaxes(range=[0, 1])
     else:
@@ -234,7 +242,7 @@ if __name__ == "__main__":
         default="task_profile_info_ss_nrt_task",
         help="Search Task Profile Info Content or Queue Profile Info",
     )
-    parser.add_argument("--f", default="cpu_profile/2-1-32.txt", help="file name")
+    parser.add_argument("--f", default="cpu_profile/2plus1-4-16.txt", help="file name")
     parser.add_argument(
         "--column_name",
         default="AVG_CYCLES",
@@ -259,19 +267,22 @@ if __name__ == "__main__":
     # import time
     # time.sleep(3)
     # fig.show()
-
+    # print(type(fig))
     # --------------------------------------- 儲存圖表 ---------------------------------------
     save_root_dir = save_path(column_name)
     # fig.write_html(
     #     f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html'
     # )
-    # fig.write_image(f'avg_cycles_images/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.png')
-    fig.write_image(f'avg_cycles_images/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.png', engine="kaleido")
-    # print("Done")
-    # img_bytes = fig.to_image(format="png")
-    # print(type(img_bytes))
+    write_image(
+        fig=fig,
+        file=f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.png',
+        format="png",
+        engine="orca",
+    )
 
     # --------------------------------------- 儲存csv ---------------------------------------
     # df = pd.DataFrame(event_dict)
     # df.to_csv(f'{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv',
     #           index=False)
+
+    # task_profile_info_ss_nrt_task_3_1_32.png
