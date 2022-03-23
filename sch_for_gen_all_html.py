@@ -20,7 +20,7 @@ def gen_htmls():
     else:
         event_types = ['task_profile_info_ss_rt_task',
                        'task_profile_info_ss_nrt_task']
-
+    log_files = ['cpu_profile/2-4-32-du-no-dead-003.txt']
     for log_file in log_files:
         for event_type in event_types:
             print(log_file)

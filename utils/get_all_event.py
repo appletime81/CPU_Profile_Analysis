@@ -30,6 +30,7 @@ def get_all_events(fileName: String, condtion_list: List):
     # -------------------------declare vars-------------------------
     with open(fileName, "r") as f:
         lines = f.readlines()
+    pprint(lines)
     event_list = list()
     ss_rt_or_nrt_flag = False
     start_record_flag = False
@@ -197,7 +198,9 @@ def get_all_events(fileName: String, condtion_list: List):
                     print(temp_line_list)
                 record_list.append(temp_line_list)
                 event_list.append(temp_line_list[1])
-    # pprint(record_list)
+    print('----------------------')
+    pprint(record_list)
+    print('----------------------')
     event_list = sorted(list(set(event_list)), reverse=True)
     # print(len(set(event_list)))
     # pprint(event_list)

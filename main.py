@@ -4,9 +4,9 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.io import write_image
-import plotly.io as pio
+# import plotly.io as pio
 
-pio.kaleido.scope.mathjax = None
+# pio.kaleido.scope.mathjax = None
 import matplotlib.pyplot as plt
 
 # import seaborn as sns
@@ -259,26 +259,26 @@ if __name__ == "__main__":
     record_list, event_list = get_all_events(file_name, condition_list)
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict, column_name)
-    # pprint(event_dict)
+    pprint(event_dict)
     # calTotalCycleWithAllEvent(event_dict, option, file_name)
     # --------------------------------------- 畫圖表 ---------------------------------------
     color_dict = gen_color_dict()
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
     # import time
     # time.sleep(3)
-    # fig.show()
+    fig.show()
     # print(type(fig))
     # --------------------------------------- 儲存圖表 ---------------------------------------
     save_root_dir = save_path(column_name)
     # fig.write_html(
     #     f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html'
     # )
-    write_image(
-        fig=fig,
-        file=f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.png',
-        format="png",
-        engine="orca",
-    )
+    # write_image(
+    #     fig=fig,
+    #     file=f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.png',
+    #     format="png",
+    #     engine="orca",
+    # )
 
     # --------------------------------------- 儲存csv ---------------------------------------
     # df = pd.DataFrame(event_dict)
