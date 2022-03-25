@@ -239,10 +239,10 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument(
         "--option",
-        default="task_profile_info_ss_nrt_task",
+        default="task_profile_info_ss_rt_task",
         help="Search Task Profile Info Content or Queue Profile Info",
     )
-    parser.add_argument("--f", default="cpu_profile/2plus1-4-16.txt", help="file name")
+    parser.add_argument("--f", default="cpu_profile/2-8-32-dead-002.txt", help="file name")
     parser.add_argument(
         "--column_name",
         default="AVG_CYCLES",
@@ -259,7 +259,7 @@ if __name__ == "__main__":
     record_list, event_list = get_all_events(file_name, condition_list)
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict, column_name)
-    pprint(event_dict)
+    # pprint(event_dict)
     # calTotalCycleWithAllEvent(event_dict, option, file_name)
     # --------------------------------------- 畫圖表 ---------------------------------------
     color_dict = gen_color_dict()
@@ -267,6 +267,8 @@ if __name__ == "__main__":
     # import time
     # time.sleep(3)
     fig.show()
+    print(len(event_dict.keys()))
+    print(event_dict.keys())
     # print(type(fig))
     # --------------------------------------- 儲存圖表 ---------------------------------------
     save_root_dir = save_path(column_name)
