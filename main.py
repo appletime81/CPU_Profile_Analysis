@@ -133,6 +133,7 @@ def plot_bar(
 
     data_list = list()
     column_names = ["Period"] + [key for key, _ in new_data.items()]
+
     n = len(data.get(column_names[1]))
 
     for i in range(n):
@@ -239,10 +240,10 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument(
         "--option",
-        default="task_profile_info_ss_rt_task",
+        default="queue_profile_info_ss_rt_task",
         help="Search Task Profile Info Content or Queue Profile Info",
     )
-    parser.add_argument("--f", default="cpu_profile/2-8-32-dead-002.txt", help="file name")
+    parser.add_argument("--f", default="20220324/2-4-32.txt", help="file name")
     parser.add_argument(
         "--column_name",
         default="AVG_CYCLES",
@@ -266,15 +267,15 @@ if __name__ == "__main__":
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
     # import time
     # time.sleep(3)
-    fig.show()
-    print(len(event_dict.keys()))
-    print(event_dict.keys())
+    # fig.show()
+    # print(len(event_dict.keys()))
+    # print(event_dict.keys())
     # print(type(fig))
     # --------------------------------------- 儲存圖表 ---------------------------------------
     save_root_dir = save_path(column_name)
-    # fig.write_html(
-    #     f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html'
-    # )
+    fig.write_html(
+        f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html'
+    )
     # write_image(
     #     fig=fig,
     #     file=f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.png',

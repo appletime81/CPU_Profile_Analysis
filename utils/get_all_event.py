@@ -104,6 +104,7 @@ def get_all_events(fileName: String, condtion_list: List):
 
         if len(condtion_list) == 3:
             if condtion_list[2] in lines[i]:  # Condition3
+
                 if ss_rt_or_nrt_flag and start_record_flag:
                     record_list.append("##########")
                     start_record_flag = False
@@ -127,7 +128,9 @@ def get_all_events(fileName: String, condtion_list: List):
                 pass
 
         if ss_rt_or_nrt_flag and start_record_flag and index_condition:
+
             if "EVT_" in lines[i]:
+
                 temp_line = lines[i].replace(" ", "_")
                 temp_line_list = temp_line.split("_")
                 temp_line_list = [
@@ -135,7 +138,7 @@ def get_all_events(fileName: String, condtion_list: List):
                 ]
                 # print(temp_line_list)
                 if condtion_list[0] == "QUEUE PROFILE INFO":
-                    # print(temp_line_list)
+
                     if (
                         temp_line_list[-4].replace(".", "").isdigit()
                         and temp_line_list[-5].replace(".", "").isdigit()
@@ -161,7 +164,7 @@ def get_all_events(fileName: String, condtion_list: List):
                             + temp_line_list[-4:]
                         )
                 else:
-                    print(temp_line_list)
+                    # print(temp_line_list)
                     if (
                         temp_line_list[-5].replace(".", "").isdigit()
                         and temp_line_list[-6].replace(".", "").isdigit()
@@ -195,11 +198,11 @@ def get_all_events(fileName: String, condtion_list: List):
                             + ["_".join(temp_line_list[4:-5])]
                             + temp_line_list[-5:]
                         )
-                    print(temp_line_list)
+                    # print(temp_line_list)
                 record_list.append(temp_line_list)
                 event_list.append(temp_line_list[1])
 
     event_list = sorted(list(set(event_list)), reverse=True)
     # print(len(set(event_list)))
-    # pprint(event_list)
+
     return record_list, event_list

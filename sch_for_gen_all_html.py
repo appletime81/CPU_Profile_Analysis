@@ -2,12 +2,12 @@ import os
 import time
 
 start_time = time.time()
-COLUMN_NAME = 'AVG_CYCLES'
+COLUMN_NAME = 'NUM_TIMES'
 
 
 def gen_htmls():
     log_files = list()
-    root_dir = 'cpu_profile'
+    root_dir = '20220324'
     for root, dirs, files in os.walk(f'{root_dir}'):
         for file in files:
             log_files.append(os.path.join(root, file).replace('\\', '/'))
@@ -20,10 +20,10 @@ def gen_htmls():
     else:
         event_types = ['task_profile_info_ss_rt_task',
                        'task_profile_info_ss_nrt_task']
-    log_files = ['cpu_profile/2-4-32-du-no-dead-003.txt']
+
     for log_file in log_files:
         for event_type in event_types:
-            print(log_file)
+            print(log_file, event_type)
             os.system(f'python main.py --option {event_type} --f {log_file} --column_name {COLUMN_NAME}')
 
 
