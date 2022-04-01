@@ -14,6 +14,7 @@ data = {'LOCATIONS': LOCATIONS,
         'ITEMS SCREENED': [28, 71, 31, 394, 32, 207]}
 
 x = [(location, check) for location in LOCATIONS for check in CHECKS]
+print(x)
 counts = sum(zip(data['AID CHECKS'], data['PERSONS SCREENED'], data['ITEMS SCREENED']), ())  # like an hstack
 
 source = ColumnDataSource(data=dict(x=x, counts=counts))
