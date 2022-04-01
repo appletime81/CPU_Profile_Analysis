@@ -203,6 +203,5 @@ def get_all_events(fileName: String, condtion_list: List):
                 event_list.append(temp_line_list[1])
 
     event_list = sorted(list(set(event_list)), reverse=True)
-    # print(len(set(event_list)))
-
+    pprint(event_list)
     return record_list, event_list
