@@ -240,10 +240,10 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument(
         "--option",
-        default="queue_profile_info_ss_rt_task",
+        default="task_profile_info_ss_rt_task",
         help="Search Task Profile Info Content or Queue Profile Info",
     )
-    parser.add_argument("--f", default="20220324/2-4-32.txt", help="file name")
+    parser.add_argument("--f", default="20220324/2-1-1.txt", help="file name")
     parser.add_argument(
         "--column_name",
         default="AVG_CYCLES",
@@ -260,7 +260,7 @@ if __name__ == "__main__":
     record_list, event_list = get_all_events(file_name, condition_list)
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict, column_name)
-    # pprint(event_dict)
+    print(event_dict)
     # calTotalCycleWithAllEvent(event_dict, option, file_name)
     # --------------------------------------- 畫圖表 ---------------------------------------
     color_dict = gen_color_dict()
