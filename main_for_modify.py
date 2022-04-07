@@ -1,23 +1,21 @@
 import os
 import numpy as np
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
-# import plotly.io as pio
-# pio.kaleido.scope.mathjax = None
 
-from plotly.io import write_image
 from argparse import ArgumentParser
 from pprint import pprint
 from tokenize import String
 from typing import List, Dict
 from utils.get_all_event import condition_option, get_all_events
-
-# from utils.create_excel_stats_form import createExcelReport
+from math import pi
+from bokeh.io import show, output_file
+from bokeh.models import ColumnDataSource, FactorRange, HoverTool
+from bokeh.plotting import figure
+from bokeh.transform import factor_cmap
+from bokeh.palettes import viridis
 from utils.convert_cycles_to_seconds import cpu_processing_time
 from utils.color_dict import gen_color_dict
 
-# app = Dash(__name__)
 
 FREQ = 1.3 * 1000
 COLUMN_DICT = {"MIN_CYCLES": 2, "MAX_CYCLES": 3, "AVG_CYCLES": 4, "NUM_TIMES": 6}
@@ -102,73 +100,44 @@ def plot_bar(
 
     title = gen_chart_title(file_name=fileName, option=option)
 
-    sorted_data_key = sorted([key for key, _ in data.items()])
-    new_data = dict([(key, data.get(key)) for key in sorted_data_key])
+    colors = viridis(len(data[list(data.keys())[0]]))
+    output_file("bars.html")
+    PERIODS = [f"Period {i + 1}" for i, item in enumerate(data[list(data.keys())[0]])]
+    data["PERIODS"] = PERIODS
+    EVENTS = list(data.keys())
+    EVENTS.remove("PERIODS")
+    palette = list(colors)
 
-    data_list = list()
-    column_names = ["Period"] + [key for key, _ in new_data.items()]
+    x = [(period, event) for period in PERIODS for event in EVENTS]
+    counts_dict = dict([(k, v) for k, v in data.items() if k != "PERIODS"])
 
-    n = len(data.get(column_names[1]))
+    counts = tuple(sub_ele for ele in zip(*counts_dict.values()) for sub_ele in ele)
+    source = ColumnDataSource(data=dict(x=x, counts=counts))
 
-    for i in range(n):
-        temp_list = [f"Period {i + 1}"]
-        temp_list += [value[i] for key, value in new_data.items()]
-        data_list.append(temp_list)
-
-    df = pd.DataFrame(data_list, columns=column_names)
-
-    # ------------ plot chart ------------
-    fig = go.Figure()
-    for column_name in column_names:
-        if column_name != "Period":
-            fig.add_trace(
-                go.Bar(
-                    x=df["Period"].to_list(),
-                    y=df[column_name].to_list(),
-                    name=column_name,
-                    marker_color=color_dict.get(column_name),
-                    # width=1
-                    # offsetgroup=0
-                )
-            )
-    if column_name_option == "NUM_TIMES":
-        yaxis_title = "次數"
-    else:
-        yaxis_title = "秒數(毫秒)"
-    fig.update_layout(
+    p = figure(
+        x_range=FactorRange(*x),
+        plot_height=800,
+        plot_width=1920,
         title=title,
-        xaxis_tickfont_size=14,
-        yaxis=dict(
-            title=yaxis_title,
-            titlefont_size=16,
-            tickfont_size=14,
-        ),
-        legend=dict(
-            x=1.0, y=1.0, bgcolor="rgba(0, 0, 0, 0)", bordercolor="rgba(0, 0, 0, 100)"
-        ),
-        bargap=0.15,  # gap between bars of adjacent location coordinates.
-        bargroupgap=0.1,  # gap between bars of the same location coordinate.
-        hoverlabel_namelength=50,
-        width=1691,
-        height=940,
-        # paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor="rgba(0,0,0,100)",
+        tools="pan,wheel_zoom,box_zoom,reset, save",
     )
-    if "queue_profile_info_ss_rt_task" == option:
-        fig.update_yaxes(range=[0, 0.015])
-    elif (
-        column_name_option != "NUM_TIMES" and option == "task_profile_info_ss_nrt_task"
-    ):
-        fig.update_yaxes(range=[0, 40])
-    elif column_name_option != "NUM_TIMES":
-        fig.update_yaxes(range=[0, 1])
-    else:
-        if "nrt" in option:
-            fig.update_yaxes(range=[0, 900000])
-        else:
-            fig.update_yaxes(range=[0, 50000])
+    p.xaxis.axis_label_text_font_size = "3pt"
 
-    return fig
+    p.vbar(
+        x="x",
+        top="counts",
+        width=0.5,
+        source=source,
+        fill_color=factor_cmap("x", palette=palette, factors=EVENTS, start=1, end=22),
+    )
+    p.add_tools(HoverTool(tooltips=[("PERIOD", "@x"), ("SEC", "@counts")]))
+    p.y_range.start = 0
+    p.x_range.range_padding = 0
+    p.xaxis.major_label_orientation = pi / 2
+    p.xgrid.grid_line_color = None
+
+    show(p)
+
 
 
 if __name__ == "__main__":
@@ -198,25 +167,12 @@ if __name__ == "__main__":
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict, column_name)
     # pprint(event_dict)
-    # calTotalCycleWithAllEvent(event_dict, option, file_name)
+
     # --------------------------------------- 畫圖表 ---------------------------------------
     color_dict = gen_color_dict()
-    fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
-    fig.show()
+    plot_bar(event_dict, color_dict, file_name, option, column_name)
+
 
     # --------------------------------------- 儲存圖表 ---------------------------------------
-    save_root_dir = save_path(column_name)
-    # fig.write_html(
-    #     f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html'
-    # )
-    # write_image(
-    #     fig=fig,
-    #     file=f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.png',
-    #     format="png",
-    #     engine="orca",
-    # )
 
-    # --------------------------------------- 儲存csv ---------------------------------------
-    # df = pd.DataFrame(event_dict)
-    # df.to_csv(f'{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.csv',
-    #           index=False)
+
