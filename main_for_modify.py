@@ -139,7 +139,6 @@ def plot_bar(
     show(p)
 
 
-
 if __name__ == "__main__":
     # UE_NUMS, POOL_NUMS, UR_PER_TTI
     # --------------------------------------- 參數設置 ---------------------------------------
@@ -172,7 +171,4 @@ if __name__ == "__main__":
     color_dict = gen_color_dict()
     plot_bar(event_dict, color_dict, file_name, option, column_name)
 
-
     # --------------------------------------- 儲存圖表 ---------------------------------------
-
-
