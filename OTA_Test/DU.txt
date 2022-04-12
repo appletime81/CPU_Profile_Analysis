@@ -1,0 +1,2013 @@
+[root@5gran-asrock-12 docker-gnb]# clear
+[root@5gran-asrock-12 docker-gnb]# docker-compose up gnb_du
+Building with native build. Learn about native build in Compose here: https://docs.docker.com/go/compose-native-b                        uild/
+WARNING: Found orphan containers (docker-gnb_du_builder_1) for this project. If you removed or renamed this servi                        ce in your compose file, you can run this command with the --remove-orphans flag to clean it up.
+Creating docker-gnb_gnb_du_1 ... done
+Attaching to docker-gnb_gnb_du_1
+gnb_du_1           | /entrypoint.sh du --delay=10
+gnb_du_1           | Wait for startup: 10 s
+gnb_du_1           | 9 s.
+gnb_du_1           | 8 s.
+gnb_du_1           | 7 s.
+gnb_du_1           | 6 s.
+gnb_du_1           | 5 s.
+gnb_du_1           | 4 s.
+gnb_du_1           | 3 s.
+gnb_du_1           | 2 s.
+gnb_du_1           | 1 s.
+gnb_du_1           | 0 s.
+gnb_du_1           | DU Build Version: e0c8d9e7 (2022-03-01T09:32:10+0800)
+gnb_du_1           | /entrypoint.sh: line 105: /home/pegauser/synergy/e2agent: Permission denied
+gnb_du_1           | =======================================
+gnb_du_1           | Network Configuration:
+gnb_du_1           |   CONFIG_5GC_MCC=001
+gnb_du_1           |   CONFIG_5GC_MNC=01
+gnb_du_1           |   CONFIG_DU_NET_F1C=192.168.10.65/24
+gnb_du_1           |   CONFIG_DU_PCI_F1C=3d:00.1#2
+gnb_du_1           |   CONFIG_DU_IF_F1C=enp61s6f2
+gnb_du_1           |   CONFIG_DU_NET_F1U=4.4.4.65/24
+gnb_du_1           |   CONFIG_DU_PCI_F1U=3d:00.1#1
+gnb_du_1           |   CONFIG_DU_IF_F1U=enp61s6f1
+gnb_du_1           |   CONFIG_GNBID=93
+gnb_du_1           |   CONFIG_NRPCI=1
+gnb_du_1           |   CONFIG_GNBDUID=1
+gnb_du_1           |   CONFIG_NRCELLID=000000001
+gnb_du_1           | =======================================
+gnb_du_1           | RU Configuration:
+gnb_du_1           |   CONFIG_RU_ID=3
+gnb_du_1           |   CONFIG_ULP0NOMINAL=-80
+gnb_du_1           |   CONFIG_PRERCVDTGTPWR=-70
+gnb_du_1           |   CONFIG_PRETRANSMAX=preambleTransMax_n10
+gnb_du_1           |   CONFIG_MAXMSG3TX=0
+gnb_du_1           |   CONFIG_PUSCHP0NOMINAL=-76
+gnb_du_1           |   CONFIG_PUCCHP0NOMINAL=-76
+gnb_du_1           |   CONFIG_NSSBPWR=-10
+gnb_du_1           | Device "enp61s6f2" does not exist.
+gnb_du_1           | Device "enp61s6f2" does not exist.
+gnb_du_1           | Device "enp61s6f1" does not exist.
+gnb_du_1           | Device "enp61s6f1" does not exist.
+gnb_du_1           | cut: the delimiter must be a single character
+gnb_du_1           | Try 'cut --help' for more information.
+gnb_du_1           | =======================================
+gnb_du_1           | Network Status:
+gnb_du_1           |   CU93   F1C(cu-f1c) IPv4 Addr : 192.168.10.17/
+gnb_du_1           |   CU93   F1U(cu-f1u) IPv4 Addr : 4.4.4.17/24
+gnb_du_1           |   DU1 F1C(enp61s6f2) IPv4 Addr : /
+gnb_du_1           |   DU1 F1U(enp61s6f1) IPv4 Addr : /
+gnb_du_1           | =======================================
+gnb_du_1           | Install OAM(sysrepo) Schema ...
+gnb_du_1           | Sysrepo repository: /etc/sysrepo
+gnb_du_1           |
+gnb_du_1           | Module Name                    | Revision   | Flags | Owner     | Permissions | Submodules                                                                                                                                                                                                                                                           | Features                                       
+gnb_du_1           | --------------------------------------------------------------------------------------------                        -----------------------------------------------------------------------------------------------------------------                        -----------------------------------------------------------------------------------------------------------------                        -------------------------------------------------------------------------------
+gnb_du_1           | _3gpp_common_ep_rp             | 2018-07-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | _3gpp_common_fm                | 2022-02-22 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | _3gpp_common_managed_element   | 2018-07-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | _3gpp_common_managed_function  | 2018-07-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | _3gpp_common_measurements      | 2020-03-11 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | _3gpp_common_nrm_types         | 2018-07-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | _3gpp_common_tm                | 2020-02-24 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | _3gpp_common_top               | 2018-07-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | _3gpp_common_vs_data_container | 2018-12-18 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | _3gpp_nr_nrm                   | 2018-07-27 | I     | root:root | 600         | _3gpp_nr_nrm                        _nrcellrelation _3gpp_nr_nrm_nrcellcu _3gpp_nr_nrm_nrcelldu _3gpp_nr_nrm_nrsectorcarrier _3gpp_nr_nrm_nrbwp _3gpp                        _nr_nrm_gnbcufunction _3gpp_nr_nrm_gnbdufunction _3gpp_nr_nrm_dpciconfigurationfunction | ARCHITECTURE_CONFIG_OPT                        ION_SA FEATURE_E2_NODE
+gnb_du_1           | gnb_cell_cu_vs_config          | 2019-12-31 | I     | root:root | 600         | gnb_nr_cell_                        cu_relation_vs_config gnb_cell_cu_meas_vs_config gnb_cell_cu_rrm_vs_config                                                                                                                                                       | ARCHITECTURE_CONFIG_OPT                        ION_SA FEATURE_ANR FEATURE_INTER_RAT FEATURE_INTER_RAT_ANR NRDC_FEATURE_SUPPORT
+gnb_du_1           | gnb_cell_du_vs_config          | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | gnb_cu_vs_alarms               | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | gnb_cu_vs_config               | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      | FEATURE_ANR NRDC_FEATUR                        E_SUPPORT
+gnb_du_1           | gnb_cu_vs_features             | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | gnb_du_vs_alarms               | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | gnb_du_vs_config               | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | gnb_du_vs_features             | 2020-08-24 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | gnb_e2_vs_config               | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | gnb_egtp_vs_config             | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | gnb_log_vs_config              | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | gnb_ngc_vs_config              | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | gnb_rrc_inactive_vs_config     | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | gnb_sctp_vs_config             | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | gnb_vs_config                  | 2019-12-31 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | ietf-datastores                | 2018-02-14 | I     | root:root | 664         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | ietf-inet-types                | 2013-07-15 | i     |           |             |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | ietf-netconf                   | 2011-06-01 | I     | root:root | 664         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | ietf-netconf-notifications     | 2012-02-06 | I     | root:root | 664         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | ietf-netconf-with-defaults     | 2011-06-01 | I     | root:root | 664         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | ietf-origin                    | 2018-02-14 | I     | root:root | 664         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | ietf-yang-library              | 2019-01-04 | I     | root:root | 664         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | ietf-yang-metadata             | 2016-08-05 | i     |           |             |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | ietf-yang-types                | 2013-07-15 | i     |           |             |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | sysrepo-monitoring             | 2021-01-15 | I     | root:root | 600         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | sysrepo-plugind                | 2020-12-10 | I     | root:root | 664         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           | yang                           | 2017-02-20 | I     | root:root | 664         |                                                                                                                                                                                                                                                                      |                                                
+gnb_du_1           |
+gnb_du_1           | Flags meaning: I - Installed/i - Imported; R - Replay support; N - New/X - Removed/U - Updat                        ed; F - Feature changes
+gnb_du_1           | Features: ! - Means that the feature is effectively disabled because of its false if-feature                        (s)
+gnb_du_1           |
+gnb_du_1           | Import OAM(sysrepo) configuration /tmp/config/config.xml (k8s)...
+gnb_du_1           | =======================================
+gnb_du_1           | Allocated Resources:
+gnb_du_1           |   CPU List        : 0-51
+gnb_du_1           |   F1C PCI Addr    :
+gnb_du_1           |   F1U PCI Addr    :
+gnb_du_1           | =======================================
+gnb_du_1           | SYSCONFIG mode: Manual
+gnb_du_1           | cp: cannot stat '/tmp/sysconfig/*': No such file or directory
+gnb_du_1           |   CPU Pinning mode : 29-39,11-12,0-1
+gnb_du_1           |   CPU List du =[29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 11, 12, 0, 1]
+gnb_du_1           |   allocated_core_num = 15
+gnb_du_1           |   gnb_core_num = 15
+gnb_du_1           | Traceback (most recent call last):
+gnb_du_1           |   File "/home/pegauser/synergy/config_parser.py", line 309, in <module>
+gnb_du_1           |     diff('check')
+gnb_du_1           |   File "/home/pegauser/synergy/config_parser.py", line 197, in diff
+gnb_du_1           |     if str(before_values[idx])!=str(after_values[idx]):
+gnb_du_1           | IndexError: list index out of range
+gnb_du_1           | =======================================
+gnb_du_1           | Import system configuration /tmp/config/config.xml (k8s-manual)...
+gnb_du_1           | Starting DU...
+gnb_du_1           |   DPDK_DEV        : gnb0
+gnb_du_1           |   WLS_DEV         : wls0
+gnb_du_1           |   WLS_COREMASK    : 0x3
+gnb_du_1           | DPDK version 'DPDK 20.11.1'
+gnb_du_1           | Calling rte_eal_init: gnodeb -c 0x3 --proc-type=auto --file-prefix gnb0 --iova-mode=pa --no-                        pci
+gnb_du_1           | EAL: Detected 52 lcore(s)
+gnb_du_1           | EAL: Detected 2 NUMA nodes
+gnb_du_1           | EAL: Auto-detected process type: SECONDARY
+gnb_du_1           | EAL: Detected static linkage of DPDK
+gnb_du_1           | EAL: Multi-process socket /var/run/dpdk/gnb0/mp_socket_134_86a14ba88f83a
+gnb_du_1           | EAL: Drop mp reply: bus_vdev_mp
+gnb_du_1           | EAL: Fail to recv reply for request /var/run/dpdk/gnb0/mp_socket:bus_vdev_mp
+gnb_du_1           | vdev_scan(): Failed to request vdev from primary
+gnb_du_1           | EAL: Selected IOVA mode 'PA'
+gnb_du_1           | EAL: Probing VFIO support...
+gnb_du_1           | EAL: Drop mp reply: eal_vfio_mp_sync
+gnb_du_1           | EAL: Fail to recv reply for request /var/run/dpdk/gnb0/mp_socket:eal_vfio_mp_sync
+gnb_du_1           | EAL:   cannot request default container fd
+gnb_du_1           | EAL: VFIO support could not be initialized
+gnb_du_1           | EAL: No legacy callbacks, legacy socket not created
+gnb_du_1           | wls_lib: Open wls0 (DPDK memzone)
+gnb_du_1           | wls_lib: WLS_Open 0x4b5638500
+gnb_du_1           | wls_lib: link: 1 <-> 0
+gnb_du_1           | wls_lib: Mode 1
+gnb_du_1           | wls_lib: WLS shared management memzone: wls0
+gnb_du_1           | Opening WLS_device: 0x4b5661420. WLS memory size: 0xed000000
+gnb_du_1           | wls_lib: hugePageSize on the system is 1073741824 0x40000000
+gnb_du_1           | wls_lib: WLS_Alloc Size Requested [1453850624] bytes HugePageSize [0x40000000] nHugePagesMap                        ped[3]
+gnb_du_1           | wls_lib: Connecting to remote peer ...
+gnb_du_1           | wls_lib: Connected to remote peer
+gnb_du_1           | wls_lib: hugePageSize on the system is 1073741824 0x40000000
+gnb_du_1           | wls_lib: WLS_Alloc Size Requested [3976200192] bytes HugePageSize [0x40000000] nHugePagesMap                        ped[5]
+gnb_du_1           | wls_lib: Connecting to remote peer ...
+gnb_du_1           | wls_lib: Connected to remote peer
+gnb_du_1           |
+gnb_du_1           |  ***************
+gnb_du_1           |  WLS memory: 4b577ff00, 0
+gnb_du_1           | Global Memory Info:
+gnb_du_1           | mtDynMemSz[0]: [0x00000004b5b7ff00]
+gnb_du_1           | mtDynMemSz[1]: [0x00000004b5b7ff00]
+gnb_du_1           | mtDynMemSz[2]: [0x00000004b5b7ff00]
+gnb_du_1           | mtDynMemSz[3]: [0x00000004b5b7ff00]
+gnb_du_1           | mtDynMemSz[4]: [0x00000004b5b7ff00]
+gnb_du_1           | mtDynMemSz[5]: [0x00000004b5b7ff00]
+gnb_du_1           | Starting Address of Bkt Entry [0]: [0x00000004b5b7ff00], memSize[0]
+gnb_du_1           | Starting Address of Bkt Entry [1]: [0x00000004b5b7ff00], memSize[0]
+gnb_du_1           | Starting Address of Bkt Entry [2]: [0x00000004b5b7ff00], memSize[0]
+gnb_du_1           | Starting Address of Bkt Entry [3]: [0x00000004b5b7ff00], memSize[0]
+gnb_du_1           | Starting Address of Bkt Entry [4]: [0x00000004b5b7ff00], memSize[0]
+gnb_du_1           | Starting Address of Bkt Entry [5]: [0x00000004b5b7ff00], memSize[0]
+gnb_du_1           | [12/04/2022 09:00:23.588380][STHREAD][INF][ngp_sys_thread.cpp:275]Policy : SCHED_FIFO
+gnb_du_1           | [12/04/2022 09:00:23.592518][STHREAD][INF][ngp_sys_thread.cpp:275]Policy : SCHED_FIFO
+gnb_du_1           | [12/04/2022 09:00:23.592642][STHREAD][INF][ngp_sys_thread.cpp:275]Policy : SCHED_FIFO
+gnb_du_1           | [12/04/2022 09:00:23.592738][STHREAD][INF][ngp_sys_thread.cpp:275]Policy : SCHED_FIFO
+gnb_du_1           | [12/04/2022 09:00:23.592829][STHREAD][INF][ngp_sys_thread.cpp:275]Policy : SCHED_FIFO
+gnb_du_1           | [12/04/2022 09:00:23.592914][STHREAD][INF][ngp_sys_thread.cpp:275]Policy : SCHED_FIFO
+gnb_du_1           | [12/04/2022 09:00:23.593018][STHREAD][INF][ngp_sys_thread.cpp:275]Policy : SCHED_FIFO
+gnb_du_1           |
+gnb_du_1           | oam_agent_hdlr::set_thread_info
+gnb_du_1           |
+gnb_du_1           | oam_agent_hdlr::run
+gnb_du_1           | [12/04/2022 09:00:23.603733][STHREAD][INF][ngp_sys_thread.cpp:275]Policy : SCHED_FIFO
+gnb_du_1           | oam_agent_hdlr::read_3gpp_and_call_gnbvs_decode
+gnb_du_1           | INFO: MANAGED FUNCTION VSDATA
+gnb_du_1           | INFO: MANAGED NRCELLDU VSDATA
+gnb_du_1           | INFO: DECODE VSDATA MERGED XML in SINGLE SHOT
+gnb_du_1           | libyang[1]: Invalid position of the key "map5qiValue" in a list "pegaGrantPreCfgList".
+gnb_du_1           | start mark_gnbvs_data
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/macCfgCmn/srbCfgCmn/isSrbMappingQPS                        KEnb
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/sulCfgCmn/maxUePerUlSlot
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/sulCfgCmn/isHarmonicEnb
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/sulCfgCmn/isSulCfgFreqMute
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/sulCfgCmn/ccchCqi
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/sulCfgCmn/sulFreqInfo/absFreqPointA
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/sulCfgCmn/sulFreqInfo/absArfcnPoint                        A
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/sulCfgCmn/sulFreqInfo/bSChannelBwUl
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/sulCfgCmn/sulFreqInfo/freqShft7p5kh                        z
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/sulCfgCmn/sulFreqInfo/addtionalSpec                        trumEmission
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/sulCfgCmn/sulFreqInfo/pMax
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/sulCfgCmn/sulFreqInfo/ulEarfcn
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/sulCfgCmn/sulTargetCqi/targetCqi
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/nsCfgInfo/reportType
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/nsCfgInfo/period
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/csiRsCfgInfo/csiImElementPattern/cs                        iImPatternType
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/csiRsCfgInfo/csiImElementPattern/cs                        iImSubcarrierLocation
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/csiRsCfgInfo/csiImElementPattern/cs                        iImSymbolLocation
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           |     Get_PEGA_GRANT_PRE_CFG_LIST:START num_var=1
+gnb_du_1           |     Get_PEGA_GRANT_PRE_CFG_LIST:IDX 0
+gnb_du_1           |     SET_PEGA_GRANT_PRE_CFG_LIST:5QI_VALUE:80
+gnb_du_1           |     SET_PEGA_GRANT_PRE_CFG_LIST:REQUIREMENT:stability
+gnb_du_1           |     SET_PEGA_GRANT_PRE_CFG_LIST:PERIOD:5
+gnb_du_1           |     SET_PEGA_GRANT_PRE_CFG_LIST:SIZE:2000
+gnb_du_1           |     Get_PEGA_GRANT_PRE_CFG_LIST:IDX 1
+gnb_du_1           | fmt = /gnb_vs_config:gnbvs/gnbDuCfg[1]/gnbCellDuVsCfg[1]/pegaGrantPreCfgList[2]/map5qiValue
+gnb_du_1           | rc != SR_ERR_OK
+gnb_du_1           |     Get_PEGA_GRANT_PRE_CFG_LIST:END
+gnb_du_1           | GNB DU VS CONFIG
+gnb_du_1           | GNB NRCELLDU VS CONFIG
+gnb_du_1           | start send_to_app
+gnb_du_1           | establish_confd_subscription_connection
+gnb_du_1           | --------------------------------------------------------------------------------------------                        ---------------------------------------
+gnb_du_1           | sr_module_change_subscribe
+gnb_du_1           | sr_oper_get_items_subscribe
+gnb_du_1           | sr_rpc_subscribe
+gnb_du_1           | OAM_INTF_GNB_DU_CONFIG_REQ_INFO
+gnb_du_1           |     GNB_DU_ID = 1
+gnb_du_1           |     DU_NAME_PRES = 1
+gnb_du_1           |         OAM_INTF_GNB_DU_CONFIG_REQ_INFO : GNB_DU_NAME = gnb01du
+gnb_du_1           |     OAM_INTF_SCTP_CONN_CONFIG
+gnb_du_1           |                 OAM_INTF_SCTP_CONN_CONFIG : DESTINATION_IP = 192.168.10.17
+gnb_du_1           |                 OAM_INTF_SCTP_CONN_CONFIG : SOURCE_IP = 192.168.10.65
+gnb_du_1           |         DESTINATION_PORT = 38472
+gnb_du_1           |         SOURCE_PORT = 38472
+gnb_du_1           |     OAM_INTF_SCTP_CONFIG
+gnb_du_1           |         NUM_OUTBOUND_STREAMS = 1
+gnb_du_1           |         MAX_INBOUND_STREAMS = 1
+gnb_du_1           |         MAX_INIT_ATTEMPTS = 5
+gnb_du_1           |         HEART_BEAT_INTERVAL = 5000
+gnb_du_1           |         MAX_PATH_RETRANSMISSION = 1
+gnb_du_1           |     OAM_INTF_UE_CONFIG
+gnb_du_1           |         RNTI_START = 17017
+gnb_du_1           |         MAX_NUM_RNTI = 64
+gnb_du_1           |         MAX_NUM_UES = 64
+gnb_du_1           |     OAM_INTF_EGTPU_CONFIG
+gnb_du_1           |                 OAM_INTF_EGTPU_CONFIG : F1U_IPV4_ADDRESS = 4.4.4.65
+gnb_du_1           |         F1U_TRANSPORT_TEID_MIN = 1
+gnb_du_1           |         F1U_TRANSPORT_TEID_MAX = 256
+gnb_du_1           |     OAM_INTF_LOGGING_CONFIG
+gnb_du_1           |         OAM_INTF_GNB_LOGGING_CONFIG
+gnb_du_1           |         NUM_CONFIG = 31
+gnb_du_1           |             MODULE_ID = 0
+gnb_du_1           |             LOG_LEVEL = 5
+gnb_du_1           |             MODULE_ID = 1
+gnb_du_1           |             LOG_LEVEL = 5
+gnb_du_1           |             MODULE_ID = 2
+gnb_du_1           |             LOG_LEVEL = 5
+gnb_du_1           |             MODULE_ID = 3
+gnb_du_1           |             LOG_LEVEL = 5
+gnb_du_1           |             MODULE_ID = 4
+gnb_du_1           |             LOG_LEVEL = 5
+gnb_du_1           |             MODULE_ID = 5
+gnb_du_1           |             LOG_LEVEL = 5
+gnb_du_1           |             MODULE_ID = 6
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 7
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 8
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 10
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 11
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 12
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 13
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 14
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 15
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 16
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 17
+gnb_du_1           |             LOG_LEVEL = 5
+gnb_du_1           |             MODULE_ID = 18
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 19
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 20
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 24
+gnb_du_1           |             LOG_LEVEL = 5
+gnb_du_1           |             MODULE_ID = 21
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 22
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 23
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 25
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 26
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 27
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 28
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 29
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 30
+gnb_du_1           |             LOG_LEVEL = 2
+gnb_du_1           |             MODULE_ID = 31
+gnb_du_1           |             LOG_LEVEL = 5
+gnb_du_1           |         OAM_INTF_NGP_LOGGING_CONFIG
+gnb_du_1           |         LOGGING_SIZE = 0
+gnb_du_1           |                 OAM_INTF_LOGGING_CONFIG : LOG_FILE_PATH = /home/pegauser/logs
+gnb_du_1           |                 OAM_INTF_LOGGING_CONFIG : LOG_FILE_NAME = du
+gnb_du_1           |         MAX_LOG_FILE_SIZE = 10000000
+gnb_du_1           |         MAX_LOG_FILE_COUNT = 5
+gnb_du_1           |         ENABLE_BIN_LOGGING = 0
+gnb_du_1           |     OAM_INTF_F1U_FLOW_CTRL_CFG_INFO
+gnb_du_1           |         MAX_RLC_SDU_Q_SIZE = 9000
+gnb_du_1           |         RLC_SDU_Q_LOWER_THRESHOLD = 200
+gnb_du_1           |         RLC_SDU_Q_UPPER_THRESHOLD = 400
+gnb_du_1           |         NRUP_FLOW_CONTROL_TIMER = 15
+gnb_du_1           |         EN_NRUP_MISSING_REPORT = 75
+gnb_du_1           |     OAM_INTF_NETWORK_SLICE_CONFIG
+gnb_du_1           |         NUM_OF_NETWORK_SLICE_CONFIG = 0
+gnb_du_1           |     IS_ULCA_ENABLED = 0
+gnb_du_1           | OAM_INTF_GNB_DU_CONFIG_REQ_INFO
+gnb_du_1           | [12/04/2022 09:00:24.461326][STHREAD][INF][ngp_sys_thread.cpp:275]Policy : SCHED_FIFO
+gnb_du_1           | OAM_INTF_CELL_CONFIG_REQ_INFO
+gnb_du_1           |     NUM_OF_CELL_CONFIG_REQ_INFO = 1
+gnb_du_1           |     CELL_ID = 1
+gnb_du_1           |     NCI = 1
+gnb_du_1           |     NR_SUB_CARRIER_SPACING = 1
+gnb_du_1           |     SLOT_FORMAT = 2
+gnb_du_1           |     NUM_DL_SLOT = 3
+gnb_du_1           |     NUM_UL_SLOT = 1
+gnb_du_1           |     NUM_DL_SYMBOL = 12
+gnb_du_1           |     NUM_UL_SYMBOL = 0
+gnb_du_1           |     TDD_UL_DL_PATTERN2_PRES = 0
+gnb_du_1           |     MAX_UE_PER_UL_SLOT = 4
+gnb_du_1           |     MAX_UE_WITH_SRB_PER_UL_SLOT = 1
+gnb_du_1           |     MAX_UE_WITH_IMS_PER_UL_SLOT = 1
+gnb_du_1           |     MAX_UE_WITH_VOICE_PER_UL_SLOT = 1
+gnb_du_1           |     MAX_UE_WITH_GBR_PER_UL_SLOT = 1
+gnb_du_1           |     MAX_UE_WITH_NON_GBR_PER_UL_SLOT = 2
+gnb_du_1           |     MAX_UE_PER_DL_SLOT = 4
+gnb_du_1           |     MAX_UE_WITH_CE_PER_DL_SLOT = 1
+gnb_du_1           |     MAX_UE_WITH_SRB_PER_DL_SLOT = 1
+gnb_du_1           |     MAX_UE_WITH_IMS_PER_DL_SLOT = 1
+gnb_du_1           |     MAX_UE_WITH_VOICE_PER_DL_SLOT = 1
+gnb_du_1           |     MAX_UE_WITH_GBR_PER_DL_SLOT = 1
+gnb_du_1           |     MAX_UE_WITH_GBR_PER_DL_SLOT = 2
+gnb_du_1           |     BCCH_MODULATION_CODE_SCHEME = 9
+gnb_du_1           |     PCCH_MODULATION_CODE_SCHEME = 9
+gnb_du_1           |     RAR_MCS = 6
+gnb_du_1           |     DL_CCCH_CQI = 5
+gnb_du_1           |     UL_CCCH_CQI = 5
+gnb_du_1           |     MAX_UL_HQ_TX = 1
+gnb_du_1           |     MAX_DL_HQ_TX = 1
+gnb_du_1           |     MAX_MSG4_HQ_TX = 1
+gnb_du_1           |     MAX_DL_VONR_TB_HQ_TX = 1
+gnb_du_1           |     MAX_UL_VONR_TB_HQ_TX = 1
+gnb_du_1           |     PREAMBLE_START = 47
+gnb_du_1           |     PREAMBLE_SIZE = 4
+gnb_du_1           |     NUM_OF_LOGICAL_CHANNELS = 6
+gnb_du_1           |     DMRS_TYPE_A_POSITION = 0
+gnb_du_1           |     OAM_INTF_DMRS_DL_CONF
+gnb_du_1           |         DMRS_TYPE = 0
+gnb_du_1           |         DMRS_ADD_POS = 2
+gnb_du_1           |         DMRS_MAX_LEN = 1
+gnb_du_1           |         SCRAMBLING_ID0 = 31
+gnb_du_1           |         SCRAMBLING_ID1 = 31
+gnb_du_1           |     OAM_INTF_DMRS_UL_CONF
+gnb_du_1           |         DMRS_TYPE = 0
+gnb_du_1           |         DMRS_ADD_POS = 2
+gnb_du_1           |         DMRS_MAX_LEN = 1
+gnb_du_1           |                 OAM_INTF_DMRS_UL_CONF : IS_TRANSFORM_PRECODING_DISABLED = TRUE
+gnb_du_1           |         SCRAMBLING_ID0 = 31
+gnb_du_1           |         SCRAMBLING_ID1 = 31
+gnb_du_1           |                 OAM_INTF_DMRS_UL_CONF : IS_TRANSFORM_PRECODING_ENABLE = FALSE
+gnb_du_1           |         PUSCH_ID = 1
+gnb_du_1           |         SEQUENCE_GROUP_HOPPING = 0
+gnb_du_1           |         SEQUENCE_HOPPING = 1
+gnb_du_1           |     FREQUENCY_RANGE_TYPE = 1
+gnb_du_1           |     OAM_INTF_CMN_LOGICAL_CHNL_PER_CELL
+gnb_du_1           |         LC_ID = 0
+gnb_du_1           |         LC_TYPE = 0
+gnb_du_1           |         DIRECTION = 0
+gnb_du_1           |         DL_TRCH_TYPE = 0
+gnb_du_1           |         UL_TRCH_TYPE = 0
+gnb_du_1           |         LC_ID = 0
+gnb_du_1           |         LC_TYPE = 0
+gnb_du_1           |         DIRECTION = 0
+gnb_du_1           |         DL_TRCH_TYPE = 0
+gnb_du_1           |         UL_TRCH_TYPE = 0
+gnb_du_1           |         LC_ID = 0
+gnb_du_1           |         LC_TYPE = 0
+gnb_du_1           |         DIRECTION = 0
+gnb_du_1           |         DL_TRCH_TYPE = 0
+gnb_du_1           |         UL_TRCH_TYPE = 0
+gnb_du_1           |         LC_ID = 0
+gnb_du_1           |         LC_TYPE = 0
+gnb_du_1           |         DIRECTION = 0
+gnb_du_1           |         DL_TRCH_TYPE = 0
+gnb_du_1           |         UL_TRCH_TYPE = 0
+gnb_du_1           |         LC_ID = 0
+gnb_du_1           |         LC_TYPE = 0
+gnb_du_1           |         DIRECTION = 0
+gnb_du_1           |         DL_TRCH_TYPE = 0
+gnb_du_1           |         UL_TRCH_TYPE = 0
+gnb_du_1           |         LC_ID = 0
+gnb_du_1           |         LC_TYPE = 0
+gnb_du_1           |         DIRECTION = 0
+gnb_du_1           |         DL_TRCH_TYPE = 0
+gnb_du_1           |         UL_TRCH_TYPE = 0
+gnb_du_1           |         OAM_INTF_CMN_LOGICAL_CHNL_PER_CELL : TRAFFIC_PATTERN_PRES = FALSE
+gnb_du_1           |     CFI = 0
+gnb_du_1           |         OAM_INTF_CMN_LOGICAL_CHNL_PER_CELL : IS_CP_UL_EXTEND = FALSE
+gnb_du_1           |     OAM_INTF_NR_CGI
+gnb_du_1           |                 OAM_INTF_NR_CGI : PLMNID = 00101
+gnb_du_1           |         NR_CELL_ID = 1
+gnb_du_1           |     NR_PCI = 31
+gnb_du_1           |     TRACKING_AREA_CODE = 1
+gnb_du_1           |     OAM_INTF_SERVED_PLMNS
+gnb_du_1           |                 OAM_INTF_SERVED_PLMNS : PLMNID = 00101
+gnb_du_1           |         OAM_INTF_SLICE_LIST
+gnb_du_1           |         SST = 1
+gnb_du_1           |         SD = 1
+gnb_du_1           |     NR_MODE_INFO = 1
+gnb_du_1           |         OAM_INTF_CMN_LOGICAL_CHNL_PER_CELL : SIB2_PRES = TRUE
+gnb_du_1           |     SIB2_PERIOD = 128
+gnb_du_1           |         OAM_INTF_CMN_LOGICAL_CHNL_PER_CELL : SIB3_PRES = TRUE
+gnb_du_1           |     SIB3_PERIOD = 256
+gnb_du_1           |         OAM_INTF_CMN_LOGICAL_CHNL_PER_CELL : SIB4_PRES = TRUE
+gnb_du_1           |     SIB4_PERIOD = 64
+gnb_du_1           |         OAM_INTF_CMN_LOGICAL_CHNL_PER_CELL : SIB5_PRES = TRUE
+gnb_du_1           |     SIB5_PERIOD = 512
+gnb_du_1           |     RLC_MODE = 0
+gnb_du_1           |     NUM_DL_BWP = 1
+gnb_du_1           |     NUM_UL_BWP = 1
+gnb_du_1           |     OAM_INTF_NETWORK_SLICE_CONFIGURATION
+gnb_du_1           |         OAM_INTF_NS_ADD_LIST
+gnb_du_1           |         NUM_NS = 0
+gnb_du_1           |         OAM_INTF_NS_MOD_LIST
+gnb_du_1           |         NUM_NS = 0
+gnb_du_1           |         OAM_INTF_NS_DEL_LIST
+gnb_du_1           |         NUM_NS = 0
+gnb_du_1           |         OAM_INTF_NS_ACT_LIST
+gnb_du_1           |         NUM_NS = 0
+gnb_du_1           |         OAM_INTF_NS_DEACT_LIST
+gnb_du_1           |         NUM_NS = 0
+gnb_du_1           |         OAM_INTF_RES_ADD_LIST
+gnb_du_1           |         NUM_RESOURCE = 0
+gnb_du_1           |         OAM_INTF_RES_MOD_LIST
+gnb_du_1           |         NUM_RESOURCE = 0
+gnb_du_1           |         OAM_INTF_KPI_CFG
+gnb_du_1           |         KPI_CFG_PRES = 0
+gnb_du_1           |     OAM_INTF_NETWORK_SLICE_ID_LIST
+gnb_du_1           |     OAM_INTF_BWP_CONFIGURATION
+gnb_du_1           |         OAM_INTF_DL_BWP_CONFIGURATION
+gnb_du_1           |         NUM_DL_BWP = 1
+gnb_du_1           |             BWP_ID = 0
+gnb_du_1           |             MU = 1
+gnb_du_1           |             OAM_INTF_DL_BWP_CONFIGURATION : CP = FALSE
+gnb_du_1           |             NUM_RB = 273
+gnb_du_1           |             START_RB = 0
+gnb_du_1           |             OAM_INTF_CS_SS_CONFIG
+gnb_du_1           |             AVG_AGGR_LVL = 1
+gnb_du_1           |             RES_ALLOCATION_TYPE = 1
+gnb_du_1           |             RES_ALLOCATION_CFG_TYPE = 1
+gnb_du_1           |         OAM_INTF_UL_BWP_CONFIGURATION
+gnb_du_1           |         NUM_UL_BWP = 1
+gnb_du_1           |         OAM_INTF_UL_BWP_CFG
+gnb_du_1           |             BWP_ID = 0
+gnb_du_1           |             MU = 1
+gnb_du_1           |             OAM_INTF_UL_BWP_CFG : CP = FALSE
+gnb_du_1           |             NUM_RB = 273
+gnb_du_1           |             START_RB = 0
+gnb_du_1           |                         OAM_INTF_UL_BWP_CFG : RACH_CMN_PRES = TRUE
+gnb_du_1           |             OAM_INTF_RACH_CFG_INFO
+gnb_du_1           |                 OAM_INTF_RACH_GEN_CFG
+gnb_du_1           |                 PRACH_CONFIG_INDEX = 145
+gnb_du_1           |                 MSG1_FDM = 1
+gnb_du_1           |                 MSG1_FREQ_START = 0
+gnb_du_1           |                 ZERO_CORRELATION_ZONE_CFG = 15
+gnb_du_1           |                 PREAMBLE_RCVD_TGT_PWR = 4294967199
+gnb_du_1           |                 PREAMBLE_TRANS_MAX = 6
+gnb_du_1           |                 POWER_RAMPING_STEP = 1
+gnb_du_1           |                 RA_RESPONSE_WINDOW = 40
+gnb_du_1           |                 TOTAL_NUM_OF_RA_PREAMBLE = 63
+gnb_du_1           |                 SSB_PER_RACH_OCCASSION = 3
+gnb_du_1           |                 CONTENTION_BASED_PREAMBLE_PER_SSB = 4
+gnb_du_1           |                 OAM_INTF_GRP_B_PRMBLS_CFG
+gnb_du_1           |                                 OAM_INTF_GRP_B_PRMBLS_CFG : IS_GROUP_B_PRES = TRUE
+gnb_du_1           |                 MSG3_SIZE_GROUP_A = 56
+gnb_du_1           |                 NUM_RA_PREAMBLE_GROUP_A = 1
+gnb_du_1           |                 CONTENTION_RESOLUTION_TIMER = 40
+gnb_du_1           |                 SEQUENCE_TYPE = 1
+gnb_du_1           |                 RSRP_THRESHOLD_SSB = 31
+gnb_du_1           |                 ROOT_SEQUENCE_INDEX = 0
+gnb_du_1           |                 MSG1_SCS = 1
+gnb_du_1           |                 RESTRICTED_SET_CFG = 0
+gnb_du_1           |                 MSG3_TRANs_PRECODING = 0
+gnb_du_1           |                 MAX_MSG3_TX = 0
+gnb_du_1           |                 PREAMBLE_FORMAT = 0
+gnb_du_1           |                         OAM_INTF_UL_BWP_CFG : PUSCH_CMN_PRES = TRUE
+gnb_du_1           |                         OAM_INTF_UL_BWP_CFG : PUCCH_CMN_PRES = TRUE
+gnb_du_1           |             OAM_INTF_PUCCH_CMN_CFG
+gnb_du_1           |             PUCCH_RESOURCE_COMMON = 0
+gnb_du_1           |             PUCCH_GROUP_HOPPING = 0
+gnb_du_1           |             HOPPING_ID = 31
+gnb_du_1           |             P0_NOMINAL = 4294967216
+gnb_du_1           |             SR_PERIODICITY = 40
+gnb_du_1           |             F2_MAX_PAYLOAD_LEN1 = 12
+gnb_du_1           |             F2_MAX_PAYLOAD_LEN2 = 12
+gnb_du_1           |             F0F2_SYM_LENGTH = 1
+gnb_du_1           |             OAM_INTF_CYCLIC_SHIFT
+gnb_du_1           |             NUM_CYCLING_SHIFT = 12
+gnb_du_1           |             CYCLING_SHIFT_BITMAP = 4063
+gnb_du_1           |             OAM_INTF_CYCLIC_SHIFT
+gnb_du_1           |             NUM_CYCLING_SHIFT = 12
+gnb_du_1           |             CYCLING_SHIFT_BITMAP = 4063
+gnb_du_1           |             OAM_INTF_SRS_CONFIG_INFO
+gnb_du_1           |             NUM_SRS_SYM = 1
+gnb_du_1           |             KTC = 2
+gnb_du_1           |             MAX_SRS_UE_PER_SLOT = 1
+gnb_du_1           |             GNB_DU_SRS_ALPHA = 0
+gnb_du_1           |             GNB_DU_SRS_P0 = 0
+gnb_du_1           |             GNB_DU_SRS_PLREFRSTYP = 0
+gnb_du_1           |             GNB_DU_SRS_PWR_CNTRL_ADJ_STAT = 0
+gnb_du_1           |             PUSCH_TX_CONFIG = 0
+gnb_du_1           |                         OAM_INTF_UL_BWP_CFG : PUCCH_RES_DIST_IN_BW_EDGES = FALSE
+gnb_du_1           |             RES_ALLOCATION_TYPE = 1
+gnb_du_1           |             RES_ALLOCATION_CFG_TYPE = 1
+gnb_du_1           |             OAM_INTF_PUSCH_POWER_CONTROL_CONFIG_INFO
+gnb_du_1           |             MSG3_DELTA_PREAMBLE = 0
+gnb_du_1           |             P0_NOMINAL = -90
+gnb_du_1           |             MSG3_ALPHA = 10
+gnb_du_1           |             PUSCH_PWR_CNTRL_CFG_P0 = 0
+gnb_du_1           |             ALPHA = 7
+gnb_du_1           |                         OAM_INTF_PUSCH_POWER_CONTROL_CONFIG_INFO : IS_DELTA_MCS_ENABLED = TR                        UE
+gnb_du_1           |                         OAM_INTF_PUSCH_POWER_CONTROL_CONFIG_INFO : IS_ACCUMULATED = FALSE
+gnb_du_1           |             OAM_INTF_PUCCH_POWER_CONTROL_CONFIG_INFO
+gnb_du_1           |             P0_NOMINAL = -95
+gnb_du_1           |             DELTA_F_PUCCH_F0 = 0
+gnb_du_1           |             DELTA_F_PUCCH_F1 = 0
+gnb_du_1           |             DELTA_F_PUCCH_F2 = 0
+gnb_du_1           |             DELTA_F_PUCCH_F3 = 0
+gnb_du_1           |             DELTA_F_PUCCH_F4 = 0
+gnb_du_1           |             P0_PUCCH_VAL = 0
+gnb_du_1           |             OAM_INTF_UCI_ON_PUSCH_CONFIG_INFO
+gnb_du_1           |             AVOID_UCI_TYPE = 0
+gnb_du_1           |             BETA_OFFSET_INDX1 = 0
+gnb_du_1           |             BETA_OFFSET_INDX2 = 0
+gnb_du_1           |             BETA_OFFSET_INDX3 = 0
+gnb_du_1           |             ALPHA_SCALING = 0
+gnb_du_1           |     OAM_INTF_RRM_CONFIG
+gnb_du_1           |         OAM_INTF_RRM_CONFIG : IS_ADDNL_UL_CORESET_PRES = FALSE
+gnb_du_1           |     NUM_CCE_RSVD_FOR_COMMON_PDCCH = 1
+gnb_du_1           |     OAM_INTF_TGT_UL_CQI
+gnb_du_1           |         OAM_INTF_TGT_UL_CQI : TGT_UL_CQI_PRES = TRUE
+gnb_du_1           |     TGT_UL_CQI = 15
+gnb_du_1           |     TIMING_ADVANCE_OFFSET = 0
+gnb_du_1           |     TCI_PRES_IN_DCI = 0
+gnb_du_1           |     PDCCH_DMRS_SCRAMBLING = 31
+gnb_du_1           |     PDSCH_DATA_SCRAMBLING = 31
+gnb_du_1           |     PUSCH_DATA_SCRAMBLING = 31
+gnb_du_1           |     FEATURE_SET_BIT_MAP = 39
+gnb_du_1           |     DEPLOYMENT_MODE = 1
+gnb_du_1           |     OAM_INTF_FREQ_CONFIGURATION
+gnb_du_1           |                 OAM_INTF_FREQ_CONFIGURATION : FREQ_INFO_UL_PRESENT = TRUE
+gnb_du_1           |         OAM_INTF_UL_FREQUENCY_INFO
+gnb_du_1           |         ABSOLUTE_FREQUENCY_POINT_A = 3451440
+gnb_du_1           |         ABSOLUTE_ARFCN_POINT_A = 630096
+gnb_du_1           |         NUMBER_OF_FREQUENCY_BAND = 1
+gnb_du_1           |         NR_FREQ_BAND = 78
+gnb_du_1           |         OAM_INTF_SCS_LIST
+gnb_du_1           |         NUMBER_OF_CARRIERS = 1
+gnb_du_1           |         OFFSET_TO_CARRIER = 0
+gnb_du_1           |         SCS = 1
+gnb_du_1           |         CARRIER_BW = 273
+gnb_du_1           |         UL_CH_BW = 10
+gnb_du_1           |         FREQ_SHFT_7P5KHZ = 0
+gnb_du_1           |         ADDITIONAL_SPETRUM_EMISSION = 0
+gnb_du_1           |         P_MAX = 23
+gnb_du_1           |         UL_EARFCN = 623484
+gnb_du_1           |         OAM_INTF_DL_FREQUENCY_INFO
+gnb_du_1           |         ABSOLUTE_FREQUENCY_POINT_A = 3459360
+gnb_du_1           |         ABSOLUTE_ARFCN_POINT_A = 630624
+gnb_du_1           |         NUMBER_OF_FREQUENCY_BAND = 1
+gnb_du_1           |         NR_FREQ_BAND = 78
+gnb_du_1           |         ABSOLUTE_FREQUENCY_POINT_A = 3451440
+gnb_du_1           |         ABSOLUTE_ARFCN_POINT_A = 630096
+gnb_du_1           |         OAM_INTF_SCS_LIST
+gnb_du_1           |         NUMBER_OF_CARRIERS = 1
+gnb_du_1           |         OFFSET_TO_CARRIER = 0
+gnb_du_1           |         SCS = 1
+gnb_du_1           |         CARRIER_BW = 273
+gnb_du_1           |         DL_CH_BW = 10
+gnb_du_1           |         DL_EARFCN = 649788
+gnb_du_1           |     OAM_INTF_SUL_CELL_CONFIG
+gnb_du_1           |                 OAM_INTF_SUL_CELL_CONFIG : SUL_CFG_PRES= FALSE
+gnb_du_1           |     OAM_INTF_L1_CFG_INFO
+gnb_du_1           |         DL_CENTER_FREQ = 3500580
+gnb_du_1           |         UL_CENTER_FREQ = 3500580
+gnb_du_1           |         DL_BANDWIDTH = 100
+gnb_du_1           |         UL_BANDWIDTH = 100
+gnb_du_1           |         DL_FFT_SIZE = 4096
+gnb_du_1           |         UL_FFT_SIZE = 4096
+gnb_du_1           |         CA_LEVEL = 0
+gnb_du_1           |         N_MODE = 4
+gnb_du_1           |         DL_CARRIER_K0 = 1
+gnb_du_1           |         UL_CARRIER_K0 = 1
+gnb_du_1           |         OAM_INTF_PRACH_CFG_INFO
+gnb_du_1           |                 OAM_INTF_PRACH_CFG_INFO : IS_PRACH_CFG_PRES = TRUE
+gnb_du_1           |         ROOT_SEQUENCE_INDEX = 0
+gnb_du_1           |         PRACH_CFG_INDEX = 159
+gnb_du_1           |         ZERO_CORRELATION_ZONE_CFG = 15
+gnb_du_1           |                 OAM_INTF_PRACH_CFG_INFO : HIGH_SPEED_FLAG = FALSE
+gnb_du_1           |         PRACH_FREQ_OFFSET = 0
+gnb_du_1           |         PRACH_SUB_CARRIER_SPACNG = 3
+gnb_du_1           |         PRACH_RESTRICTED_CFG = 0
+gnb_du_1           |         PRACH_TX_OCCASION_IN_FREQ_DOMAIN = 0
+gnb_du_1           |         PRACH_FDM = 1
+gnb_du_1           |         SSB_PER_RACH_OCCASION = 3
+gnb_du_1           |         OAM_INTF_MIB_PARAMS
+gnb_du_1           |         CELL_BARRED_OR_NOT = 1
+gnb_du_1           |         INTRA_FREQUENCY_RE = 0
+gnb_du_1           |         OAM_INTF_SIB1_PARAMS
+gnb_du_1           |             OAM_INTF_CELL_SELECTION_INFO
+gnb_du_1           |             MINIMUM_RSRP_LEVEL_FOR_NUL = ?
+gnb_du_1           |             MINIMUM_RSRP_LEVEL_FOR_SUL = ?
+gnb_du_1           |             MINIMUM_RSRQ_LEVEL = ?
+gnb_du_1           |             OAM_INTF_CELL_ACCESS_INFO
+gnb_du_1           |             NUM_OF_PLMN = 1
+gnb_du_1           |             NUMBER_OF_CONFIGURED_PLMNS = 1
+gnb_du_1           |                         OAM_INTF_CELL_ACCESS_INFO : PLMN_ID = 00101
+gnb_du_1           |             TRACKING_AREA_CODE = 1
+gnb_du_1           |             RAN_AREA_CODE =
+gnb_du_1           |             GNB_DU_INTERNAL_CELL_ID = 1
+gnb_du_1           |             CELL_RESERVED_FOR_OPERATOR_USE = 1
+gnb_du_1           |             OAM_INTF_UE_TIMERS_AND_CONSTANTS
+gnb_du_1           |             T_300 = 5
+gnb_du_1           |             T_301 = 5
+gnb_du_1           |             T_310 = 5
+gnb_du_1           |             N_310 = 0
+gnb_du_1           |             T_311 = 0
+gnb_du_1           |             N_311 = 0
+gnb_du_1           |             T_319 = 5
+gnb_du_1           |             FULL_RESUME_ID = 0
+gnb_du_1           |     OAM_INTF_SIBS_INFO
+gnb_du_1           |     NUM_SIBS = 1
+gnb_du_1           |         SIB_TYPE = 0
+gnb_du_1           |         SIB_VAL_TAG = 2
+gnb_du_1           |     OAM_INTF_PCCH_CONFIG_INFO
+gnb_du_1           |         DEFAULT_PAGING_CYCLE = 1
+gnb_du_1           |         PAGING_DURATION_TYPE = 0
+gnb_du_1           |         NETWORK_SLICE_TYPE = 2
+gnb_du_1           |         PAGE_FRAME_OFFSET = 0
+gnb_du_1           |         NETWORK_SLICE_VALUE = 1
+gnb_du_1           |                 OAM_INTF_PCCH_CONFIG_INFO : FIRST_PDCCH_MONITORING_PRES = TRUE
+gnb_du_1           |         OAM_INTF_PDCCH_MONITOR_INFO
+gnb_du_1           |         FIRST_PDCCH_MONITORING_TYPE = 0
+gnb_du_1           |         NO_OF_PO_PER_PF = 1
+gnb_du_1           |         MAX_NO_OF_OCCASION_OF_PO_PER_PF = 1
+gnb_du_1           |     MAX_NUM_OF_UEs = 64
+gnb_du_1           |     OAM_INTF_DRX_CONFIG_INFO
+gnb_du_1           |         OAM_INTF_DRX_CONFIG_INFO : IS_DRX_ENABLED = TRUE
+gnb_du_1           |         OAM_INTF_DRX_CONFIG_INFO : IS_DRX_ON_DURATION_TMR_TYPE  = TRUE
+gnb_du_1           |     DRX_ON_DURATION_TIMER = 1
+gnb_du_1           |     DRX_INACTIVITY_TIMER = 11
+gnb_du_1           |     DRX_RTT_TIMER_FOR_DL = 56
+gnb_du_1           |     DRX_RTT_TIMER_FOR_UL = 56
+gnb_du_1           |     DRX_RETX_TIMER_FOR_DL = 3
+gnb_du_1           |     DRX_RETX_TIMER_FOR_UL = 3
+gnb_du_1           |     DRX_LONG_CYCLE = 7
+gnb_du_1           |     DRX_CYCLE_START_OFFSET = 0
+gnb_du_1           |         OAM_INTF_DRX_CONFIG_INFO : IS_DRX_SHORT_CYCLE_ENABLED = TRUE
+gnb_du_1           |     DRX_SHORT_CYCLE = 10
+gnb_du_1           |     DRX_SHORT_CYCLE_TMR = 2
+gnb_du_1           |     DRX_SLOT_OFFSET = 0
+gnb_du_1           |     OAM_INTF_CSI_RS_CONFIG_INFO
+gnb_du_1           |         OAM_INTF_CSI_RS_CONFIG_INFO : IS_CSI_RS_EN = FALSE
+gnb_du_1           |     CSI_RS_ENABLED = 0
+gnb_du_1           |     CSI_RS_PERIODICITY = 160
+gnb_du_1           |     CSI_RS_ROW_TYPE = 2
+gnb_du_1           |     CSI_RS_ROW_BITMAP = 1
+gnb_du_1           |     CSI_RS_FIRST_SYMBOL = 13
+gnb_du_1           |     CSI_RS_SECOND_SYM_PRESENCE = 0
+gnb_du_1           |     CSI_RS_SECOND_SYMBOL = 12
+gnb_du_1           |     CSI_RS_CDM_TYPE = 1
+gnb_du_1           |     CSI_RS_DENSITY = 1
+gnb_du_1           |     CSI_RS_DENSITY_DOT5RB_ENUM = 0
+gnb_du_1           |     CSI_RS_DENSITY_ENABLED_WB_CSI_RS = 0
+gnb_du_1           |     CSI_RS_DENSITY_NUM_CSIRS_PER_SSB = 0
+gnb_du_1           |     OAM_INTF_CSI_RS_CONFIG_INFO
+gnb_du_1           |         OAM_INTF_CSI_RS_CONFIG_INFO : IS_CSI_RS_EN = FALSE
+gnb_du_1           |     CSI_RS_ENABLED = 0
+gnb_du_1           |     CSI_IM_SC_LOC_P1 = 0
+gnb_du_1           |     CSI_IM_SC_LOC_P0 = 0
+gnb_du_1           |     CSI_IM_SYM_LOC_P1 = 0
+gnb_du_1           |     CSI_IM_SYM_LOC_P0 = 0
+gnb_du_1           |     CSI_IM_PATTERN_TYPE = 0
+gnb_du_1           |     OAM_INTF_MEAS_GAP_CONFIG
+gnb_du_1           |     MEAS_GAP_LENGTH = 2
+gnb_du_1           |     MEAS_GAP_REP_PERIOD = 80
+gnb_du_1           |     MEAS_GAP_TIMING_ADVANCE = 0
+gnb_du_1           |     OAM_INTF_RACH_CONFIG_INFO
+gnb_du_1           |     PRACH_CONFIG_INDEX = 145
+gnb_du_1           |     MSG1_FDM = 1
+gnb_du_1           |     MSG1_FREQ_START = 0
+gnb_du_1           |     ZERO_CORRELATION_ZONE_CFG = 15
+gnb_du_1           |     PRMBL_RECVD_TARGET_PWR = 4294967199
+gnb_du_1           |     PRMBL_TRANS_MAX = 6
+gnb_du_1           |     PWR_RAMPING_STEP = 1
+gnb_du_1           |     RA_RSP_WINDOW = 40
+gnb_du_1           |     SSB_PER_RACH_OCCASION = 3
+gnb_du_1           |     CONTENTION_BASED_PRMBL_PER_SSB = 0
+gnb_du_1           |     CONTENTION_RESOLUTION_TIMER = 40
+gnb_du_1           |     ROOT_SEQUENCE_INDEX = 0
+gnb_du_1           |     RSRP_THRESHHOLD_SSB = 0
+gnb_du_1           |     OAM_INTF_PFS_CONFIG_INFO
+gnb_du_1           |     NR_5_QI_COEFF_VALUE = 5
+gnb_du_1           |     GBR_SERVED_RATE_COEFFICIENT = 5
+gnb_du_1           |     UE_SERVED_RATE_COEFFICIENT = 5
+gnb_du_1           |     THROUGHPUT_COEFFICIENT = 5
+gnb_du_1           |     FAIRNESS_COEFFICIENT = 5
+gnb_du_1           |     TOTAL_SLICE_PRIORITY_LEVELS = 10
+gnb_du_1           |     TOTAL_UE_PFS_PRIORITY_LEVELS = 100
+gnb_du_1           |     TOTAL_GBR_SERVED_RATE_PRIORITY_LEVELS = 100
+gnb_du_1           |     DL_PROACTIVE_GRANT_TMR = 0
+gnb_du_1           |     UL_PROACTIVE_GRANT_TMR = 0
+gnb_du_1           |     MAX_VONR_PACKET_SIZE = 0
+gnb_du_1           |     OAM_PEGA_GRANT_PRE_CFG
+gnb_du_1           |     OAM_INTF_PEGA_GRANT_PRE_CFG:MAP_5QI_VALUE:80
+gnb_du_1           |     OAM_INTF_PEGA_GRANT_PRE_CFG:REQUIREMENT:stability
+gnb_du_1           |     OAM_INTF_PEGA_GRANT_PRE_CFG:PRE_CFG_PERIOD:5
+gnb_du_1           |     OAM_INTF_PEGA_GRANT_PRE_CFG:PRE_CFG_SIZE:2000
+gnb_du_1           |     OAM_INTF_PEGA_GRANT_PRE_CFG:MAP_5QI_VALUE:0
+gnb_du_1           |     OAM_INTF_PEGA_GRANT_PRE_CFG:REQUIREMENT:
+gnb_du_1           |     OAM_INTF_PEGA_GRANT_PRE_CFG:PRE_CFG_PERIOD:0
+gnb_du_1           |     OAM_INTF_PEGA_GRANT_PRE_CFG:PRE_CFG_SIZE:0
+gnb_du_1           |         OAM_INTF_SIBS_INFO : IS_RATE_MATCH_SS_PDSCH_EN = FALSE
+gnb_du_1           |         OAM_INTF_SIBS_INFO : IS_RATE_MATCH_CSET_EN = FALSE
+gnb_du_1           |     OAM_INTF_SSB_INFO
+gnb_du_1           |     NUMBER_OF_SSB = 1
+gnb_du_1           |     SLOT_FORMAT_INDEX = 2
+gnb_du_1           |         OAM_INTF_SIBS_INFO : IS_DCI_0_1_AND_1_1_CFG = TRUE
+gnb_du_1           |     MCS_TABLE_FOR_PDSCH = 1
+gnb_du_1           |     MCS_TABLE_FOR_PUSCH = 0
+gnb_du_1           |     DL_RANK = 2
+gnb_du_1           |     UL_RANK = 2
+gnb_du_1           |     DL_MCS = 9
+gnb_du_1           |     UL_MCS = 9
+gnb_du_1           |         OAM_INTF_SIBS_INFO : DL_PTRS_PRES = FALSE
+gnb_du_1           |         OAM_INTF_SIBS_INFO : UL_PTRS_PRES = FALSE
+gnb_du_1           |     OAM_INTF_TIMING_ALIGNMENT_INFO
+gnb_du_1           |     TAG_ID = 0
+gnb_du_1           |     TA_TIMER_VALUE = 0
+gnb_du_1           |     T_UL_SYNC_TIME = 0
+gnb_du_1           |     UL_NUM_ANT_PORTS = 2
+gnb_du_1           |     DL_NUM_ANT_PORTS = 2
+gnb_du_1           |         OAM_INTF_SIBS_INFO : IS_BM_ENABLED = FALSE
+gnb_du_1           |         OAM_INTF_SIBS_INFO : IS_MCELL = FALSE
+gnb_du_1           |     MCELL_ID = 0
+gnb_du_1           |         OAM_INTF_SIBS_INFO : IS_ENABLE_PDSCH_IN_SSB_SLOT = TRUE
+gnb_du_1           |     OAM_INTF_RLC_CONFIG_INFO
+gnb_du_1           |         QCI_RLC_MAP_SIZE = 2
+gnb_du_1           |             QCI_ID = 1
+gnb_du_1           |             OAM_INTF_RLC_COMMON_CONFIG_INFO
+gnb_du_1           |                 UL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 DL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 UL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |                 DL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |             OAM_INTF_RLC_UE_CONFIG_INFO
+gnb_du_1           |                 POLL_RE_TRANSMIT_TIMER = 400
+gnb_du_1           |                 POLL_PDU = 32
+gnb_du_1           |                 POLL_BYTE = -1
+gnb_du_1           |                 MAX_RETX_THRESHOLD = 8
+gnb_du_1           |                 REASSEMBLY_TIMER = 40
+gnb_du_1           |                 STATUS_PROHIBIT_TIMER = 35
+gnb_du_1           |             QCI_ID = 9
+gnb_du_1           |             OAM_INTF_RLC_COMMON_CONFIG_INFO
+gnb_du_1           |                 UL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 DL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 UL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |                 DL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |             OAM_INTF_RLC_UE_CONFIG_INFO
+gnb_du_1           |                 POLL_RE_TRANSMIT_TIMER = 400
+gnb_du_1           |                 POLL_PDU = 32
+gnb_du_1           |                 POLL_BYTE = -1
+gnb_du_1           |                 MAX_RETX_THRESHOLD = 8
+gnb_du_1           |                 REASSEMBLY_TIMER = 40
+gnb_du_1           |                 STATUS_PROHIBIT_TIMER = 35
+gnb_du_1           |         NR5QI_RLC_MAP_SIZE = 8
+gnb_du_1           |             NR5QFI_ID = 0
+gnb_du_1           |             OAM_INTF_RLC_COMMON_CONFIG_INFO
+gnb_du_1           |                 UL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 DL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 UL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |                 DL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |             OAM_INTF_RLC_UE_CONFIG_INFO
+gnb_du_1           |                 POLL_RE_TRANSMIT_TIMER = 400
+gnb_du_1           |                 POLL_PDU = 32
+gnb_du_1           |                 POLL_BYTE = -1
+gnb_du_1           |                 MAX_RETX_THRESHOLD = 8
+gnb_du_1           |                 REASSEMBLY_TIMER = 40
+gnb_du_1           |                 STATUS_PROHIBIT_TIMER = 35
+gnb_du_1           |             NR5QFI_ID = 1
+gnb_du_1           |             OAM_INTF_RLC_COMMON_CONFIG_INFO
+gnb_du_1           |                 UL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 DL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 UL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |                 DL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |             OAM_INTF_RLC_UE_CONFIG_INFO
+gnb_du_1           |                 POLL_RE_TRANSMIT_TIMER = 400
+gnb_du_1           |                 POLL_PDU = 32
+gnb_du_1           |                 POLL_BYTE = -1
+gnb_du_1           |                 MAX_RETX_THRESHOLD = 8
+gnb_du_1           |                 REASSEMBLY_TIMER = 40
+gnb_du_1           |                 STATUS_PROHIBIT_TIMER = 35
+gnb_du_1           |             NR5QFI_ID = 2
+gnb_du_1           |             OAM_INTF_RLC_COMMON_CONFIG_INFO
+gnb_du_1           |                 UL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 DL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 UL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |                 DL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |             OAM_INTF_RLC_UE_CONFIG_INFO
+gnb_du_1           |                 POLL_RE_TRANSMIT_TIMER = 400
+gnb_du_1           |                 POLL_PDU = 32
+gnb_du_1           |                 POLL_BYTE = -1
+gnb_du_1           |                 MAX_RETX_THRESHOLD = 8
+gnb_du_1           |                 REASSEMBLY_TIMER = 40
+gnb_du_1           |                 STATUS_PROHIBIT_TIMER = 35
+gnb_du_1           |             NR5QFI_ID = 3
+gnb_du_1           |             OAM_INTF_RLC_COMMON_CONFIG_INFO
+gnb_du_1           |                 UL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 DL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 UL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |                 DL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |             OAM_INTF_RLC_UE_CONFIG_INFO
+gnb_du_1           |                 POLL_RE_TRANSMIT_TIMER = 400
+gnb_du_1           |                 POLL_PDU = 32
+gnb_du_1           |                 POLL_BYTE = -1
+gnb_du_1           |                 MAX_RETX_THRESHOLD = 8
+gnb_du_1           |                 REASSEMBLY_TIMER = 40
+gnb_du_1           |                 STATUS_PROHIBIT_TIMER = 35
+gnb_du_1           |             NR5QFI_ID = 5
+gnb_du_1           |             OAM_INTF_RLC_COMMON_CONFIG_INFO
+gnb_du_1           |                 UL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 DL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 UL_SN_FIELD_LEN_AM = 2
+gnb_du_1           |                 DL_SN_FIELD_LEN_AM = 2
+gnb_du_1           |             OAM_INTF_RLC_UE_CONFIG_INFO
+gnb_du_1           |                 POLL_RE_TRANSMIT_TIMER = 400
+gnb_du_1           |                 POLL_PDU = 32
+gnb_du_1           |                 POLL_BYTE = -1
+gnb_du_1           |                 MAX_RETX_THRESHOLD = 8
+gnb_du_1           |                 REASSEMBLY_TIMER = 40
+gnb_du_1           |                 STATUS_PROHIBIT_TIMER = 35
+gnb_du_1           |             NR5QFI_ID = 6
+gnb_du_1           |             OAM_INTF_RLC_COMMON_CONFIG_INFO
+gnb_du_1           |                 UL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 DL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 UL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |                 DL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |             OAM_INTF_RLC_UE_CONFIG_INFO
+gnb_du_1           |                 POLL_RE_TRANSMIT_TIMER = 400
+gnb_du_1           |                 POLL_PDU = 32
+gnb_du_1           |                 POLL_BYTE = -1
+gnb_du_1           |                 MAX_RETX_THRESHOLD = 8
+gnb_du_1           |                 REASSEMBLY_TIMER = 40
+gnb_du_1           |                 STATUS_PROHIBIT_TIMER = 35
+gnb_du_1           |             NR5QFI_ID = 8
+gnb_du_1           |             OAM_INTF_RLC_COMMON_CONFIG_INFO
+gnb_du_1           |                 UL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 DL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 UL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |                 DL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |             OAM_INTF_RLC_UE_CONFIG_INFO
+gnb_du_1           |                 POLL_RE_TRANSMIT_TIMER = 400
+gnb_du_1           |                 POLL_PDU = 32
+gnb_du_1           |                 POLL_BYTE = -1
+gnb_du_1           |                 MAX_RETX_THRESHOLD = 8
+gnb_du_1           |                 REASSEMBLY_TIMER = 40
+gnb_du_1           |                 STATUS_PROHIBIT_TIMER = 35
+gnb_du_1           |             NR5QFI_ID = 9
+gnb_du_1           |             OAM_INTF_RLC_COMMON_CONFIG_INFO
+gnb_du_1           |                 UL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 DL_SN_FIELD_LEN_UM = 2
+gnb_du_1           |                 UL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |                 DL_SN_FIELD_LEN_AM = 1
+gnb_du_1           |             OAM_INTF_RLC_UE_CONFIG_INFO
+gnb_du_1           |                 POLL_RE_TRANSMIT_TIMER = 400
+gnb_du_1           |                 POLL_PDU = 32
+gnb_du_1           |                 POLL_BYTE = -1
+gnb_du_1           |                 MAX_RETX_THRESHOLD = 8
+gnb_du_1           |                 REASSEMBLY_TIMER = 40
+gnb_du_1           |                 STATUS_PROHIBIT_TIMER = 35
+gnb_du_1           |     NUM_PUCCH_CELL_GROUP = 0
+gnb_du_1           |     N_SSB_POWER = 4294967286
+gnb_du_1           |     DL_LA_STEP_UP = 3
+gnb_du_1           |     UL_LA_STEP_UP = 3
+gnb_du_1           |     DL_LA_STEP_DOWN = 30
+gnb_du_1           |     UL_LA_STEP_DOWN = 30
+gnb_du_1           |     VONR_DL_LA_STEP_UP = 3
+gnb_du_1           |     VONR_UL_LA_STEP_UP = 3
+gnb_du_1           |     VONR_DL_LA_STEP_DOWN = 30
+gnb_du_1           |     VONR_UL_LA_STEP_DOWN = 30
+gnb_du_1           |     CB_TYPE1_N1N2_TYPE = 0
+gnb_du_1           |     OAM_INTF_DL_MU_MIMO_CELL_CONF
+gnb_du_1           |         IS_DL_MU_MIMO_ENABLED = 0
+gnb_du_1           |         MIN_DL_MU_MIMO_MCS = 0
+gnb_du_1           |         MIN_DL_MU_MIMO_PRB = 0
+gnb_du_1           |         DL_MU_MIMO_DELTA_PRB = 0
+gnb_du_1           |         MAX_DL_UE_PER_MU_MIMO_PAIR = 0
+gnb_du_1           |         MAX_DL_MU_MIMO_PAIR_PER_TTI = 0
+gnb_du_1           |         MAX_LAYER_PER_DL_MU_MIMO_PAIR = 0
+gnb_du_1           |         MAX_NUM_CHANNEL_DECOM_CNT_PER_TTI = 0
+gnb_du_1           |         MAX_NUM_CHANNEL_DECOM_REQ_PER_TASK = 0
+gnb_du_1           |     OAM_INTF_SRB_CFG_CMN
+gnb_du_1           |         IS_SRB_QPSK_ENB = 0
+gnb_du_1           |         IS_SCHREQ_QPSK_ENB = 1
+gnb_du_1           |         IS_SRB_SWITCH_SISO_ENB = 1
+gnb_du_1           |         MCS_INDEX_FOR_64_QAM = 3
+gnb_du_1           |         MCS_INDEX_FOR_256_QAM = 2
+gnb_du_1           | OAM_INTF_CELL_CONFIG_REQ_INFO
+gnb_du_1           | --------------------------------------------------------------------------------------------                        ---------------------------------------
+gnb_du_1           |
+gnb_du_1           | oam_agent_hdlr::cm_cfg_write
+gnb_du_1           | [12/04/2022 09:00:25.441405][TIMER][TRC][ngp_timer.cpp:281]Stopping Timer Id :  4
+gnb_du_1           | [12/04/2022 09:00:25.441496][STHREAD][INF][ngp_sys_thread.cpp:275]Policy : SCHED_FIFO
+gnb_du_1           | [12/04/2022 09:00:25.441897][SCTP][TRC][ngp_sctp_epoll.h:1388]Connected to Peer. FD :  55
+gnb_du_1           | [12/04/2022 09:00:25.441927][SCTP][TRC][ngp_sctp.cpp:413]SCTP_ASSOC_UP
+gnb_du_1           | [12/04/2022 09:00:25.441946][SCTP][INF][ngp_sctp.cpp:366] Notification : SCTP Client Connect                        ed to server with Assoc Id :  73
+gnb_du_1           |    ### Triggering F1 Setup Request message...
+gnb_du_1           |
+gnb_du_1           | oam_agent_hdlr::cm_cfg_write
+gnb_du_1           |
+gnb_du_1           | oam_agent_hdlr::cm_cfg_write
+gnb_du_1           | [12/04/2022 09:00:25.441957][SCTP][TRC][ngp_sctp_epoll.h:1490]SCTP Notification Received at                         client
+gnb_du_1           | rgSCHLvl1GomReCfgReq_config
+gnb_du_1           | 1:num_res 4 res_set.num_res 7 f2_num_grps 1
+gnb_du_1           | res_set.frmt_type: 0 num_res_per_grp 1 num_res_in_last_grp 1
+gnb_du_1           | res_set.frmt_type: 3 num_res_per_grp 2 num_res_in_last_grp 2
+gnb_du_1           | res_set.frmt_type: 2 num_res_per_grp 7 num_res_in_last_grp 7
+gnb_du_1           | send_schd_cell_cfg: mu=1  freqRangeType=1  Dlslot=32  dmrsTypAPos=0
+gnb_du_1           | rgSCHLvl1GomReCfgReq_config
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           |  Intial DL BWP based on type-0 pdcch cfg:DL:[5380 13613 8233] UL:[5279 13203 7924]
+gnb_du_1           | DL:[5297 13888 8591] UL:[5196 13478 8282]
+gnb_du_1           |
+gnb_du_1           | IA Delta: TFU_DELTA 2 RGU_DELTA 0 TFU_DLDATA_DLDELTA3 TFU_DLCNTRL_DLDELTA 3 TFU_CRCIND_ULDEL                        TA4 TFU_ENV_HQFBKIND_ULDELTA 2 TFU_RECPREQ_DLDELTA3 TFU_ULCNTRL_DLDELTA3 RG_ENV_DL_DELTA3
+gnb_du_1           | CL:CellId=1 DL BW:100 MHz UL BW:100 MHz Mu:1
+gnb_du_1           | nSSBAbsFre 3459360
+gnb_du_1           | src0: 0x80000000  reverse = 0x00000001
+gnb_du_1           | src1: 0x00000000  reverse = 0x00000000
+gnb_du_1           | phyCfgReq->sSlotConfig[0].nSymbolType[0] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[1].nSymbolType[0] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[2].nSymbolType[0] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[0] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[1] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[2] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[3] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[4] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[5] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[6] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[7] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[8] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[9] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[10] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[11] = 0
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[12] = 2
+gnb_du_1           | phyCfgReq->sSlotConfig[3].nSymbolType[13] = 2
+gnb_du_1           | phyCfgReq->sSlotConfig[4].nSymbolType[0] = 1
+gnb_du_1           |
+gnb_du_1           | CELL[1] is UP
+gnb_du_1           | [12/04/2022 09:00:30.552471][TIMER][TRC][ngp_timer.cpp:281]Stopping Timer Id :  5
+gnb_du_1           | [12/04/2022 09:00:30.759502][TIMER][TRC][ngp_timer.cpp:281]Stopping Timer Id :  6
+gnb_du_1           | PHY Config Success for Carrier Idx [0]
+gnb_du_1           | [INFO]: Configuring L1 Mode: 4
+gnb_du_1           | PHY Start Success for for SFN [0] for Subframe [0] Carrier Idx [0]Start response!!!!! !!! MI                        SMATCH in PREVIOUS TTI [0:1] and CURRENT TTI [0:5] NumSlotsInRadioFrame 20  !!!
+gnb_du_1           |  TTI received at APP : 0
+gnb_du_1           | [gNodeB Console]
+gnb_du_1           | ****************** Kpi Stats ******************
+gnb_du_1           | ---------------------------------------------------------
+gnb_du_1           | -----------------------------------------------
+gnb_du_1           | UpTime : 30 sec
+gnb_du_1           | [gNodeB Console]
+gnb_du_1           | #############################################################################################
+gnb_du_1           |                        GNB DU Statistics
+gnb_du_1           | #############################################################################################
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                        Cell Instantaneous Statistics
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | CELL-ID   CELL-DL-BANDWIDTH  CELL-UL-BANDWIDTH  AVG-DL-PRB  AVG-DL-PRB-BWP-0  AVG-DL-PRB-BWP-1  AVG-DL-PRB-BWP-2  AVG-DL-PRB-BWP-3  DL-OCC   DL-SUCC   DL-FAIL_0    DL-FAIL_1    DL-FAIL_2    DL-FAIL_3    DL-FAIL_4    DL-FAIL_5    DL-FAIL_6    DL-FAIL_7    DL-FAIL_8    DL-FAIL_9    DL-FAIL_10   DL-FAIL_11   DL-FAIL_12   DL-FAIL_13   DL-FAIL_14   DL-FAIL_15   DL-FAIL_16   DL-FAIL_17   DL-FAIL_18   DL-FAIL_19   DL-FAIL_20   DL-FAIL_21   DL-FAIL_22   DL-FAIL_23   DL-FAIL_24   DL-FAIL_25   DL-FAIL_26   DL-FAIL_27   DL-NEWTX    DL-RETX   DL-DTX   DL-NACK-RV[0]   DL-NACK-RV[1]   DL-NACK-RV[2]   DL-NACK-RV[3]   DL-DTX-RV[0]   DL-DTX-RV[1]   DL-DTX-RV[2]   DL-DTX-RV[3]   DL-BLER   AVG-UL-PRB  AVG-UL-PRB-BWP-0  AVG-UL-PRB-BWP-1  AVG-UL-PRB-BWP-2  AVG-UL-PRB-BWP-3  UL-OCC   UL-SUCC   UL-NEWTX   UL-RETX   UL-DATIND   UL-BLER TTI-ERR-MINORTTI-ERR-MAJOR ERR-PUCCH-NODE ERR-PUCCH-MSGLEN
+gnb_du_1           | 1         273                273                0           0                 0                 0                 0                 8000     0         0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0           0         0        0               0               0               0               0              0              0              0              0         0           0                 0                 0                 0                 0        0         0          0         0           0       0             0              0              0
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                        Cell UE Per TTI(UE/TTI) Statistics
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | CELL-ID  DL-1    UL-1    DL-2    UL-2    DL-3    UL-3    DL-4    UL-4    DL-5    UL-5    DL-6    UL-6    DL-7    UL-7    DL-8    UL-8
+gnb_du_1           | 1        0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |       Cell Level SHORT TERM BLER Statistics
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | CELL-ID  DIR     BLER%    0.0%     <0.5%    <1.0%    <2.0%    <5.0%    <10.0%   <25.0%   <50.0%   <100.0%
+gnb_du_1           | 1        DL      0.00     600      0        0        0        0        0        0        0        0
+gnb_du_1           |
+gnb_du_1           | 1        UL      0.00     600      0        0        0        0        0        0        0        0
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |       Cell Level LONG TERM BLER Statistics
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | CELL-ID  DIR     BLER%    0.0%     <0.5%    <1.0%    <2.0%    <5.0%    <10.0%   <25.0%   <50.0%   <100.0%
+gnb_du_1           | 1        DL      0.00     1        0        0        0        0        0        0        0        0
+gnb_du_1           |
+gnb_du_1           | 1        UL      0.00     1        0        0        0        0        0        0        0        0
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                        UE SCH:Beam Instantaneous Statistics
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | UE-ID  CELL-ID  BEAM-ID  BEAM-SWTCH-TRIG  BEAM-SWTCH-SUCC  BEAM-SWTCH-CAUSE-1  BEAM-SWTCH-CAUSE-2  BEAM-SWTCH-CAUSE-3
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                        Cell Tpt Statistics
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | CELL-ID  NUM-UE   SCH-DL  SCH-UL
+gnb_du_1           | 1        0        0.00    0.00
+gnb_du_1           |
+gnb_du_1           | Total Number of UEs  : 0
+gnb_du_1           |     SCH  DL Tpt : 0.00  UL Tpt 0.00
+gnb_du_1           |     EGTP DL Tpt : 0.00  UL Tpt 0.00
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                       UE Level DL PFS SCH KPI
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | UE-ID  DL-Occ  TXOcc-RETX-Q  TXOcc-MSG4-Q  TXOcc-CCCH-Q  TXOcc-CE-Q  TXOcc-SRB-Q  TXOcc-IMS-Q  TXOcc-VoNR-Q  TXOcc-GBR-Q  TXOcc-NGBR-Q  CQI-HIST-0  CQI-HIST-1  CQI-HIST-2  SRVD-HIST-0   SRVD-HIST-1   SRVD-HIST-2   UE-PFS-PRIO-HIST-0   UE-PFS-PRIO-HIST-1   UE-PFS-PRIO-HIST-2   PRB-MAX-SUCC   PRB-MAX_FAIL
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                      DL LC Level PFS SCH KPI
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | UE-ID  5QI  LC-ID     BO-SRVD          CS-CAUSE  5QI-PRIO  GBR-MISS-CNT   GBR-PRIO-HIST-0  GBR-PRIO-HIST-1  GBR-PRIO-HIST-2
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                       UE Level UL PFS SCH KPI
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | UE-ID  UL-Occ  TXOcc-HQ-RETX TXOcc-MSG3-Q TXOcc-SR-Q  TXOcc-SRB-Q  TXOcc-IMS-Q  TXOcc-VoNR-Q  TXOcc-GBR-Q  TXOcc-NGBR-Q  CQI-HIST-0  CQI-HIST-1  CQI-HIST-2  SRVD-HIST-0   SRVD-HIST-1   SRVD-HIST-2   UE-PFS-PRIO-HIST-0   UE-PFS-PRIO-HIST-1   UE-PFS-PRIO-HIST-2   PRB-MAX-SUCC   PRB-MAX_FAIL
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                       UL LCG Level PFS SCH KPI
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | UE-ID  LCG-ID     BSR-RPTD         BO-SRVD          CS-CAUSE  GBR-MISS-CNT   GBR-PRIO-HIST-0  GBR-PRIO-HIST-1  GBR-PRIO-HIST-2
+gnb_du_1           |
+gnb_du_1           | RLC: DL_RETX_PDU_NUM=0, DL_MAX_RETX_NUM=0, UL_STAT_PDU_RCV_NUM=0, UL_NACK_RCV_NUM=0
+gnb_du_1           | RLC: AM: DLStaPduSent=0 DLNacksInStaPdu=0 DLBytesUnused=0 DLPollTimerExpiresSrb=0 DLPollTimerExpiresDrb=0
+gnb_du_1           | RLC: AM: DLMaxRetx=0 DLRetransPdus=0 ULPdusDiscarded=0 ULReOrdTimerExpires=0 ULStaPduRcvd=0 ULNackInStaPduRcvd=0
+gnb_du_1           | RLC: AM: RlcAmCellSduTx=0 RlcAmCellSduBytesTx=0 RlcAmCellRetxPdu=0 RlcAmMaxRetx=0 RlcAmCellDupPduRx=0
+gnb_du_1           | RLC: AM: RlcAmCellDropOutWinRx=0 RlcAmCellSduRx=0 RlcAmCellSduBytesRx=0 RlcAmCellNackRx=0 RlcAmCellWinStall=0
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | ================ TASK PROFILE INFO======================
+gnb_du_1           | ==========================   ===========================
+gnb_du_1           |                          EVENT     MIN_CYCLES     MAX_CYCLES     AVG_CYCLES    LAST CYCLES NUM TIMES
+gnb_du_1           | =================SS_PRIO_0_TASK=================
+gnb_du_1           |   EVT_LVL_INF_START_INDICATION           5676         137506        7890.81           7592     33479
+gnb_du_1           | =================SS_RT_TASK=====================
+gnb_du_1           |          EVT_L1_MSG_INDICATION            290          84024          13884          14336     33586
+gnb_du_1           |         EVT_CTF_CONFIG_REQUEST         539368         539368         539368         539368         1
+gnb_du_1           |    EVT_RGR_LVL1_CONFIG_REQUEST          38928        2116652    1.07779e+06        2116652         2
+gnb_du_1           |    EVT_RGR_LVL2_CONFIG_REQUEST          15946          15946          15946          15946         1
+gnb_du_1           | EVT_RGR_LVL1_SI_CONFIG_REQUEST           5674          20400          13557           5674         4
+gnb_du_1           | =================SS_NRT_TASK====================
+gnb_du_1           |         EVT_CTF_CONFIG_CONFIRM         104750         104750         104750         104750         1
+gnb_du_1           |    EVT_RGR_LVL1_CONFIG_CONFIRM          47786          48262          48024          48262         2
+gnb_du_1           |    EVT_RGR_LVL2_CONFIG_CONFIRM          19874          19874          19874          19874         1
+gnb_du_1           | EVT_RGR_LVL1_SI_CONFIG_CONFIRM           1006          90428        26300.5           6496         4
+gnb_du_1           |    EVT_RGR_LVL1_TTI_INDICATION            310         436632        812.124            474      1674
+gnb_du_1           |      EVT_OAM_DU_CONFIG_REQUEST       42647364       42647364    4.26474e+07       42647364         1
+gnb_du_1           |    EVT_OAM_CELL_CONFIG_REQUEST       24512238       24512238    2.45122e+07       24512238         1
+gnb_du_1           |           EVT_F1AP_MGMT_MSG_RX          63068         503162         308994          63068         3
+gnb_du_1           |           EVT_F1AP_MGMT_MSG_TX          12238         103104        53549.3          12238         3
+gnb_du_1           | EVT_SCTP_USER_PAYLOAD_INDICATION          14446          70698        35637.3          21768         3
+gnb_du_1           |  EVT_SCTP_USER_PAYLOAD_REQUEST          47370          68798        56241.3          52556         3
+gnb_du_1           |        EVT_SCTP_CONFIG_REQUEST         160476         160476         160476         160476         1
+gnb_du_1           |       EVT_SCTP_CONFIG_RESPONSE           7072           7072           7072           7072         1
+gnb_du_1           |          EVT_SCTP_ASSOC_STATUS         198406         198406         198406         198406         1
+gnb_du_1           |       EVT_APP_LCL_CELL_ADD_REQ          75804          75804          75804          75804         1
+gnb_du_1           |       EVT_APP_LCL_CELL_ADD_RSP           1388          56210          28799           1388         2
+gnb_du_1           |       EVT_RRM_CELL_ADD_REQUEST        2127066        2127066    2.12707e+06        2127066         1
+gnb_du_1           |       EVT_RRM_CELL_ADD_CONFIRM         487982         487982         487982         487982         1
+gnb_du_1           |          EVT_EGTP_INIT_REQUEST         281876         281876         281876         281876         1
+gnb_du_1           |        EVT_EGTP_TTI_INDICATION             92          29864        717.095            166     33479
+gnb_du_1           |      EVT_TIMER_TICK_INDICATION            116           5642        291.126            416     16739
+gnb_du_1           | ================ QUEUE PROFILE INFO=====================
+gnb_du_1           | ==========================   ===========================
+gnb_du_1           |                          EVENT     MIN_CYCLES     MAX_CYCLES     AVG_CYCLES    LAST CYCLES
+gnb_du_1           | =================SS_PRIO_0_TASK=================
+gnb_du_1           |   EVT_LVL_INF_START_INDICATION           3886           8960        6370.38           6614
+gnb_du_1           | =================SS_RT_TASK=====================
+gnb_du_1           |          EVT_L1_MSG_INDICATION           4830          11890        6947.56           7288
+gnb_du_1           |         EVT_CTF_CONFIG_REQUEST           4846           4846           4846           4846
+gnb_du_1           |    EVT_RGR_LVL1_CONFIG_REQUEST           6846          17358          12102          17358
+gnb_du_1           |    EVT_RGR_LVL2_CONFIG_REQUEST           6140           6140           6140           6140
+gnb_du_1           | EVT_RGR_LVL1_SI_CONFIG_REQUEST           4954           6998         5794.5           5920
+gnb_du_1           | =================SS_NRT_TASK====================
+gnb_du_1           |         EVT_CTF_CONFIG_CONFIRM           6288           6288           6288           6288
+gnb_du_1           |    EVT_RGR_LVL1_CONFIG_CONFIRM           4810           7222           6016           7222
+gnb_du_1           |    EVT_RGR_LVL2_CONFIG_CONFIRM           4910           4910           4910           4910
+gnb_du_1           | EVT_RGR_LVL1_SI_CONFIG_CONFIRM           3720           4580           4217           4220
+gnb_du_1           |    EVT_RGR_LVL1_TTI_INDICATION           3332           6154        4063.55           5648
+gnb_du_1           |      EVT_OAM_DU_CONFIG_REQUEST          17022          17022          17022          17022
+gnb_du_1           |    EVT_OAM_CELL_CONFIG_REQUEST          16478          16478          16478          16478
+gnb_du_1           |           EVT_F1AP_MGMT_MSG_RX           4830           8332        6299.33           5736
+gnb_du_1           |           EVT_F1AP_MGMT_MSG_TX           7426           8342        7762.67           8342
+gnb_du_1           | EVT_SCTP_USER_PAYLOAD_INDICATION           7722          13792          10034           8588
+gnb_du_1           |  EVT_SCTP_USER_PAYLOAD_REQUEST           5070           6156           5704           5070
+gnb_du_1           |        EVT_SCTP_CONFIG_REQUEST           7314           7314           7314           7314
+gnb_du_1           |       EVT_SCTP_CONFIG_RESPONSE           7990           7990           7990           7990
+gnb_du_1           |          EVT_SCTP_ASSOC_STATUS           8630           8630           8630           8630
+gnb_du_1           |       EVT_APP_LCL_CELL_ADD_REQ          11258          11258          11258          11258
+gnb_du_1           |       EVT_APP_LCL_CELL_ADD_RSP          20772         497562         259167         497562
+gnb_du_1           |       EVT_RRM_CELL_ADD_REQUEST           5630           5630           5630           5630
+gnb_du_1           |       EVT_RRM_CELL_ADD_CONFIRM           8656           8656           8656           8656
+gnb_du_1           |        EVT_EGTP_TTI_INDICATION           2448           9104        5820.42           5836
+gnb_du_1           |      EVT_TIMER_TICK_INDICATION           1596           5390        3577.68           3714
+gnb_du_1           | 311
+gnb_du_1           | ==>>[Cell data] CELL ID=31 Avail-PRB-DL=0 Avail-PRB-UL=0
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [129/19] NumberPreambles[1]  PreambleID#0 [3] [6] [62]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:00:59.463077][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e488d8
+gnb_du_1           |     tail = 0x7fc417e47e58
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e488d8, [size_bytes = 8, next = 0x7fc417e47e58]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f99c6ff8
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    43 01 F0 11 12 6A 42 79                           |  C....jBy
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e47e58, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc412784098
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | TTI received at APP : 3000
+gnb_du_1           | ==>>[Cell data] CELL ID=31 Avail-PRB-DL=0 Avail-PRB-UL=0
+gnb_du_1           | ====>>[UE data] UE ID=1 CELL ID=31 PRB-Usage-DL=0 PRB-Usage-UL=0
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [209/19] NumberPreambles[1]  PreambleID#0 [1] [6] [2]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:01:10.503058][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e55b58
+gnb_du_1           |     tail = 0x7fc417e559d8
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e55b58, [size_bytes = 8, next = 0x7fc417e559d8]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f98ca118
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    41 00 10 11 12 6A 42 7A                           |  A....jBz
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e559d8, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc4125efc78
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | RGSCH_CCCH_SDU_PRSNT
+gnb_du_1           | rgSCHRamContResCcchsdu ue->raState RGSCH_RA_MSG4_PENDING
+gnb_du_1           | ue_cell_info_in_txconfig_before: 0
+gnb_du_1           | no UE capbilty
+gnb_du_1           | ue_cell_info_in_txconfig_after: 2
+gnb_du_1           | puschDedCfg.txCfgEnum : 2
+gnb_du_1           | rgSCHLvl1GomReCfgReq_config
+gnb_du_1           | rgSCHLvl1CfgVldtRgrUecfg
+gnb_du_1           | rgSCHLvl1CfgRgrUeCfg
+gnb_du_1           | CFGlvl1 UE State: RG_DED_CFG_RCVD_ACK_PEND
+gnb_du_1           | rgSCHLvl1CfgRgrUeCfg UE_CONFIG SRS setting: 0
+gnb_du_1           | rgSCHLvl1GomReCfgReq_config
+gnb_du_1           | RLC: UE[17018] RLC DL Config
+gnb_du_1           | ===========================================
+gnb_du_1           | SRB[1] Idx=0, Mode=3, LC ID=1, LC Type=5, Poll PDU=32, Poll Byte=-1, RTX timer=400, MAX Retx=32, SN Length=1
+gnb_du_1           | RLC: UE[17018] RLC UL Config
+gnb_du_1           | ===========================================
+gnb_du_1           | SRB[1] Mode=3, LC ID=1, LC Type=5, Timer reordering=40, status prohbit=35, SN Length=1
+gnb_du_1           | rgSCHRamMsg4Done ue->raState RGSCH_RA_MSG4_DONE
+gnb_du_1           | DHM UE states update ACK_PEND -> ACTV
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | ue_cell_info->serv_cell_ded.ul_cfg.initUlBwpDed.puschDedCfg.txCfgEnum: 2
+gnb_du_1           | puschDedCfg.txCfgEnum : 0
+gnb_du_1           | rgSCHLvl1GomReCfgReq_reconfig
+gnb_du_1           | rgSCHLvl1GomHndlRecfgReq_UE
+gnb_du_1           |  rgSCHLvl1CfgVldtRgrUeRecfg
+gnb_du_1           | rgSCHLvl1GomReCfgReq_reconfig
+gnb_du_1           | rgSCHLvl1GomHndlRecfgReq_UE
+gnb_du_1           |  rgSCHLvl1CfgVldtRgrUeRecfg
+gnb_du_1           | rgSCHLvl1CfgVldtRgrUeRecfg RGR_UE_SCELL_MOD_RECFG
+gnb_du_1           |  rgSCHLvl1CfgRgrUeRecfg RGR_UE_SCELL_MOD_RECFG
+gnb_du_1           |  rgSCHLvl1GomReCfgReq_config
+gnb_du_1           | rgSCHLvl1GomReCfgReq_config
+gnb_du_1           | RLC: UE[17018] RLC DL Config
+gnb_du_1           | ===========================================
+gnb_du_1           | SRB[1] Idx=0, Mode=3, LC ID=1, LC Type=5, Poll PDU=32, Poll Byte=-1, RTX timer=400, MAX Retx=32, SN Length=1
+gnb_du_1           | SRB[2] Idx=1, Mode=3, LC ID=2, LC Type=5, Poll PDU=32, Poll Byte=-1, RTX timer=400, MAX Retx=32, SN Length=1
+gnb_du_1           | DRB[1] Idx=0, Mode=2, LC ID=4, LC Type=4, SN Length=2
+gnb_du_1           | RLC: UE[17018] RLC UL Config
+gnb_du_1           | ===========================================
+gnb_du_1           | SRB[1] Mode=3, LC ID=1, LC Type=5, Timer reordering=40, status prohbit=35, SN Length=1
+gnb_du_1           | SRB[2] Mode=3, LC ID=2, LC Type=5, Timer reordering=40, status prohbit=35, SN Length=1
+gnb_du_1           | DRB[1] Mode=2, LC ID=4, LC Type=4, Re-assemble Timer=40, SN Length=2
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [449/19] NumberPreambles[1]  PreambleID#0 [3] [7] [61]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:01:12.903060][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e57cd8
+gnb_du_1           |     tail = 0x7fc417e57d58
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e57cd8, [size_bytes = 8, next = 0x7fc417e57d58]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f99ca088
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    43 01 E8 11 12 6A 42 7B                           |  C....jB{
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e57d58, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc412602338
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [465/19] NumberPreambles[1]  PreambleID#0 [2] [10] [62]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:01:13.063051][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e57958
+gnb_du_1           |     tail = 0x7fc417e576d8
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e57958, [size_bytes = 8, next = 0x7fc417e576d8]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f98cb148
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    42 01 F0 11 12 6A 42 7C                           |  B....jB|
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e576d8, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc412600aa8
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [481/19] NumberPreambles[1]  PreambleID#0 [1] [13] [2]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:01:13.223046][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e4d2d8
+gnb_du_1           |     tail = 0x7fc417e57058
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e4d2d8, [size_bytes = 8, next = 0x7fc417e57058]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f99c9058
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    41 00 10 11 12 6A 42 7D                           |  A....jB}
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e57058, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc4125fc928
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | RGSCH_CCCH_SDU_PRSNT
+gnb_du_1           | rgSCHRamContResCcchsdu ue->raState RGSCH_RA_MSG4_PENDING
+gnb_du_1           | ue_cell_info_in_txconfig_before: 0
+gnb_du_1           | no UE capbilty
+gnb_du_1           | ue_cell_info_in_txconfig_after: 2
+gnb_du_1           | puschDedCfg.txCfgEnum : 2
+gnb_du_1           | RLC: UE[17018] RLC DL Config
+gnb_du_1           | ===========================================
+gnb_du_1           | SRB[1] Idx=2, Mode=3, LC ID=1, LC Type=5, Poll PDU=32, Poll Byte=-1, RTX timer=400, MAX Retx=32, SN Length=1
+gnb_du_1           | SRB[2] Idx=1, Mode=3, LC ID=2, LC Type=5, Poll PDU=32, Poll Byte=-1, RTX timer=400, MAX Retx=32, SN Length=1
+gnb_du_1           | DRB[1] Idx=0, Mode=2, LC ID=4, LC Type=4, SN Length=2
+gnb_du_1           | RLC: UE[17018] RLC UL Config
+gnb_du_1           | ===========================================
+gnb_du_1           | SRB[1] Mode=3, LC ID=1, LC Type=5, Timer reordering=40, status prohbit=35, SN Length=1
+gnb_du_1           | SRB[2] Mode=3, LC ID=2, LC Type=5, Timer reordering=40, status prohbit=35, SN Length=1
+gnb_du_1           | DRB[1] Mode=2, LC ID=4, LC Type=4, Re-assemble Timer=40, SN Length=2
+gnb_du_1           | old_ue_cell_info SRS: 1
+gnb_du_1           | old_ue_cell_info RANK: 2
+gnb_du_1           | old_ue_cell_info txconfig: 0
+gnb_du_1           | old_ue_cell_info mcs_table_enum: 0
+gnb_du_1           | old_ue_cell_info SRS Mem alloacte: 0x7fc1cbb2ca19
+gnb_du_1           | new_ue_cell_info SRS: 1
+gnb_du_1           | new_ue_cell_info RANK: 2
+gnb_du_1           | new_ue_cell_info txconfig: 2
+gnb_du_1           | new_ue_cell_info mcs_table_enum: 0
+gnb_du_1           | new_ue_cell_info SRS Mem alloacte: 0x7fc1cb82b989
+gnb_du_1           | ue_cell_info_cmn SRS: 1
+gnb_du_1           | ue_cell_info_cmn RANK: 2
+gnb_du_1           | ue_cell_info_cmn txconfig: 0
+gnb_du_1           | ue_cell_info_cmn mcs_table_enum: 0
+gnb_du_1           | rgSCHLvl1GomReCfgReq_config
+gnb_du_1           | rgSCHLvl1CfgVldtRgrUecfg
+gnb_du_1           | rgSCHLvl1CfgRgrUeCfg
+gnb_du_1           | CFGlvl1 UE State: RG_DED_CFG_RCVD_ACK_PEND
+gnb_du_1           | rgSCHLvl1CfgRgrUeCfg UE_CONFIG SRS setting: 1
+gnb_du_1           | rgSCHLvl1GomReCfgReq_config
+gnb_du_1           | rgSCHRamMsg4Done ue->raState RGSCH_RA_MSG4_DONE
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [497/19] NumberPreambles[1]  PreambleID#0 [3] [7] [62]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:01:13.383048][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e58658
+gnb_du_1           |     tail = 0x7fc417e586d8
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e58658, [size_bytes = 8, next = 0x7fc417e586d8]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f98cd1a8
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    43 01 F0 11 12 6A 42 7E                           |  C....jB~
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e586d8, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc4126064b8
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [513/19] NumberPreambles[1]  PreambleID#0 [1] [10] [2]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:01:13.543049][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e54158
+gnb_du_1           |     tail = 0x7fc417e4cf58
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e54158, [size_bytes = 8, next = 0x7fc417e4cf58]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f98ca118
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    41 00 10 11 12 6A 42 7F                           |  A....jB.
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e4cf58, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc4125fc0f8
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | find gUeCbOld crnti :17021
+gnb_du_1           | RGSCH_CRNTI_CE_PRSNT
+gnb_du_1           | RGSCH_RA_MSG3_PENDING and RGSCH_CRNTI_CE_PRSNT
+gnb_du_1           | RAM OLD UE state update ACK_PEND -> CFG_ACTV
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | reest test:Jntid_GNB_DUConfigQuery
+gnb_du_1           | reest test:UE_CTX_MOD_TRANS_CONFIG_STEP_DU_CONFIG_QUERY
+gnb_du_1           | reest test:init_config_step_du_config_query
+gnb_du_1           | reest test:finalize_config_step_du_config_query
+gnb_du_1           | reest test:build_cell_group_reconfig_reestablishment
+gnb_du_1           | puschDedCfg.txCfgEnum : 0
+gnb_du_1           | ue_cell_info_ded SRS: 1
+gnb_du_1           | ue_cell_info_ded SRS Mem allocate: 0x7fc1cb82b989
+gnb_du_1           | rgSCHLvl1GomReCfgReq_reconfig
+gnb_du_1           | rgSCHLvl1GomHndlRecfgReq_UE
+gnb_du_1           |  rgSCHLvl1CfgVldtRgrUeRecfg
+gnb_du_1           | rgSCHLvl1GomReCfgReq_config
+gnb_du_1           | rgSCHLvl1GomReCfgReq_config
+gnb_du_1           | DHM UE states update ACK_PEND -> ACTV
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | RLC: UE[17021] RLC DL Config
+gnb_du_1           | ===========================================
+gnb_du_1           | SRB[1] Idx=2, Mode=3, LC ID=1, LC Type=5, Poll PDU=32, Poll Byte=-1, RTX timer=400, MAX Retx=32, SN Length=1
+gnb_du_1           | SRB[2] Idx=3, Mode=3, LC ID=2, LC Type=5, Poll PDU=32, Poll Byte=-1, RTX timer=400, MAX Retx=32, SN Length=1
+gnb_du_1           | DRB[1] Idx=0, Mode=2, LC ID=4, LC Type=4, SN Length=2
+gnb_du_1           | RLC: UE[17021] RLC UL Config
+gnb_du_1           | ===========================================
+gnb_du_1           | SRB[1] Mode=3, LC ID=1, LC Type=5, Timer reordering=40, status prohbit=35, SN Length=1
+gnb_du_1           | SRB[2] Mode=3, LC ID=2, LC Type=5, Timer reordering=40, status prohbit=35, SN Length=1
+gnb_du_1           | DRB[1] Mode=2, LC ID=4, LC Type=4, Re-assemble Timer=40, SN Length=2
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | ==>>[Cell data] CELL ID=31 Avail-PRB-DL=269 Avail-PRB-UL=270
+gnb_du_1           | ====>>[UE data] UE ID=1 CELL ID=31 PRB-Usage-DL=0 PRB-Usage-UL=0
+gnb_du_1           | ====>>[UE data] UE ID=2 CELL ID=31 PRB-Usage-DL=3 PRB-Usage-UL=4
+gnb_du_1           | ====>>[UE data] UE ID=3 CELL ID=31 PRB-Usage-DL=0 PRB-Usage-UL=0
+gnb_du_1           | ====>>[UE data] UE ID=4 CELL ID=31 PRB-Usage-DL=0 PRB-Usage-UL=0
+gnb_du_1           | ====>>[UE data] UE ID=5 CELL ID=31 PRB-Usage-DL=5 PRB-Usage-UL=2
+gnb_du_1           | ====>>[UE data] UE ID=6 CELL ID=31 PRB-Usage-DL=0 PRB-Usage-UL=0
+gnb_du_1           | ====>>[UE data] UE ID=7 CELL ID=31 PRB-Usage-DL=0 PRB-Usage-UL=0
+gnb_du_1           |
+gnb_du_1           |  TRANS_GUARD_TIMER Expiry
+gnb_du_1           | SRS resourse != 0
+gnb_du_1           | [gNodeB Console]
+gnb_du_1           | ****************** Kpi Stats ******************
+gnb_du_1           | ---------------------------------------------------------
+gnb_du_1           | -----------------------------------------------
+gnb_du_1           | UpTime : 60 sec
+gnb_du_1           | [gNodeB Console]
+gnb_du_1           | #############################################################################################
+gnb_du_1           |                        GNB DU Statistics
+gnb_du_1           | #############################################################################################
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                        Cell Instantaneous Statistics
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | CELL-ID   CELL-DL-BANDWIDTH  CELL-UL-BANDWIDTH  AVG-DL-PRB  AVG-DL-PRB-BWP-0  AVG-DL-PRB-BWP-1  AVG-DL-PRB-BWP-2  AVG-DL-PRB-BWP-3  DL-OCC   DL-SUCC   DL-FAIL_0    DL-FAIL_1    DL-FAIL_2    DL-FAIL_3    DL-FAIL_4    DL-FAIL_5    DL-FAIL_6    DL-FAIL_7    DL-FAIL_8    DL-FAIL_9    DL-FAIL_10   DL-FAIL_11   DL-FAIL_12   DL-FAIL_13   DL-FAIL_14   DL-FAIL_15   DL-FAIL_16   DL-FAIL_17   DL-FAIL_18   DL-FAIL_19   DL-FAIL_20   DL-FAIL_21   DL-FAIL_22   DL-FAIL_23   DL-FAIL_24   DL-FAIL_25   DL-FAIL_26   DL-FAIL_27   DL-NEWTX    DL-RETX   DL-DTX   DL-NACK-RV[0]   DL-NACK-RV[1]   DL-NACK-RV[2]   DL-NACK-RV[3]   DL-DTX-RV[0]   DL-DTX-RV[1]   DL-DTX-RV[2]   DL-DTX-RV[3]   DL-BLER   AVG-UL-PRB  AVG-UL-PRB-BWP-0  AVG-UL-PRB-BWP-1  AVG-UL-PRB-BWP-2  AVG-UL-PRB-BWP-3  UL-OCC   UL-SUCC   UL-NEWTX   UL-RETX   UL-DATIND   UL-BLER TTI-ERR-MINORTTI-ERR-MAJOR ERR-PUCCH-NODE ERR-PUCCH-MSGLEN
+gnb_du_1           | 1         273                273                1           1                 0                 0                 0                 8001     1         0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            1           0         0        0               0               0               0               0              0              0              0              0         2           2                 0                 0                 0                 0        1         1          0         1           0       0             0              0              0
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                        Cell UE Per TTI(UE/TTI) Statistics
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | CELL-ID  DL-1    UL-1    DL-2    UL-2    DL-3    UL-3    DL-4    UL-4    DL-5    UL-5    DL-6    UL-6    DL-7    UL-7    DL-8    UL-8
+gnb_du_1           | 1        1       1       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |       Cell Level SHORT TERM BLER Statistics
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | CELL-ID  DIR     BLER%    0.0%     <0.5%    <1.0%    <2.0%    <5.0%    <10.0%   <25.0%   <50.0%   <100.0%
+gnb_du_1           | 1        DL      0.00     600      0        0        0        0        0        0        0        0
+gnb_du_1           |
+gnb_du_1           | 1        UL      100.00   599      0        0        0        0        0        0        0        1
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |       Cell Level LONG TERM BLER Statistics
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | CELL-ID  DIR     BLER%    0.0%     <0.5%    <1.0%    <2.0%    <5.0%    <10.0%   <25.0%   <50.0%   <100.0%
+gnb_du_1           | 1        DL      0.00     1        0        0        0        0        0        0        0        0
+gnb_du_1           |
+gnb_du_1           | 1        UL      4.00     0        0        0        0        1        0        0        0        0
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                        UE SCH:Beam Instantaneous Statistics
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | UE-ID  CELL-ID  BEAM-ID  BEAM-SWTCH-TRIG  BEAM-SWTCH-SUCC  BEAM-SWTCH-CAUSE-1  BEAM-SWTCH-CAUSE-2  BEAM-SWTCH-CAUSE-3
+gnb_du_1           |
+gnb_du_1           | 17021  1        0        0                0                0                   0                   0                
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                        Cell Tpt Statistics
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | CELL-ID  NUM-UE   SCH-DL  SCH-UL
+gnb_du_1           | 1        4        0.00    0.00
+gnb_du_1           |
+gnb_du_1           | Total Number of UEs  : 4
+gnb_du_1           |     SCH  DL Tpt : 0.00  UL Tpt 0.00
+gnb_du_1           |     EGTP DL Tpt : 0.00  UL Tpt 0.00
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                       UE Level DL PFS SCH KPI
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | UE-ID  DL-Occ  TXOcc-RETX-Q  TXOcc-MSG4-Q  TXOcc-CCCH-Q  TXOcc-CE-Q  TXOcc-SRB-Q  TXOcc-IMS-Q  TXOcc-VoNR-Q  TXOcc-GBR-Q  TXOcc-NGBR-Q  CQI-HIST-0  CQI-HIST-1  CQI-HIST-2  SRVD-HIST-0   SRVD-HIST-1   SRVD-HIST-2   UE-PFS-PRIO-HIST-0   UE-PFS-PRIO-HIST-1   UE-PFS-PRIO-HIST-2   PRB-MAX-SUCC   PRB-MAX_FAIL
+gnb_du_1           | 17019  0       0             0             0             0           0            0            0             0            0             0           0           0           0             0             0             0                    0                    0                    0              0
+gnb_du_1           | 17020  0       0             0             0             0           0            0            0             0            0             0           0           0           0             0             0             0                    0                    0                    0              0
+gnb_du_1           | 17021  1       0             0             0             0           1            0            0             0            0             50          0           0           0             0             50            0                    0                    1                    0              0
+gnb_du_1           | 17022  0       0             0             0             0           0            0            0             0            0             0           0           0           0             0             0             0                    0                    0                    0              0
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                      DL LC Level PFS SCH KPI
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | UE-ID  5QI  LC-ID     BO-SRVD          CS-CAUSE  5QI-PRIO  GBR-MISS-CNT   GBR-PRIO-HIST-0  GBR-PRIO-HIST-1  GBR-PRIO-HIST-2
+gnb_du_1           | 17019  0    RETX      0                0         0         0              0                0                0       
+gnb_du_1           | 17019  0    CCCH      0                0         0         0              0                0                0       
+gnb_du_1           | 17019  0    MSG4      0                0         0         0              0                0                0       
+gnb_du_1           | 17019  0    CE        0                0         0         0              0                0                0       
+gnb_du_1           | 17020  0    RETX      0                0         0         0              0                0                0       
+gnb_du_1           | 17020  0    CCCH      0                0         0         0              0                0                0       
+gnb_du_1           | 17020  0    MSG4      0                0         0         0              0                0                0       
+gnb_du_1           | 17020  0    CE        0                0         0         0              0                0                0       
+gnb_du_1           | 17021  0    RETX      0                0         0         0              0                0                0       
+gnb_du_1           | 17021  0    CCCH      0                0         0         0              0                0                0       
+gnb_du_1           | 17021  0    MSG4      0                0         0         0              0                0                0       
+gnb_du_1           | 17021  0    CE        0                0         0         0              0                0                0       
+gnb_du_1           | 17021  0    1         36               1         496090    0              0                0                0       
+gnb_du_1           | 17021  0    2         0                0         496090    0              0                0                0       
+gnb_du_1           | 17021  9    4         0                0         484375    0              0                0                0       
+gnb_du_1           | 17022  0    RETX      0                0         0         0              0                0                0       
+gnb_du_1           | 17022  0    CCCH      0                0         0         0              0                0                0       
+gnb_du_1           | 17022  0    MSG4      0                0         0         0              0                0                0       
+gnb_du_1           | 17022  0    CE        0                0         0         0              0                0                0       
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                       UE Level UL PFS SCH KPI
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | UE-ID  UL-Occ  TXOcc-HQ-RETX TXOcc-MSG3-Q TXOcc-SR-Q  TXOcc-SRB-Q  TXOcc-IMS-Q  TXOcc-VoNR-Q  TXOcc-GBR-Q  TXOcc-NGBR-Q  CQI-HIST-0  CQI-HIST-1  CQI-HIST-2  SRVD-HIST-0   SRVD-HIST-1   SRVD-HIST-2   UE-PFS-PRIO-HIST-0   UE-PFS-PRIO-HIST-1   UE-PFS-PRIO-HIST-2   PRB-MAX-SUCC   PRB-MAX_FAIL
+gnb_du_1           | 17019  0       0             0            0           0            0            0             0            0             0           0           0           0             0             0             0                    0                    0                    0              0
+gnb_du_1           | 17020  0       0             0            0           0            0            0             0            0             0           0           0           0             0             0             0                    0                    0                    0              0
+gnb_du_1           | 17021  1       0             0            0           1            0            0             0            0             50          0           0           0             0             50            0                    0                    1                    0              0
+gnb_du_1           | 17022  0       0             0            0           0            0            0             0            0             0           0           0           0             0             0             0                    0                    0                    0              0
+gnb_du_1           |
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           |                       UL LCG Level PFS SCH KPI
+gnb_du_1           | ---------------------------------------------------------------------------------------------
+gnb_du_1           | UE-ID  LCG-ID     BSR-RPTD         BO-SRVD          CS-CAUSE  GBR-MISS-CNT   GBR-PRIO-HIST-0  GBR-PRIO-HIST-1  GBR-PRIO-HIST-2
+gnb_du_1           | 17019  RETX      0                0                0         0              0                0                0     
+gnb_du_1           | 17019  MSG5      0                0                0         0              0                0                0     
+gnb_du_1           | 17019  SR        0                0                0         0              0                0                0     
+gnb_du_1           | 17020  RETX      0                0                0         0              0                0                0     
+gnb_du_1           | 17020  MSG5      0                0                0         0              0                0                0     
+gnb_du_1           | 17020  SR        0                0                0         0              0                0                0     
+gnb_du_1           | 17021  RETX      0                0                0         0              0                0                0     
+gnb_du_1           | 17021  MSG5      0                0                0         0              0                0                0     
+gnb_du_1           | 17021  SR        0                9                1         0              0                0                0     
+gnb_du_1           | 17021  0         0                0                0         0              0                0                0     
+gnb_du_1           | 17021  2         0                0                0         0              0                0                0     
+gnb_du_1           | 17022  RETX      0                0                0         0              0                0                0     
+gnb_du_1           | 17022  MSG5      0                0                0         0              0                0                0     
+gnb_du_1           | 17022  SR        0                0                0         0              0                0                0     
+gnb_du_1           |
+gnb_du_1           | RLC: DL_RETX_PDU_NUM=1, DL_MAX_RETX_NUM=0, UL_STAT_PDU_RCV_NUM=8, UL_NACK_RCV_NUM=0
+gnb_du_1           | RLC: AM: DLStaPduSent=22 DLNacksInStaPdu=0 DLBytesUnused=329 DLPollTimerExpiresSrb=1 DLPollTimerExpiresDrb=0
+gnb_du_1           | RLC: AM: DLMaxRetx=0 DLRetransPdus=1 ULPdusDiscarded=0 ULReOrdTimerExpires=0 ULStaPduRcvd=8 ULNackInStaPduRcvd=0
+gnb_du_1           | RLC: AM: RlcAmCellSduTx=9 RlcAmCellSduBytesTx=789 RlcAmCellRetxPdu=1 RlcAmMaxRetx=0 RlcAmCellDupPduRx=0
+gnb_du_1           | RLC: AM: RlcAmCellDropOutWinRx=0 RlcAmCellSduRx=13 RlcAmCellSduBytesRx=358 RlcAmCellNackRx=0 RlcAmCellWinStall=0
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | ================ TASK PROFILE INFO======================
+gnb_du_1           | ==========================   ===========================
+gnb_du_1           |                          EVENT     MIN_CYCLES     MAX_CYCLES     AVG_CYCLES    LAST CYCLES NUM TIMES
+gnb_du_1           | =================SS_PRIO_0_TASK=================
+gnb_du_1           |   EVT_LVL_INF_START_INDICATION           5608         223628        7918.81           8572     93484
+gnb_du_1           |     EVT_INF_SLOT_ALLOC_REQUEST           7878          27536        12635.2          20790        21
+gnb_du_1           | =================SS_RT_TASK=====================
+gnb_du_1           |                  EVTTFUDDATIND           1710          36320        11960.1          13930        28
+gnb_du_1           |  EVT_TFU_RA_REQUEST_INDICATION           9408          17210        12715.4           9540         7
+gnb_du_1           |         EVT_TFU_CRC_INDICATION            980          11774        5424.67           9620        33
+gnb_du_1           |          EVT_L1_MSG_INDICATION            272         151182          13804          15762     94511
+gnb_du_1           |         EVT_CTF_CONFIG_REQUEST         539368         539368         539368         539368         1
+gnb_du_1           |    EVT_RGR_LVL1_CONFIG_REQUEST           2248        2116652         204019           9604        14
+gnb_du_1           |    EVT_RGR_LVL2_CONFIG_REQUEST          15946          15946          15946          15946         1
+gnb_du_1           | EVT_RGR_LVL1_SI_CONFIG_REQUEST           5674          20400          13557           5674         4
+gnb_du_1           | EVT_RGR_LVL1_CCCH_DATA_REQUEST           6658           6658           6658           6658         1
+gnb_du_1           |   EVT_COMMON_UE_ACK_INDICATION           1188          18722           9955           1188         2
+gnb_du_1           |     EVT_KW_AMUL_STA_PROH_TIMER            142           6406        1549.45           1136        11
+gnb_du_1           |    EVT_KW_AMDL_POLL_RETX_TIMER           3528           3528           3528           3528         1
+gnb_du_1           |   EVT_UDX_STA_PHBT_START_TIMER            564           2232        1302.18           2232        11
+gnb_du_1           | =================SS_NRT_TASK====================
+gnb_du_1           |         EVT_CTF_CONFIG_CONFIRM         104750         104750         104750         104750         1
+gnb_du_1           |    EVT_RGR_LVL1_CONFIG_CONFIRM           2902         349542        99758.3          14594        14
+gnb_du_1           |    EVT_RGR_LVL2_CONFIG_CONFIRM          19874          19874          19874          19874         1
+gnb_du_1           | EVT_RGR_LVL1_SI_CONFIG_CONFIRM           1006          90428        26300.5           6496         4
+gnb_du_1           |    EVT_RGR_LVL1_TTI_INDICATION            310         436632        732.302            798      4674
+gnb_du_1           | EVT_RGR_LVL1_CCCH_DATA_INDICATION          20642          89154          54898          20642         2
+gnb_du_1           |      EVT_CKW_UL_CONFIG_REQUEST           5820          69782        23986.8           7904         5
+gnb_du_1           |       EVT_CKW_UEID_CHG_REQUEST           5400           5400           5400           5400         1
+gnb_du_1           |        EVT_KWU_DATA_INDICATION          17988          41182        24889.7          30806        13
+gnb_du_1           |           EVT_KWU_DATA_REQUEST           1556          13046        3936.44           4466         9
+gnb_du_1           |         EVT_UDX_CONFIG_REQUEST          25720          52884        42316.5          52884         4
+gnb_du_1           |         EVT_UDX_CONFIG_CONFIRM          30860         107916          72748          84312         4
+gnb_du_1           |    EVT_UDX_UEID_CHANGE_REQUEST           5080           5080           5080           5080         1
+gnb_du_1           |    EVT_UDX_UEID_CHANGE_CONFIRM           5568           5568           5568           5568         1
+gnb_du_1           |        EVT_UDX_STA_PDU_REQUEST            846           7474        1899.45           2390        11
+gnb_du_1           |        EVT_UDX_STA_UPD_REQUEST           2662          16068        8824.25           9556         8
+gnb_du_1           |         EVT_UDX_DL_CLEANUP_MEM            742           1826        1242.75           1826         8
+gnb_du_1           |      EVT_RLC_UE_CONFIG_CONFIRM           5924         185494          46670           9020         5
+gnb_du_1           |   EVT_RLC_UE_ID_CHANGE_CONFIRM           6440           6440           6440           6440         1
+gnb_du_1           |      EVT_RLC_REQ_FLW_CTRL_INFO           4036           4792           4414           4036         2
+gnb_du_1           | EVT_RLC_FLW_CTRL_INFO_INDICATION          49430          95618          72524          49430         2
+gnb_du_1           |      EVT_OAM_DU_CONFIG_REQUEST       42647364       42647364    4.26474e+07       42647364         1
+gnb_du_1           |    EVT_OAM_CELL_CONFIG_REQUEST       24512238       24512238    2.45122e+07       24512238         1
+gnb_du_1           |           EVT_F1AP_MGMT_MSG_RX          63068         503162         308994          63068         3
+gnb_du_1           |           EVT_F1AP_MGMT_MSG_TX          12238         103104        53549.3          12238         3
+gnb_du_1           |             EVT_F1AP_UE_MSG_RX          13862         556794         102277          34292        14
+gnb_du_1           |             EVT_F1AP_UE_MSG_TX          13610          35088        20442.9          21068        20
+gnb_du_1           |         EVT_F1AP_UE_ID_REQUEST           8074           8746           8410           8074         2
+gnb_du_1           |        EVT_F1AP_UE_ID_RESPONSE         146714         248104         197409         146714         2
+gnb_du_1           |        EVT_F1AP_UE_REL_REQUEST           8086           8086           8086           8086         1
+gnb_du_1           |       EVT_F1AP_UE_REL_RESPONSE          10924          10924          10924          10924         1
+gnb_du_1           |  EVT_F1AP_UE_REL_RRC_CON_TRANS          13240          13240          13240          13240         1
+gnb_du_1           | EVT_SCTP_USER_PAYLOAD_INDICATION          12800         117812        28794.8          29020        17
+gnb_du_1           |  EVT_SCTP_USER_PAYLOAD_REQUEST           9368          68798        46211.1          61132        23
+gnb_du_1           |        EVT_SCTP_CONFIG_REQUEST         160476         160476         160476         160476         1
+gnb_du_1           |       EVT_SCTP_CONFIG_RESPONSE           7072           7072           7072           7072         1
+gnb_du_1           |          EVT_SCTP_ASSOC_STATUS         198406         198406         198406         198406         1
+gnb_du_1           |         EVT_APP_UE_LCL_RELEASE          24380          24380          24380          24380         1
+gnb_du_1           |       EVT_APP_LCL_CELL_ADD_REQ          75804          75804          75804          75804         1
+gnb_du_1           |       EVT_APP_LCL_CELL_ADD_RSP           1388          56210          28799           1388         2
+gnb_du_1           | EVT_APP_UE_LOCAL_REEST_INDICATION         296708         296708         296708         296708         1
+gnb_du_1           | EVT_APP_UE_RRC_RECONFIG_DELIVERY_INDICATION          51794          51794          51794          51794         1
+gnb_du_1           |     EVT_DU_MGR_GUECB_DEL_TIMER          12802          20110        16283.3          12802         3
+gnb_du_1           |   EVT_APP_UE_TRANS_GUARD_TIMER          50630          50630          50630          50630         1
+gnb_du_1           | EVT_APP_UE_DU_INITIATED_UE_RELEASE          17380          17380          17380          17380         1
+gnb_du_1           |       EVT_RRM_CELL_ADD_REQUEST        2127066        2127066    2.12707e+06        2127066         1
+gnb_du_1           |       EVT_RRM_CELL_ADD_CONFIRM         487982         487982         487982         487982         1
+gnb_du_1           |       EVT_RRM_UE_ADMIT_REQUEST         663588         971140         817364         663588         2
+gnb_du_1           |       EVT_RRM_UE_ADMIT_CONFIRM         283902         522748         403325         522748         2
+gnb_du_1           |   EVT_RRM_UE_ID_CHANGE_REQUEST          12346          12346          12346          12346         1
+gnb_du_1           |  EVT_RRM_UE_ID_CHANGE_RESPONSE          14248          14248          14248          14248         1
+gnb_du_1           |         EVT_RRM_UE_REL_REQUEST          32844          32844          32844          32844         1
+gnb_du_1           |        EVT_RRM_UE_REL_RESPONSE          16560          16560          16560          16560         1
+gnb_du_1           |    EVT_RRM_UE_RECONFIG_REQUEST        1056412        1056412    1.05641e+06        1056412         1
+gnb_du_1           |   EVT_RRM_UE_RECONFIG_RESPONSE         341792         341792         341792         341792         1
+gnb_du_1           |          EVT_EGTP_INIT_REQUEST         281876         281876         281876         281876         1
+gnb_du_1           |    EVT_EGTP_ADD_TUNNEL_REQUEST          23012          23012          23012          23012         1
+gnb_du_1           |   EVT_EGTP_ADD_TUNNEL_RESPONSE          13776          13776          13776          13776         1
+gnb_du_1           |        EVT_EGTP_TTI_INDICATION             86          29864        697.892            208     93484
+gnb_du_1           |        EVT_EGTP_UE_REL_REQUEST          12354          12354          12354          12354         1
+gnb_du_1           |       EVT_EGTP_UE_REL_RESPONSE         242414         242414         242414         242414         1
+gnb_du_1           |      EVT_EGTP_UE_RESET_REQUEST          11308          11308          11308          11308         1
+gnb_du_1           |     EVT_EGTP_UE_RESET_RESPONSE          10050          10050          10050          10050         1
+gnb_du_1           |     EVT_EGTP_UE_RESUME_REQUEST           6588           6588           6588           6588         1
+gnb_du_1           |    EVT_EGTP_UE_RESUME_RESPONSE          11606          11606          11606          11606         1
+gnb_du_1           |       EVT_NRUP_ADD_RAB_REQUEST          17348          17348          17348          17348         1
+gnb_du_1           |      EVT_NRUP_ADD_RAB_RESPONSE         579020         579020         579020         579020         1
+gnb_du_1           |        EVT_NRUP_UE_REL_REQUEST           5934           5934           5934           5934         1
+gnb_du_1           |       EVT_NRUP_UE_REL_RESPONSE           7022           7022           7022           7022         1
+gnb_du_1           |      EVT_NRUP_UE_RESET_REQUEST          15680          15680          15680          15680         1
+gnb_du_1           |     EVT_NRUP_UE_RESET_RESPONSE           6152           6152           6152           6152         1
+gnb_du_1           |     EVT_NRUP_UE_RESUME_REQUEST           5332           5332           5332           5332         1
+gnb_du_1           |    EVT_NRUP_UE_RESUME_RESPONSE           4908           4908           4908           4908         1
+gnb_du_1           |     EVT_NRUP_INIT_DDDS_REQUEST          13174          13174          13174          13174         1
+gnb_du_1           |    EVT_NRUP_INIT_DDDS_RESPONSE           9578           9578           9578           9578         1
+gnb_du_1           |      EVT_TIMER_TICK_INDICATION            116           5642        294.867            378     46742
+gnb_du_1           | ================ QUEUE PROFILE INFO=====================
+gnb_du_1           | ==========================   ===========================
+gnb_du_1           |                          EVENT     MIN_CYCLES     MAX_CYCLES     AVG_CYCLES    LAST CYCLES
+gnb_du_1           | =================SS_PRIO_0_TASK=================
+gnb_du_1           |   EVT_LVL_INF_START_INDICATION            806         271716        6384.61           6284
+gnb_du_1           |     EVT_INF_SLOT_ALLOC_REQUEST           6414           7216        6844.67           7164
+gnb_du_1           | =================SS_RT_TASK=====================
+gnb_du_1           |                  EVTTFUDDATIND           2688           7048        4578.29           7048
+gnb_du_1           |  EVT_TFU_RA_REQUEST_INDICATION           6462           7270        6902.29           7106
+gnb_du_1           |         EVT_TFU_CRC_INDICATION           4490           7156        5915.45           5090
+gnb_du_1           |          EVT_L1_MSG_INDICATION           4660          42846        6964.64           7098
+gnb_du_1           |         EVT_CTF_CONFIG_REQUEST           4846           4846           4846           4846
+gnb_du_1           |    EVT_RGR_LVL1_CONFIG_REQUEST           5208          25978        9656.43          14204
+gnb_du_1           |    EVT_RGR_LVL2_CONFIG_REQUEST           6140           6140           6140           6140
+gnb_du_1           | EVT_RGR_LVL1_SI_CONFIG_REQUEST           4954           6998         5794.5           5920
+gnb_du_1           | EVT_RGR_LVL1_CCCH_DATA_REQUEST           9106           9106           9106           9106
+gnb_du_1           |   EVT_COMMON_UE_ACK_INDICATION           2854          19884          11369          19884
+gnb_du_1           |     EVT_KW_AMUL_STA_PROH_TIMER            644           3262        2384.36            956
+gnb_du_1           |    EVT_KW_AMDL_POLL_RETX_TIMER           2796           2796           2796           2796
+gnb_du_1           |   EVT_UDX_STA_PHBT_START_TIMER           3824           7122        5616.55           6386
+gnb_du_1           | =================SS_NRT_TASK====================
+gnb_du_1           |         EVT_CTF_CONFIG_CONFIRM           6288           6288           6288           6288
+gnb_du_1           |    EVT_RGR_LVL1_CONFIG_CONFIRM           3746         220646        22248.3           4240
+gnb_du_1           |    EVT_RGR_LVL2_CONFIG_CONFIRM           4910           4910           4910           4910
+gnb_du_1           | EVT_RGR_LVL1_SI_CONFIG_CONFIRM           3720           4580           4217           4220
+gnb_du_1           |    EVT_RGR_LVL1_TTI_INDICATION           3332           6772        4082.04           5914
+gnb_du_1           | EVT_RGR_LVL1_CCCH_DATA_INDICATION           6668           6874           6771           6874
+gnb_du_1           |      EVT_CKW_UL_CONFIG_REQUEST           4664           6422         5279.6           6422
+gnb_du_1           |       EVT_CKW_UEID_CHG_REQUEST           4424           4424           4424           4424
+gnb_du_1           |        EVT_KWU_DATA_INDICATION           1152           5278        3149.23           4620
+gnb_du_1           |           EVT_KWU_DATA_REQUEST           5430           7310        6578.22           7242
+gnb_du_1           |         EVT_UDX_CONFIG_REQUEST           4400           5792           5172           5792
+gnb_du_1           |         EVT_UDX_CONFIG_CONFIRM           4402           5008           4675           4714
+gnb_du_1           |    EVT_UDX_UEID_CHANGE_REQUEST           4886           4886           4886           4886
+gnb_du_1           |    EVT_UDX_UEID_CHANGE_CONFIRM           4062           4062           4062           4062
+gnb_du_1           |        EVT_UDX_STA_PDU_REQUEST           1758          11514        4079.27           2010
+gnb_du_1           |        EVT_UDX_STA_UPD_REQUEST           1754           4708         3284.5           4708
+gnb_du_1           |         EVT_UDX_DL_CLEANUP_MEM           2158           7232        5158.25           6266
+gnb_du_1           |      EVT_RLC_UE_CONFIG_CONFIRM           2442           5156         4347.2           5156
+gnb_du_1           |   EVT_RLC_UE_ID_CHANGE_CONFIRM           5484           5484           5484           5484
+gnb_du_1           |      EVT_RLC_REQ_FLW_CTRL_INFO           6150           6322           6236           6322
+gnb_du_1           | EVT_RLC_FLW_CTRL_INFO_INDICATION           3986           4064           4025           3986
+gnb_du_1           |      EVT_OAM_DU_CONFIG_REQUEST          17022          17022          17022          17022
+gnb_du_1           |    EVT_OAM_CELL_CONFIG_REQUEST          16478          16478          16478          16478
+gnb_du_1           |           EVT_F1AP_MGMT_MSG_RX           4830           8332        6299.33           5736
+gnb_du_1           |           EVT_F1AP_MGMT_MSG_TX           7426           8342        7762.67           8342
+gnb_du_1           |             EVT_F1AP_UE_MSG_RX           4320           8196        5179.86           5270
+gnb_du_1           |             EVT_F1AP_UE_MSG_TX           4144           7224         6264.8           5908
+gnb_du_1           |         EVT_F1AP_UE_ID_REQUEST           6466           7276           6871           6466
+gnb_du_1           |        EVT_F1AP_UE_ID_RESPONSE           4774           6344           5559           4774
+gnb_du_1           |        EVT_F1AP_UE_REL_REQUEST           5678           5678           5678           5678
+gnb_du_1           |       EVT_F1AP_UE_REL_RESPONSE           5212           5212           5212           5212
+gnb_du_1           |  EVT_F1AP_UE_REL_RRC_CON_TRANS           7532           7532           7532           7532
+gnb_du_1           | EVT_SCTP_USER_PAYLOAD_INDICATION           6650          13792        7744.12           6918
+gnb_du_1           |  EVT_SCTP_USER_PAYLOAD_REQUEST           3898           6156        5227.39           5788
+gnb_du_1           |        EVT_SCTP_CONFIG_REQUEST           7314           7314           7314           7314
+gnb_du_1           |       EVT_SCTP_CONFIG_RESPONSE           7990           7990           7990           7990
+gnb_du_1           |          EVT_SCTP_ASSOC_STATUS           8630           8630           8630           8630
+gnb_du_1           |         EVT_APP_UE_LCL_RELEASE          10072          10072          10072          10072
+gnb_du_1           |       EVT_APP_LCL_CELL_ADD_REQ          11258          11258          11258          11258
+gnb_du_1           |       EVT_APP_LCL_CELL_ADD_RSP          20772         497562         259167         497562
+gnb_du_1           | EVT_APP_UE_LOCAL_REEST_INDICATION           8672           8672           8672           8672
+gnb_du_1           | EVT_APP_UE_RRC_RECONFIG_DELIVERY_INDICATION          15132          15132          15132          15132
+gnb_du_1           |     EVT_DU_MGR_GUECB_DEL_TIMER           4226           7276        6193.33           7078
+gnb_du_1           |   EVT_APP_UE_TRANS_GUARD_TIMER           3252           3252           3252           3252
+gnb_du_1           | EVT_APP_UE_DU_INITIATED_UE_RELEASE          15504          15504          15504          15504
+gnb_du_1           |       EVT_RRM_CELL_ADD_REQUEST           5630           5630           5630           5630
+gnb_du_1           |       EVT_RRM_CELL_ADD_CONFIRM           8656           8656           8656           8656
+gnb_du_1           |       EVT_RRM_UE_ADMIT_REQUEST           6284           6914           6599           6284
+gnb_du_1           |       EVT_RRM_UE_ADMIT_CONFIRM           7570           7810           7690           7570
+gnb_du_1           |   EVT_RRM_UE_ID_CHANGE_REQUEST           6048           6048           6048           6048
+gnb_du_1           |  EVT_RRM_UE_ID_CHANGE_RESPONSE           4796           4796           4796           4796
+gnb_du_1           |         EVT_RRM_UE_REL_REQUEST           5286           5286           5286           5286
+gnb_du_1           |        EVT_RRM_UE_REL_RESPONSE           5656           5656           5656           5656
+gnb_du_1           |    EVT_RRM_UE_RECONFIG_REQUEST           6772           6772           6772           6772
+gnb_du_1           |   EVT_RRM_UE_RECONFIG_RESPONSE           8452           8452           8452           8452
+gnb_du_1           |    EVT_EGTP_ADD_TUNNEL_REQUEST           7454           7454           7454           7454
+gnb_du_1           |   EVT_EGTP_ADD_TUNNEL_RESPONSE           7894           7894           7894           7894
+gnb_du_1           |        EVT_EGTP_TTI_INDICATION            838          33548        5830.72           6416
+gnb_du_1           |        EVT_EGTP_UE_REL_REQUEST           6738           6738           6738           6738
+gnb_du_1           |       EVT_EGTP_UE_REL_RESPONSE           6620           6620           6620           6620
+gnb_du_1           |      EVT_EGTP_UE_RESET_REQUEST           5266           5266           5266           5266
+gnb_du_1           |     EVT_EGTP_UE_RESET_RESPONSE           5792           5792           5792           5792
+gnb_du_1           |     EVT_EGTP_UE_RESUME_REQUEST           4042           4042           4042           4042
+gnb_du_1           |    EVT_EGTP_UE_RESUME_RESPONSE           5526           5526           5526           5526
+gnb_du_1           |       EVT_NRUP_ADD_RAB_REQUEST           6456           6456           6456           6456
+gnb_du_1           |      EVT_NRUP_ADD_RAB_RESPONSE           4982           4982           4982           4982
+gnb_du_1           |        EVT_NRUP_UE_REL_REQUEST           5274           5274           5274           5274
+gnb_du_1           |       EVT_NRUP_UE_REL_RESPONSE           5142           5142           5142           5142
+gnb_du_1           |      EVT_NRUP_UE_RESET_REQUEST           5594           5594           5594           5594
+gnb_du_1           |     EVT_NRUP_UE_RESET_RESPONSE           5958           5958           5958           5958
+gnb_du_1           |     EVT_NRUP_UE_RESUME_REQUEST           5404           5404           5404           5404
+gnb_du_1           |    EVT_NRUP_UE_RESUME_RESPONSE           4616           4616           4616           4616
+gnb_du_1           |     EVT_NRUP_INIT_DDDS_REQUEST           5174           5174           5174           5174
+gnb_du_1           |    EVT_NRUP_INIT_DDDS_RESPONSE           4366           4366           4366           4366
+gnb_du_1           |      EVT_TIMER_TICK_INDICATION           1198          36062        3595.49           3878
+gnb_du_1           | 1631
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [865/19] NumberPreambles[1]  PreambleID#0 [0] [32] [1]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:01:27.303057][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e73958
+gnb_du_1           |     tail = 0x7fc417e739d8
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e73958, [size_bytes = 8, next = 0x7fc417e739d8]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f99c6ff8
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    40 00 08 11 12 60 42 80                           |  @....`B.
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e739d8, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc412757018
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [881/19] NumberPreambles[1]  PreambleID#0 [0] [32] [1]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:01:27.463049][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e740d8
+gnb_du_1           |     tail = 0x7fc417e74158
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e740d8, [size_bytes = 8, next = 0x7fc417e74158]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f99c8028
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    40 00 08 11 12 60 42 81                           |  @....`B.
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e74158, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc412753ef8
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [897/19] NumberPreambles[1]  PreambleID#0 [2] [32] [62]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:01:27.623048][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e73f58
+gnb_du_1           |     tail = 0x7fc417e732d8
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e73f58, [size_bytes = 8, next = 0x7fc417e732d8]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f99cb0b8
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    42 01 F0 11 12 60 42 82                           |  B....`B.
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e732d8, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc412754728
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [913/19] NumberPreambles[1]  PreambleID#0 [3] [33] [61]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:01:27.783053][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e74358
+gnb_du_1           |     tail = 0x7fc417e73e58
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e74358, [size_bytes = 8, next = 0x7fc417e73e58]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f99c8028
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    43 01 E8 11 12 60 42 83                           |  C....`B.
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e73e58, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc41274a368
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [929/19] NumberPreambles[1]  PreambleID#0 [3] [32] [61]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:01:27.943051][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e74f58
+gnb_du_1           |     tail = 0x7fc417e74fd8
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e74f58, [size_bytes = 8, next = 0x7fc417e74fd8]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f99cb0b8
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    43 01 E8 11 12 60 42 84                           |  C....`B.
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e74fd8, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc4127505a8
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Received RACH Indication from PHY. SFN/Slot [945/19] NumberPreambles[1]  PreambleID#0 [2] [31] [61]
+gnb_du_1           |
+gnb_du_1           | rgSCHRamCreateRaUe ueCb->raState RGSCH_RA_MSG3_PENDING
+gnb_du_1           | [12/04/2022 09:01:28.103042][BUF][TRC][ngp_buffer.cpp:490]
+gnb_du_1           | Buffer Contents :-
+gnb_du_1           |  RAR PDU
+gnb_du_1           |     head = 0x7fc417e756d8
+gnb_du_1           |     tail = 0x7fc417e75758
+gnb_du_1           |     num_data_descs = 2
+gnb_du_1           |     num_split_data_descs = 0
+gnb_du_1           |     size_byte = 13
+gnb_du_1           |
+gnb_du_1           | Desc #0 = 0x7fc417e756d8, [size_bytes = 8, next = 0x7fc417e75758]
+gnb_du_1           | HEX Data of Size 8 at 0x7fc3f99cc0e8
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    42 01 E8 11 12 60 42 85                           |  B....`B.
+gnb_du_1           |
+gnb_du_1           |
+gnb_du_1           | Desc #1 = 0x7fc417e75758, [size_bytes = 5, next = 0]
+gnb_du_1           | HEX Data of Size 5 at 0x7fc41274b3c8
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | Index   01 02 03 04 05 06 07 08  09 10 11 12 13 14 15 16          ASCII
+gnb_du_1           | -----------------------------------------------------------------------------
+gnb_du_1           | 0000    00 00 00 00 00                                    |  .....
+gnb_du_1           |
+gnb_du_1           |
+^CGracefully stopping... (press Ctrl+C again to force)
+Stopping docker-gnb_gnb_du_1 ...
+^CKilling docker-gnb_gnb_du_1  ...
+^CERROR: Aborting.
+[root@5gran-asrock-12 docker-gnb]# docker-compose up gnb_du ^C
+[root@5gran-asrock-12 docker-gnb]# ^C
+[root@5gran-asrock-12 docker-gnb]# docker-compose down
+Stopping docker-gnb_flexran_1 ... done
+Stopping docker-gnb_gnb_cu_1  ... done
+WARNING: Found orphan containers (docker-gnb_du_builder_1) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up.
+Removing docker-gnb_gnb_du_1  ... done
+Removing docker-gnb_flexran_1 ... done
+Removing docker-gnb_mplane_1  ... done
+Removing docker-gnb_gnb_cu_1  ... done
+Removing network docker-gnb_default
+[root@5gran-asrock-12 docker-gnb]#
