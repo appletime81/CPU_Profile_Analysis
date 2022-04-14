@@ -243,7 +243,7 @@ if __name__ == "__main__":
         default="task_profile_info_ss_rt_task",
         help="Search Task Profile Info Content or Queue Profile Info",
     )
-    parser.add_argument("--f", default="20220324/2-1-1.txt", help="file name")
+    parser.add_argument("--f", default="OTA/3-1-1.txt", help="file name")
     parser.add_argument(
         "--column_name",
         default="AVG_CYCLES",
@@ -267,15 +267,15 @@ if __name__ == "__main__":
     fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
     # import time
     # time.sleep(3)
-    # fig.show()
+    fig.show()
     # print(len(event_dict.keys()))
     # print(event_dict.keys())
     # print(type(fig))
     # --------------------------------------- 儲存圖表 ---------------------------------------
-    save_root_dir = save_path(column_name)
-    fig.write_html(
-        f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html'
-    )
+    # save_root_dir = save_path(column_name)
+    # fig.write_html(
+    #     f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html'
+    # )
     # write_image(
     #     fig=fig,
     #     file=f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.png',
