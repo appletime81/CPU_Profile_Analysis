@@ -76,7 +76,7 @@ def gen_color_dict():
                 color_dict[temp_string.strip()] = color_list[color_list_idx]
                 color_list_idx += 1
             temp_string = ""
-
+    color_dict["EVT_KW_AMDL_POLL_RETX_TIMER"] = 'rgb(0, 204, 150)'
     return color_dict
 
 

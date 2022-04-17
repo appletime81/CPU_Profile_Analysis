@@ -188,12 +188,12 @@ def plot_bar(
     ):
         fig.update_yaxes(range=[0, 40])
     elif column_name_option != "NUM_TIMES":
-        fig.update_yaxes(range=[0, 1])
+        fig.update_yaxes(range=[0, 0.06])  # [0, 1]
     else:
         if "nrt" in option:
             fig.update_yaxes(range=[0, 900000])
         else:
-            fig.update_yaxes(range=[0, 50000])
+            fig.update_yaxes(range=[0, 35])  # [0, 50000]
 
     return fig
 
@@ -261,10 +261,19 @@ if __name__ == "__main__":
     event_dict = genTaskDict(event_list)
     event_dict = statsEvent(event_list, record_list, event_dict, column_name)
     print(event_dict)
+    new_event_dict = {}
+    for key, value in event_dict.items():
+        if key == 'EVT_TFU_RA_REQUEST_INDICATION':
+            new_event_dict['EVT_TFU_RA_REQUEST_INDICATION'] = value[:18]
+        if key == 'EVT_TFU_CRC_INDICATION':
+            new_event_dict['EVT_TFU_CRC_INDICATION'] = value[:18]
+        if key == 'EVT_KW_AMDL_POLL_RETX_TIMER':
+            new_event_dict['EVT_KW_AMDL_POLL_RETX_TIMER'] = value[:18]
+    print(new_event_dict)
     # calTotalCycleWithAllEvent(event_dict, option, file_name)
     # --------------------------------------- 畫圖表 ---------------------------------------
     color_dict = gen_color_dict()
-    fig = plot_bar(event_dict, color_dict, file_name, option, column_name)
+    fig = plot_bar(new_event_dict, color_dict, file_name, option, column_name)
     # import time
     # time.sleep(3)
     fig.show()
@@ -273,6 +282,7 @@ if __name__ == "__main__":
     # print(type(fig))
     # --------------------------------------- 儲存圖表 ---------------------------------------
     # save_root_dir = save_path(column_name)
+    save_root_dir = "OTA_Charts"
     # fig.write_html(
     #     f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html'
     # )
@@ -289,3 +299,4 @@ if __name__ == "__main__":
     #           index=False)
 
     # task_profile_info_ss_nrt_task_3_1_32.png
+

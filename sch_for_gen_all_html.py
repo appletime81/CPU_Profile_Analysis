@@ -2,24 +2,25 @@ import os
 import time
 
 start_time = time.time()
-COLUMN_NAME = 'NUM_TIMES'
+COLUMN_NAME = 'AVG_CYCLES'
 
 
 def gen_htmls():
     log_files = list()
-    root_dir = '20220324'
+    root_dir = 'OTA'
     for root, dirs, files in os.walk(f'{root_dir}'):
         for file in files:
-            log_files.append(os.path.join(root, file).replace('\\', '/'))
+            if ".txt" in file:
+                log_files.append(os.path.join(root, file).replace('\\', '/'))
 
     if COLUMN_NAME != 'NUM_TIMES':
         event_types = ['task_profile_info_ss_rt_task',
-                       'task_profile_info_ss_nrt_task',
-                       'queue_profile_info_ss_rt_task',
-                       'queue_profile_info_ss_nrt_task']
+                       # 'task_profile_info_ss_nrt_task',
+                       'queue_profile_info_ss_rt_task',]
+                       # 'queue_profile_info_ss_nrt_task']
     else:
-        event_types = ['task_profile_info_ss_rt_task',
-                       'task_profile_info_ss_nrt_task']
+        event_types = ['task_profile_info_ss_rt_task',]
+                       # 'task_profile_info_ss_nrt_task']
 
     for log_file in log_files:
         for event_type in event_types:
