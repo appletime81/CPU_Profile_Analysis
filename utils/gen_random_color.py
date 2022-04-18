@@ -1,4 +1,3 @@
-import cv2
 import matplotlib.cm as cm
 import numpy as np
 

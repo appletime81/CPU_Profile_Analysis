@@ -276,7 +276,7 @@ if __name__ == "__main__":
     fig = plot_bar(new_event_dict, color_dict, file_name, option, column_name)
     # import time
     # time.sleep(3)
-    fig.show()
+    # fig.show()
     # print(len(event_dict.keys()))
     # print(event_dict.keys())
     # print(type(fig))
@@ -286,12 +286,12 @@ if __name__ == "__main__":
     # fig.write_html(
     #     f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.html'
     # )
-    # write_image(
-    #     fig=fig,
-    #     file=f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.png',
-    #     format="png",
-    #     engine="orca",
-    # )
+    write_image(
+        fig=fig,
+        file=f'{save_root_dir}/{option}_{file_name.split("/")[-1].replace(".txt", "").replace("-", "_")}.png',
+        format="png",
+        engine="orca",
+    )
 
     # --------------------------------------- 儲存csv ---------------------------------------
     # df = pd.DataFrame(event_dict)
