@@ -2,7 +2,7 @@ import os
 import time
 
 start_time = time.time()
-COLUMN_NAME = 'AVG_CYCLES'
+COLUMN_NAME = 'NUM_TIMES'
 
 
 def gen_htmls():
